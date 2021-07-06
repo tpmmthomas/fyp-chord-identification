@@ -3,3 +3,4 @@ music21
 numpy 
 pandas
 jupyterlab
+matplotlib
