@@ -1,6 +1,6 @@
 # fyp-chord-identification
 
-# Environment setup
+# Environment setup (Recommended)
 
 ## Using Conda
 ```
