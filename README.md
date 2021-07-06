@@ -11,10 +11,10 @@ pip install -r requirements.txt
 ```
 
 # Chord to Note Module
-'''
+```
 python chordToNote.py [key] [chord]
-'''
-example:
-'''
+```  
+example:   
+```
 python chordToNote.py Cmajor I
-'''
+```
