@@ -1,0 +1,4 @@
+tensorflow
+music21
+numpy 
+pandas
