@@ -3,6 +3,7 @@
 # Environment setup (Recommended)
 
 ## Using Conda
+At your target directory, execute the following:   
 ```
 conda create -n fyp python=3.8 -y
 conda activate fyp
