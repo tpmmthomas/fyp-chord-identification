@@ -2,3 +2,4 @@ tensorflow
 music21
 numpy 
 pandas
+jupyterlab
