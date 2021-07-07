@@ -1,3 +1,7 @@
+import argparse
+
+
+
 #0 = C, 12 = B pitch class
 major_offset = [0,4,7,10] 
 minor_offset = [0,3,7,10]
@@ -19,7 +23,9 @@ index_to_pitch_flat={0:"C",1:"Db",2:"D",3:"Eb",4:"E",5:"F",6:"Gb",7:"G",8:"Ab",9
 
 #Input chord format: I to VII
 # Possible suffix:  +, - and 7, +/- precedes 7
-# Possible prefix german as "ger", french as "fre", italian as "ita", "dim","aug" , "b", +/- suffix not available
+# Possible prefix: german as "ger", french as "fre", italian as "ita", 
+# diminish as "dim", augmented as "aug" ,flat as "b", +/- suffix not available if contained these prefix
+
 '''
 def InputValidation(key,chord):
     if key[-5:].upper() != "MAJOR" and key[-5:].upper() != "MINOR":
@@ -115,10 +121,10 @@ def startPosition(key,chord,type,isSeven):
         if chord[:3].upper == "DIM":
             chord = chord[3:]
         if isMajor:
-            start_pos += major_root_offset[RomanToInt(chord)-1]
+            start_pos += major_root_offset[RomanToInt(chord[3:])-1]
         else:
-            start_pos += minor_root_offset[RomanToInt(chord)-1]
-        if not isMajor and RomanToInt(chord) == 7:
+            start_pos += minor_root_offset[RomanToInt(chord[3:])-1]
+        if not isMajor and RomanToInt(chord[3:]) == 7:
             start_pos += 1
     elif isMajor:
         start_pos += major_root_offset[RomanToInt(chord)-1]
@@ -133,14 +139,9 @@ def startPosition(key,chord,type,isSeven):
     return start_pos
         
     
-def main():
-    key = "Cminor"
-    chord = "DimVII"
+def main(key,chord):
     type,isSeven = typeAnalysis(key,chord)
-    print(a,b)
-    start = startPosition(key,chord,a,b)
-    print(c)
-    print(index_to_pitch_sharp[c])
+    start = startPosition(key,chord,type,isSeven)
     notes = []
     if type == "ger":
         for offset in german_offset:
@@ -165,10 +166,29 @@ def main():
         else:
             for i in range(3):
                 notes.append((start+minor_offset[i])%12)
-    #elif type == "dim":
+    elif type == "dim":
+        if isSeven:
+            for offset in diminished_offset:
+                notes.append((start+offset)%12)
+        else:
+            for i in range(3):
+                notes.append((start+diminished_offset[i])%12)
+    else:
+        if isSeven:
+            for offset in augmented_offset:
+                notes.append((start+offset)%12)
+        else:
+            for i in range(3):
+                notes.append((start+augmented_offset[i])%12)
+    x = [index_to_pitch_sharp[y] for y in notes]
+    print(f"The notes in {key}, {chord} chord are: {x}.")
 
 
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Output notes in a given chord.")
+    parser.add_argument("key",help='The targeted key (Format: Letter + major/minor without space, e.g. Cmajor)')
+    parser.add_argument("chord",help='The targeted chord (Format: [Aug/Dim/Fre/Ger/Ita/b]Roman numeral[+/-/7] e.g. DimVII7)')
+    args = parser.parse_args()
+    main(args.key,args.chord)
