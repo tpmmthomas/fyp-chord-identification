@@ -1,8 +1,9 @@
 # fyp-chord-identification
 
-# Environment setup (Recommended)
+## Environment setup (Recommended)
 
-## Using Conda
+### Using Conda
+At your target directory, execute the following:   
 ```
 conda create -n fyp python=3.8 -y
 conda activate fyp
@@ -11,7 +12,7 @@ cd fyp-chord-identification
 pip install -r requirements.txt
 ```
 
-# Chord to Note Module
+## Chord to Note Module
 ```
 python modules/chordToNote.py [key] [chord]
 ```  
