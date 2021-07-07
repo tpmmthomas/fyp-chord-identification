@@ -1,9 +1,11 @@
 #0 = C, 12 = B pitch class
-major_offset = [0,4,7]
-minor_offset = [0,3,7]
-diminished_offset = [0,3,6]
-augmented_offset = [0,4,8]
-german_offset = [0,]
+major_offset = [0,4,7,10] 
+minor_offset = [0,3,7,10]
+diminished_offset = [0,3,6,9]
+augmented_offset = [0,4,8,10]
+german_offset = [0,4,7,10]
+french_offset = [0,4,6,10]
+italian_offset = [0,4,10]
 #Using chart in shared file as reference
 major_key_Chordtype = [0,1,1,0,0,1,2]
 minor_key_Chordtype = [1,2,0,1,1,0,0]
@@ -134,11 +136,39 @@ def startPosition(key,chord,type,isSeven):
 def main():
     key = "Cminor"
     chord = "DimVII"
-    a,b = typeAnalysis(key,chord)
+    type,isSeven = typeAnalysis(key,chord)
     print(a,b)
-    c = startPosition(key,chord,a,b)
+    start = startPosition(key,chord,a,b)
     print(c)
     print(index_to_pitch_sharp[c])
+    notes = []
+    if type == "ger":
+        for offset in german_offset:
+            notes.append((start+offset)%12)
+    elif type == "fre":
+        for offset in french_offset:
+            notes.append((start+offset)%12)
+    elif type == "ita":
+        for offset in italian_offset:
+            notes.append((start+offset)%12)
+    elif type == "maj":
+        if isSeven:
+            for offset in major_offset:
+                notes.append((start+offset)%12)
+        else:
+            for i in range(3):
+                notes.append((start+major_offset[i])%12)
+    elif type == "min":
+        if isSeven:
+            for offset in minor_offset:
+                notes.append((start+offset)%12)
+        else:
+            for i in range(3):
+                notes.append((start+minor_offset[i])%12)
+    #elif type == "dim":
+
+
+
 
 if __name__ == "__main__":
     main()
