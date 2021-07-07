@@ -6,13 +6,18 @@ augmented_offset = [0,4,8]
 german_offset = [0,]
 #Using chart in shared file as reference
 major_key_Chordtype = [0,1,1,0,0,1,2]
-minor_key_Chordtype = [1,2,0,1,1,0,2]
+minor_key_Chordtype = [1,2,0,1,1,0,0]
 key_map ={0:"maj",1:"min",2:"dim"}
+major_root_offset = [0,2,4,5,7,9,11]
+minor_root_offset = [0,2,3,5,7,8,10]
 pitch_to_index={"C":0,"D":2,"E":4,"F":5,"G":7,"A":9,"B":11}
-key = "Cminor"
-chord = "II"
+index_to_pitch_sharp={0:"C",1:"C#",2:"D",3:"D#",4:"E",5:"F",6:"F#",7:"G",8:"G#",9:"A",10:"A#",11:"B"}
+index_to_pitch_flat={0:"C",1:"Db",2:"D",3:"Eb",4:"E",5:"F",6:"Gb",7:"G",8:"Ab",9:"A",10:"Bb",11:"B"}
 
-#Input chord format: either only I to VII (can with +, - and 7), german, f
+
+#Input chord format: I to VII
+# Possible suffix:  +, - and 7, +/- precedes 7
+# Possible prefix german as "ger", french as "fre", italian as "ita", "dim","aug" , "b", +/- suffix not available
 '''
 def InputValidation(key,chord):
     if key[-5:].upper() != "MAJOR" and key[-5:].upper() != "MINOR":
@@ -59,7 +64,7 @@ def typeAnalysis(key,chord):
         return "dim",isSeven
     elif len(chord)>=3 and chord[0:3].upper() == "AUG":
         return "aug",isSeven
-    elif chord[0] == "B":
+    elif chord[0].upper() == "B":
         return "maj",isSeven
     elif chord[-1:] == "+":
         return "maj",isSeven
@@ -79,10 +84,61 @@ def typeAnalysis(key,chord):
                 exit(-1) 
             return key_map[minor_key_Chordtype[idx]],isSeven           
     
-def startPosition(key,chord,type):
+def startPosition(key,chord,type,isSeven):
+    isMajor,isFlat = False,False
+    if key[-5:].upper() == "MAJOR":
+        isMajor = True
+    if chord[0].upper() == "B":
+        isFlat = True
+        chord = chord[1:]
     key = key[:-5]
     start_pos = pitch_to_index[key[0]]
-    print(start_pos)
+    if isSeven:
+        chord = chord[:-1]
+    if chord[-1:] == "+":
+        chord = chord[:-1]
+    if chord[-1:] == "-":
+        chord = chord[:-1]
+    if len(key)>=2 and key[1].upper() == "B":
+        start_pos -= 1
+    elif len(key) >=2 and key[1] == "#":
+        start_pos += 1
+    if type == "ger" or type == "fre" or type == "ita":
+        start_pos -= 4
+    elif type == "aug" and isMajor:
+        start_pos += major_root_offset[RomanToInt(chord[3:])-1]
+    elif type == "aug" and not isMajor:
+        start_pos += minor_root_offset[RomanToInt(chord[3:])-1]
+    elif type == "dim":
+        if chord[:3].upper == "DIM":
+            chord = chord[3:]
+        if isMajor:
+            start_pos += major_root_offset[RomanToInt(chord)-1]
+        else:
+            start_pos += minor_root_offset[RomanToInt(chord)-1]
+        if not isMajor and RomanToInt(chord) == 7:
+            start_pos += 1
+    elif isMajor:
+        start_pos += major_root_offset[RomanToInt(chord)-1]
+    else:
+        start_pos += minor_root_offset[RomanToInt(chord)-1]
+    if isFlat:
+        start_pos -= 1
+    if start_pos < 0:
+        start_pos += 12
+    if start_pos >= 12:
+        start_pos -= 12
+    return start_pos
+        
+    
+def main():
+    key = "Cminor"
+    chord = "DimVII"
+    a,b = typeAnalysis(key,chord)
+    print(a,b)
+    c = startPosition(key,chord,a,b)
+    print(c)
+    print(index_to_pitch_sharp[c])
 
-a,b = typeAnalysis(key,chord)
-print(a,b)
+if __name__ == "__main__":
+    main()
