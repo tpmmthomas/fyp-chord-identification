@@ -8,9 +8,9 @@ german_offset = [0,]
 major_key_Chordtype = [0,1,1,0,0,1,2]
 minor_key_Chordtype = [1,2,0,1,1,0,2]
 key_map ={0:"maj",1:"min",2:"dim"}
-
-key = "Cmajor"
-chord = "I"
+pitch_to_index={"C":0,"D":2,"E":4,"F":5,"G":7,"A":9,"B":11}
+key = "Cminor"
+chord = "II"
 
 #Input chord format: either only I to VII (can with +, - and 7), german, f
 '''
@@ -36,9 +36,9 @@ def RomanToInt(x):
         return 4
     elif len(x) >=2 and x[:3].upper() == "VI":
         return 6
-    elif x[0].upper == "I":
+    elif x[0].upper() == "I":
         return 1
-    elif x[0].upper == "V":
+    elif x[0].upper() == "V":
         return 5
     else:
         return 0
@@ -49,11 +49,11 @@ def typeAnalysis(key,chord):
     isSeven = chord[-1:] == "7"
     if isSeven:
         chord = chord[:-1]
-    if len(chord) >=6 and chord[0:6].upper() == "GERMAN":
+    if len(chord) >=3 and chord[0:3].upper() == "GER":
         return "ger",isSeven
-    elif len(chord) >=6 and chord[0:6].upper() == "FRENCH":
+    elif len(chord) >=3 and chord[0:3].upper() == "FRE":
         return "fre",isSeven
-    elif len(chord) >=7 and chord[0:7].upper() == "ITALIAN":
+    elif len(chord) >=3 and chord[0:3].upper() == "ITA":
         return "ita",isSeven
     elif len(chord)>=3 and chord[0:3].upper() == "DIM":
         return "dim",isSeven
@@ -63,6 +63,8 @@ def typeAnalysis(key,chord):
         return "maj",isSeven
     elif chord[-1:] == "+":
         return "maj",isSeven
+    elif chord[-1:] == "-":
+        return "min",isSeven
     else:
         if key[-5:].upper() == "MAJOR":
             idx = RomanToInt(chord) -1
@@ -79,5 +81,8 @@ def typeAnalysis(key,chord):
     
 def startPosition(key,chord,type):
     key = key[:-5]
-    
+    start_pos = pitch_to_index[key[0]]
+    print(start_pos)
 
+a,b = typeAnalysis(key,chord)
+print(a,b)
