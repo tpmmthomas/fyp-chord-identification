@@ -1,6 +1,6 @@
 import argparse
 
-
+#TODO: 1. adjust the offset of seventh 2. Figure out how to output sharps and flats appropriately.
 
 #0 = C, 12 = B pitch class
 major_offset = [0,4,7,10] 
@@ -118,13 +118,13 @@ def startPosition(key,chord,type,isSeven):
     elif type == "aug" and not isMajor:
         start_pos += minor_root_offset[RomanToInt(chord[3:])-1]
     elif type == "dim":
-        if chord[:3].upper == "DIM":
+        if chord[:3].upper() == "DIM":
             chord = chord[3:]
         if isMajor:
-            start_pos += major_root_offset[RomanToInt(chord[3:])-1]
+            start_pos += major_root_offset[RomanToInt(chord)-1]
         else:
-            start_pos += minor_root_offset[RomanToInt(chord[3:])-1]
-        if not isMajor and RomanToInt(chord[3:]) == 7:
+            start_pos += minor_root_offset[RomanToInt(chord)-1]
+        if not isMajor and RomanToInt(chord) == 7:
             start_pos += 1
     elif isMajor:
         start_pos += major_root_offset[RomanToInt(chord)-1]
@@ -182,6 +182,7 @@ def main(key,chord):
                 notes.append((start+augmented_offset[i])%12)
     x = [index_to_pitch_sharp[y] for y in notes]
     print(f"The notes in {key}, {chord} chord are: {x}.")
+    return x
 
 
 
