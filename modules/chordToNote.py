@@ -146,9 +146,10 @@ def startPosition(key,chord,type,isSeven):
     return start_pos,isMajor
         
     
-def main(key,chord):
+def ChordToNote(key,chord):
     type,isSeven = typeAnalysis(key,chord)
     start,isMajor = startPosition(key,chord,type,isSeven)
+    isFlat = IsFlat(key)
     notes = []
     if type == "ger":
         for offset in german_offset:
@@ -201,7 +202,11 @@ def main(key,chord):
             for i in range(3):
                 notes.append(start+augmented_offset[i])
     notes = [x%12 for x in notes]
-    x = [index_to_pitch_flat[y] for y in notes]
+    x = []
+    if isFlat:
+        x = [index_to_pitch_flat[y] for y in notes]
+    else:
+        x = [index_to_pitch_sharp[y] for y in notes]
     print(f"The notes in {key}, {chord} chord are: {x}.")
     return x
 
@@ -213,4 +218,4 @@ if __name__ == "__main__":
     parser.add_argument("key",help='The targeted key (Format: Letter + major/minor without space, e.g. Cmajor)')
     parser.add_argument("chord",help='The targeted chord (Format: [Aug/Dim/Fre/Ger/Ita/b]Roman numeral[+/-/7] e.g. DimVII7)')
     args = parser.parse_args()
-    main(args.key,args.chord)
+    ChordToNote(args.key,args.chord)
