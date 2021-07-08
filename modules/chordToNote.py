@@ -107,7 +107,7 @@ def startPosition(key,chord,type,isSeven):
         isFlat = True
         chord = chord[1:]
     key = key[:-5]
-    start_pos = pitch_to_index[key[0]]
+    start_pos = pitch_to_index[key[0].upper()]
     if isSeven:
         chord = chord[:-1]
     if chord[-1:] == "+":
