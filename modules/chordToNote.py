@@ -5,6 +5,8 @@ import argparse
 #0 = C, 12 = B pitch class
 major_offset = [0,4,7,10] 
 minor_offset = [0,3,7,10]
+major_seventh_offset = [1,0,0,1,0,0,1]
+minor_seventh_offset = [0,1,1,0,0,0,0]
 diminished_offset = [0,3,6,9]
 augmented_offset = [0,4,8,10]
 german_offset = [0,4,7,10]
@@ -38,16 +40,16 @@ def InputValidation(key,chord):
     if len(chord) >=7 and chord[:7].upper() == "ITALIAN":
         chord = chord[-7:]
 '''    
-def RomanToInt(x):
+def RomanToInt(x): # only check from beginning, ignore suffix
     if len(x) >=3 and x[:3].upper() == "III":
         return 3
     elif len(x) >=3 and x[:3].upper() == "VII":
         return 7
-    elif len(x) >=2 and x[:3].upper() == "II":
+    elif len(x) >=2 and x[:2].upper() == "II":
         return 2
-    elif len(x) >=2 and x[:3].upper() == "IV":
+    elif len(x) >=2 and x[:2].upper() == "IV":
         return 4
-    elif len(x) >=2 and x[:3].upper() == "VI":
+    elif len(x) >=2 and x[:2].upper() == "VI":
         return 6
     elif x[0].upper() == "I":
         return 1
@@ -55,6 +57,11 @@ def RomanToInt(x):
         return 5
     else:
         return 0
+
+def IsFlat(key):
+    if key.upper() in ["CMAJOR","GMAJOR","DMAJOR","AMAJOR","EMAJOR","BMAJOR","F#MAJOR","C#MAJOR","AMINOR","EMINOR","BMINOR","F#MINOR","C#MINOR","G#MINOR","D#MINOR","A#MINOR"]:
+        return False
+    return True
 
         
 #Determines whether the chord type (major,minor,etc)
@@ -136,51 +143,65 @@ def startPosition(key,chord,type,isSeven):
         start_pos += 12
     if start_pos >= 12:
         start_pos -= 12
-    return start_pos
+    return start_pos,isMajor
         
     
 def main(key,chord):
     type,isSeven = typeAnalysis(key,chord)
-    start = startPosition(key,chord,type,isSeven)
+    start,isMajor = startPosition(key,chord,type,isSeven)
     notes = []
     if type == "ger":
         for offset in german_offset:
-            notes.append((start+offset)%12)
+            notes.append(start+offset)
     elif type == "fre":
         for offset in french_offset:
-            notes.append((start+offset)%12)
+            notes.append(start+offset)
     elif type == "ita":
         for offset in italian_offset:
-            notes.append((start+offset)%12)
+            notes.append(start+offset)
     elif type == "maj":
         if isSeven:
             for offset in major_offset:
-                notes.append((start+offset)%12)
+                notes.append(start+offset)
+            if isMajor:
+                notes[3] += major_seventh_offset[RomanToInt(chord)-1]
+            else:
+                notes[3] += minor_seventh_offset[RomanToInt(chord)-1]
         else:
             for i in range(3):
-                notes.append((start+major_offset[i])%12)
+                notes.append(start+major_offset[i])
     elif type == "min":
         if isSeven:
             for offset in minor_offset:
-                notes.append((start+offset)%12)
+                notes.append(start+offset)
+            if isMajor:
+                notes[3] += major_seventh_offset[RomanToInt(chord)-1]
+            else:
+                notes[3] += minor_seventh_offset[RomanToInt(chord)-1]
         else:
             for i in range(3):
                 notes.append((start+minor_offset[i])%12)
     elif type == "dim":
         if isSeven:
             for offset in diminished_offset:
-                notes.append((start+offset)%12)
+                notes.append(start+offset)
+            if len(chord) < 3 or chord[:3].upper() != "DIM":
+                if isMajor:
+                    notes[3] += major_seventh_offset[RomanToInt(chord)-1]
+                else:
+                    notes[3] += minor_seventh_offset[RomanToInt(chord)-1]
         else:
             for i in range(3):
-                notes.append((start+diminished_offset[i])%12)
+                notes.append(start+diminished_offset[i])
     else:
         if isSeven:
             for offset in augmented_offset:
-                notes.append((start+offset)%12)
+                notes.append(start+offset)
         else:
             for i in range(3):
-                notes.append((start+augmented_offset[i])%12)
-    x = [index_to_pitch_sharp[y] for y in notes]
+                notes.append(start+augmented_offset[i])
+    notes = [x%12 for x in notes]
+    x = [index_to_pitch_flat[y] for y in notes]
     print(f"The notes in {key}, {chord} chord are: {x}.")
     return x
 
