@@ -141,7 +141,9 @@ def startPosition(key,chord,type,isSeven):
 
 def noteNaming(notes,key,chord,type):
     output_notes = []
-    if key.upper() in ["GMAJOR","DMAJOR","AMAJOR","EMAJOR","BMAJOR","F#MAJOR","C#MAJOR","EMINOR","BMINOR","F#MINOR","C#MINOR","G#MINOR","D#MINOR","A#MINOR"]:
+    if type in ["ger","ita","fre"]: #These chords are same regardless of major or minor, therefore use notation of major
+        key = key[:-5] + "Major"
+    if key.upper() in ["CMAJOR","GMAJOR","DMAJOR","AMAJOR","EMAJOR","BMAJOR","F#MAJOR","C#MAJOR","AMINOR","EMINOR","BMINOR","F#MINOR","C#MINOR","G#MINOR","D#MINOR","A#MINOR"]:
         isFlat = False
     else:
         isFlat = True
@@ -180,7 +182,12 @@ def noteNaming(notes,key,chord,type):
         else:
             output_notes[2] = index_to_pitch_doublesharp[notes[2]] # '#5'
             if len(notes) == 4:
-                output_notes[3] = index_to_pitch_flat[notes[3]] # 'b7'
+                output_notes[3] = index_to_pitch_flat[notes[3]] # 'b7'\
+    if type == "maj" and len(chord) >=2 and (chord[-1]=="+" or chord[-2]=="+"):
+        if isFlat:
+            output_notes[1] = index_to_pitch_sharp[notes[1]]
+        else:
+            output_notes[1] = index_to_pitch_doublesharp[notes[1]]
     return output_notes
     
 def ChordToNote(key,chord):
