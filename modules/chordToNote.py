@@ -1,11 +1,9 @@
 import argparse
 
-#TODO: 1. adjust the offset of seventh 2. Figure out how to output sharps and flats appropriately.
-
-#0 = C, 12 = B pitch class
-major_offset = [0,4,7,10] 
+#Hyperparameters
+major_offset = [0,4,7,10] #0 is the root of the chord
 minor_offset = [0,3,7,10]
-major_seventh_offset = [1,0,0,1,0,0,1]
+major_seventh_offset = [1,0,0,1,0,0,1] #Determines whether an additional half-step is needed for chords I to VII
 minor_seventh_offset = [0,1,1,0,0,0,0]
 diminished_offset = [0,3,6,9]
 augmented_offset = [0,4,8,10]
@@ -16,12 +14,14 @@ italian_offset = [0,4,10]
 major_key_Chordtype = [0,1,1,0,0,1,2]
 minor_key_Chordtype = [1,2,0,1,1,0,0]
 key_map ={0:"maj",1:"min",2:"dim"}
-major_root_offset = [0,2,4,5,7,9,11]
-minor_root_offset = [0,2,3,5,7,8,10]
+major_root_offset = [0,2,4,5,7,9,11] #Defining major scale as WWHWWWH
+minor_root_offset = [0,2,3,5,7,8,10] #Defining (natural) minor scale as WHWWHWW 
+#Following are different enharmonic mappings from index to pitch.
 pitch_to_index={"C":0,"D":2,"E":4,"F":5,"G":7,"A":9,"B":11}
 index_to_pitch_sharp={0:"C",1:"C#",2:"D",3:"D#",4:"E",5:"F",6:"F#",7:"G",8:"G#",9:"A",10:"A#",11:"B"}
 index_to_pitch_flat={0:"C",1:"Db",2:"D",3:"Eb",4:"E",5:"F",6:"Gb",7:"G",8:"Ab",9:"A",10:"Bb",11:"B"}
-
+index_to_pitch_doublesharp={0:"B#",1:"C#",2:"Cx",3:"D#",4:"Dx",5:"E#",6:"F#",7:"Fx",8:"G#",9:"Gx",10:"A#",11:"Ax"}
+index_to_pitch_doubleflat={0:"Dbb",1:"Db",2:"Ebb",3:"Eb",4:"Fb",5:"Gbb",6:"Gb",7:"Abb",8:"Ab",9:"Bbb",10:"Bb",11:"Cb"}
 
 #Input chord format: I to VII
 # Possible suffix:  +, - and 7, +/- precedes 7
@@ -57,14 +57,8 @@ def RomanToInt(x): # only check from beginning, ignore suffix
         return 5
     else:
         return 0
-
-def IsFlat(key):
-    if key.upper() in ["CMAJOR","GMAJOR","DMAJOR","AMAJOR","EMAJOR","BMAJOR","F#MAJOR","C#MAJOR","AMINOR","EMINOR","BMINOR","F#MINOR","C#MINOR","G#MINOR","D#MINOR","A#MINOR"]:
-        return False
-    return True
-
         
-#Determines whether the chord type (major,minor,etc)
+#Determines the chord type (major,minor,etc)
 def typeAnalysis(key,chord):
     isSeven = chord[-1:] == "7"
     if isSeven:
@@ -144,12 +138,57 @@ def startPosition(key,chord,type,isSeven):
     if start_pos >= 12:
         start_pos -= 12
     return start_pos,isMajor
-        
+
+def noteNaming(notes,key,chord,type):
+    output_notes = []
+    if key.upper() in ["GMAJOR","DMAJOR","AMAJOR","EMAJOR","BMAJOR","F#MAJOR","C#MAJOR","EMINOR","BMINOR","F#MINOR","C#MINOR","G#MINOR","D#MINOR","A#MINOR"]:
+        isFlat = False
+    else:
+        isFlat = True
+    if isFlat:
+        output_notes = [index_to_pitch_flat[y] for y in notes]
+    else:
+        output_notes = [index_to_pitch_sharp[y] for y in notes]
+    if type in ["ger","ita","fre"]:
+        if isFlat:
+            output_notes[0] = index_to_pitch_doubleflat[notes[0]] # 'b6'
+            output_notes[-1] = index_to_pitch_sharp[notes[-1]] # '#4'
+        else:
+            output_notes[0] = index_to_pitch_flat[notes[0]] # 'b6'
+            output_notes[-1] = index_to_pitch_doublesharp[notes[-1]] # '#4'
+        if type == "ger" and isFlat:
+            output_notes[2] = index_to_pitch_doubleflat[notes[2]] # 'b3'
+        elif type == "ger" and not isFlat:
+            output_notes[2] = index_to_pitch_flat[notes[2]] # 'b3'
+    if chord[0].upper() == "B":
+        if isFlat:
+            output_notes[0] = index_to_pitch_doubleflat[notes[0]] # 'b2 or b6'
+            output_notes[2] = index_to_pitch_doubleflat[notes[2]] # 'b6 or b3'
+        else:
+            output_notes[0] = index_to_pitch_flat[notes[0]] # 'b2 or b6'
+            output_notes[2] = index_to_pitch_flat[notes[2]] # 'b6 or b3'
+    if len(chord) >3 and chord[:3].upper() == "DIM" and len(notes) == 4:
+        if isFlat:
+            output_notes[3] = index_to_pitch_doubleflat[notes[3]] # 'b6'
+        else:
+            output_notes[3] = index_to_pitch_flat[notes[3]] # 'b6'
+    if type == "aug":
+        if isFlat:
+            output_notes[2] = index_to_pitch_sharp[notes[2]] # '#5'
+            if len(notes) == 4:
+                output_notes[3] = index_to_pitch_doubleflat[notes[3]] # 'b7'
+        else:
+            output_notes[2] = index_to_pitch_doublesharp[notes[2]] # '#5'
+            if len(notes) == 4:
+                output_notes[3] = index_to_pitch_flat[notes[3]] # 'b7'
+    return output_notes
+
+    
+    
     
 def ChordToNote(key,chord):
     type,isSeven = typeAnalysis(key,chord)
     start,isMajor = startPosition(key,chord,type,isSeven)
-    isFlat = IsFlat(key)
     notes = []
     if type == "ger":
         for offset in german_offset:
@@ -181,7 +220,7 @@ def ChordToNote(key,chord):
                 notes[3] += minor_seventh_offset[RomanToInt(chord)-1]
         else:
             for i in range(3):
-                notes.append((start+minor_offset[i])%12)
+                notes.append(start+minor_offset[i])
     elif type == "dim":
         if isSeven:
             for offset in diminished_offset:
@@ -202,11 +241,7 @@ def ChordToNote(key,chord):
             for i in range(3):
                 notes.append(start+augmented_offset[i])
     notes = [x%12 for x in notes]
-    x = []
-    if isFlat:
-        x = [index_to_pitch_flat[y] for y in notes]
-    else:
-        x = [index_to_pitch_sharp[y] for y in notes]
+    x = noteNaming(notes,key,chord,type)
     print(f"The notes in {key}, {chord} chord are: {x}.")
     return x
 

@@ -47,5 +47,5 @@ for key in minor_keys:
             pNote4.append("-")
 
 df = pd.DataFrame({"Key":pKey,"Chord":pChord,"Note1":pNote1,"Note2":pNote2,"Note3":pNote3,"Note4":pNote4})
-df.to_csv("../chordToNoteResult.csv")
+df.to_csv("../results/chordToNoteResult.csv")
 print("Done!")
