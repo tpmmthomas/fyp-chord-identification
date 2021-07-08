@@ -1,6 +1,6 @@
 import argparse
 
-#Hyperparameters
+#parameters
 major_offset = [0,4,7,10] #0 is the root of the chord
 minor_offset = [0,3,7,10]
 major_seventh_offset = [1,0,0,1,0,0,1] #Determines whether an additional half-step is needed for chords I to VII
@@ -182,9 +182,6 @@ def noteNaming(notes,key,chord,type):
             if len(notes) == 4:
                 output_notes[3] = index_to_pitch_flat[notes[3]] # 'b7'
     return output_notes
-
-    
-    
     
 def ChordToNote(key,chord):
     type,isSeven = typeAnalysis(key,chord)
