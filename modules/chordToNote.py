@@ -182,7 +182,7 @@ def noteNaming(notes,key,chord,type):
         else:
             output_notes[2] = index_to_pitch_doublesharp[notes[2]] # '#5'
             if len(notes) == 4:
-                output_notes[3] = index_to_pitch_flat[notes[3]] # 'b7'\
+                output_notes[3] = index_to_pitch_flat[notes[3]] # 'b7'
     if type == "maj" and len(chord) >=2 and (chord[-1]=="+" or chord[-2]=="+"):
         if isFlat:
             output_notes[1] = index_to_pitch_sharp[notes[1]]
