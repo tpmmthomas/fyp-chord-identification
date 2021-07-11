@@ -93,7 +93,7 @@ def typeAnalysis(key,chord):
                 exit(-1) 
             return key_map[minor_key_Chordtype[idx]],isSeven           
     
-def startPosition(key,chord,type,isSeven):
+def startPosition(key,chord,ctype,isSeven):
     isMajor,isFlat = False,False
     if key[-5:].upper() == "MAJOR":
         isMajor = True
@@ -112,13 +112,13 @@ def startPosition(key,chord,type,isSeven):
         start_pos -= 1
     elif len(key) >=2 and key[1] == "#":
         start_pos += 1
-    if type == "ger" or type == "fre" or type == "ita":
+    if ctype == "ger" or ctype == "fre" or ctype == "ita":
         start_pos -= 4
-    elif type == "aug" and isMajor:
+    elif ctype == "aug" and isMajor:
         start_pos += major_root_offset[RomanToInt(chord[3:])-1]
-    elif type == "aug" and not isMajor:
+    elif ctype == "aug" and not isMajor:
         start_pos += minor_root_offset[RomanToInt(chord[3:])-1]
-    elif type == "dim":
+    elif ctype == "dim":
         if chord[:3].upper() == "DIM":
             chord = chord[3:]
         if isMajor:
@@ -139,9 +139,9 @@ def startPosition(key,chord,type,isSeven):
         start_pos -= 12
     return start_pos,isMajor
 
-def noteNaming(notes,key,chord,type):
+def noteNaming(notes,key,chord,ctype):
     output_notes = []
-    if type in ["ger","ita","fre"]: #These chords are same regardless of major or minor, therefore use notation of major
+    if ctype in ["ger","ita","fre"]: #These chords are same regardless of major or minor, therefore use notation of major
         key = key[:-5] + "Major"
     if key.upper() in ["CMAJOR","GMAJOR","DMAJOR","AMAJOR","EMAJOR","BMAJOR","F#MAJOR","C#MAJOR","AMINOR","EMINOR","BMINOR","F#MINOR","C#MINOR","G#MINOR","D#MINOR","A#MINOR"]:
         isFlat = False
@@ -151,16 +151,16 @@ def noteNaming(notes,key,chord,type):
         output_notes = [index_to_pitch_flat[y] for y in notes]
     else:
         output_notes = [index_to_pitch_sharp[y] for y in notes]
-    if type in ["ger","ita","fre"]:
+    if ctype in ["ger","ita","fre"]:
         if isFlat:
             output_notes[0] = index_to_pitch_doubleflat[notes[0]] # 'b6'
             output_notes[-1] = index_to_pitch_sharp[notes[-1]] # '#4'
         else:
             output_notes[0] = index_to_pitch_flat[notes[0]] # 'b6'
             output_notes[-1] = index_to_pitch_doublesharp[notes[-1]] # '#4'
-        if type == "ger" and isFlat:
+        if ctype == "ger" and isFlat:
             output_notes[2] = index_to_pitch_doubleflat[notes[2]] # 'b3'
-        elif type == "ger" and not isFlat:
+        elif ctype == "ger" and not isFlat:
             output_notes[2] = index_to_pitch_flat[notes[2]] # 'b3'
     if chord[0].upper() == "B":
         if isFlat:
@@ -174,7 +174,7 @@ def noteNaming(notes,key,chord,type):
             output_notes[3] = index_to_pitch_doubleflat[notes[3]] # 'b6'
         else:
             output_notes[3] = index_to_pitch_flat[notes[3]] # 'b6'
-    if type == "aug":
+    if ctype == "aug":
         if isFlat:
             output_notes[2] = index_to_pitch_sharp[notes[2]] # '#5'
             if len(notes) == 4:
@@ -183,7 +183,7 @@ def noteNaming(notes,key,chord,type):
             output_notes[2] = index_to_pitch_doublesharp[notes[2]] # '#5'
             if len(notes) == 4:
                 output_notes[3] = index_to_pitch_flat[notes[3]] # 'b7'
-    if type == "maj" and len(chord) >=2 and (chord[-1]=="+" or chord[-2]=="+"):
+    if ctype == "maj" and len(chord) >=2 and (chord[-1]=="+" or chord[-2]=="+"):
         if isFlat:
             output_notes[1] = index_to_pitch_sharp[notes[1]]
         else:
@@ -191,19 +191,19 @@ def noteNaming(notes,key,chord,type):
     return output_notes
     
 def ChordToNote(key,chord):
-    type,isSeven = typeAnalysis(key,chord)
-    start,isMajor = startPosition(key,chord,type,isSeven)
+    ctype,isSeven = typeAnalysis(key,chord)
+    start,isMajor = startPosition(key,chord,ctype,isSeven)
     notes = []
-    if type == "ger":
+    if ctype == "ger":
         for offset in german_offset:
             notes.append(start+offset)
-    elif type == "fre":
+    elif ctype == "fre":
         for offset in french_offset:
             notes.append(start+offset)
-    elif type == "ita":
+    elif ctype == "ita":
         for offset in italian_offset:
             notes.append(start+offset)
-    elif type == "maj":
+    elif ctype == "maj":
         if isSeven:
             for offset in major_offset:
                 notes.append(start+offset)
@@ -214,7 +214,7 @@ def ChordToNote(key,chord):
         else:
             for i in range(3):
                 notes.append(start+major_offset[i])
-    elif type == "min":
+    elif ctype == "min":
         if isSeven:
             for offset in minor_offset:
                 notes.append(start+offset)
@@ -225,7 +225,7 @@ def ChordToNote(key,chord):
         else:
             for i in range(3):
                 notes.append(start+minor_offset[i])
-    elif type == "dim":
+    elif ctype == "dim":
         if isSeven:
             for offset in diminished_offset:
                 notes.append(start+offset)
@@ -245,7 +245,7 @@ def ChordToNote(key,chord):
             for i in range(3):
                 notes.append(start+augmented_offset[i])
     notes = [x%12 for x in notes]
-    x = noteNaming(notes,key,chord,type)
+    x = noteNaming(notes,key,chord,ctype)
     print(f"The notes in {key}, {chord} chord are: {x}.")
     return x
 
