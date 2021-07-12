@@ -2,8 +2,11 @@
 Here we document all explanations of how our code works, which would be useful in our future report.
 
 ## Chord To Note Module
-Our program is divided into several Submodules: `typeAnalysis, startPosition, noteNaming`.   
+Our program is divided into several Submodules: `typeAnalysis, startPosition, noteNaming`.  
+   
 First, the `typeAnalysis` submodule analyzes the chord type (Major, Minor, Diminished, Augmented, Italian, German, French).    
-For inputs which states explicitly the chord type (e.g. DimVII), the program would match the chord type immediately. Otherwise, if only roman numeral is given, the chord type is matched with the Key + Chord combination by a pre-defined list (`major_key_Chordtype` or `minor_key_Chordtype`).    
+For inputs which states explicitly the chord type (e.g. DimVII), the program would match the chord type immediately. Otherwise, if only roman numeral is given, the chord type is matched with the Key + Chord combination by a pre-defined list (`major_key_Chordtype` or `minor_key_Chordtype`).      
+  
+Second, the `startPosition` submodule determines the root note of the chord. The program would first determine the tonic position of the key. From there, it adds or subtracts certain offset accorrding to the Roman numeral of the chord and the `major_root_offset` or `minor_root_offset` lists. It returns an index corresponding to a certain pitch class (0 = C, 11 = B).  
 
-
+Finally, with the correct chord type and starting position, the program will generate a list of notes (in their corresponding pitch classes) which are included in the chord, then the list will be passed to the `noteNaming` module. This module will determine the correct naming of the notes given several enharmonic equivalents. It works by first assigning the notes to either all sharp notes or all flat notes according to the given key, then changing some of the notes by analyzing its scale degree. For example, the diminished seventh chord has scale degree of 7,2,4,b6. Hence we would change the final note naming to be the flat version of the originial note naming (e.g. G# to Ab, G to Abb).  
