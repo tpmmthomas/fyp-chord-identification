@@ -22,7 +22,7 @@ python modules/chordToNote.py Cmajor I
 ```
 
 ### Note to Chord Module
-# Require to load the Dictionary(Hash Table) First
+#### Require to load the Dictionary(Hash Table) First
 - key_chord_name_mapping.pickle
 ```
 #function call
