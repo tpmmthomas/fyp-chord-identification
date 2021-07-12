@@ -20,3 +20,16 @@ example:
 ```
 python modules/chordToNote.py Cmajor I
 ```
+
+### Note to Chord Module
+# Require to load the Dictionary(Hash Table) First
+- key_chord_name_mapping.pickle
+```
+#function call
+#threshold ~= number of note satisify the chord
+keys2chords(keys,threshold)
+```  
+example:   
+```
+keys2chords(['c','e','g'],3)
+```
