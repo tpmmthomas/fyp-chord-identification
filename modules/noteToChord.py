@@ -16,14 +16,17 @@ def ScoringModule(input_idx,input_name,chord_idx,chord_name,chord):
     score += 10 * len(idxMatch)
     nameMatch = intersection(input_name,chord_name)
     score += 5 * len(nameMatch)
-    if chord in ["I","IV","V"]:
-        score +=3
+    if chord in ["I"]:
+        score +=4
+    elif chord in ["IV","V"]:
+        score += 3
     elif chord in ["II","VI"]:
         score += 2
     elif chord in ["III","VII"]:
         score += 1
     if len(input_idx) != len(chord_idx):
         score -= 10
+    #TODO: For not exact pitch, closer pitches have higher score
     return score
 
 key_mapping={
@@ -73,7 +76,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Output possible chords with given chord.")
     parser.add_argument("notes", nargs='+',help='The input keys (3 or 4 notes)')
     parser.add_argument("-o",'--numout',type=int,help='Number of output')
-    parser.add_argument
     args = parser.parse_args()
     if args.numout is not None:
         NoteToChord(args.notes,args.numout)
