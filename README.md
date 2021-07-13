@@ -14,7 +14,8 @@ pip install -r requirements.txt
 
 ### Chord to Note Module
 ```
-python modules/chordToNote.py [key] [chord]
+cd modules
+python chordToNote.py [key] [chord]
 ```  
 example:   
 ```

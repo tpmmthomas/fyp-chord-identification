@@ -21,8 +21,8 @@ def ScoringModule(input_idx,input_name,chord_idx,chord_name,chord):
         score -= 10
     return score
 
-input_name = ["C","E","G"]
-input_idx = [0,4,7]
+input_name = ["Ab","C","Eb","F#"]
+input_idx = [8,0,3,6]
 
 chords = []
 score = []
