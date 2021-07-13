@@ -72,7 +72,6 @@ if __name__ == "__main__":
     parser.add_argument("-o",'--numout',type=int,help='Number of output')
     parser.add_argument
     args = parser.parse_args()
-    print(args.numout)
     if args.numout is not None:
         NoteToChord(args.notes,args.numout)
     else:
