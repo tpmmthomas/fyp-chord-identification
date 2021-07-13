@@ -1,6 +1,7 @@
-import pandas as pd
+import  pandas as pd
 import numpy as np
 import itertools
+import pickle
 
 key_mapping={
     'C':0,
@@ -26,14 +27,13 @@ def key2num(key):
   elif key[1]=='X':
     return (num+(modifier-1)*2)%12
 
-# key_list to number_list
 def keys2num(keys):
   if keys[-1]=='-':
     return sorted([key2num(key) for key in keys[:-1]])
   else:
     return sorted([key2num(key) for key in keys])
 
-df=pd.read_csv('content/chordToNoteResult.csv')
+df=pd.read_csv('../results/chordToNoteResult.csv')
 df_copy=df.copy()
 df_copy=df_copy.drop(['Unnamed: 0','Key','Chord'],axis=1)
 
@@ -54,6 +54,7 @@ def subset_in_list(arr, list_arrays):
 
 #all combinations of 4 key notes
 combination=np.array(list(itertools.chain.from_iterable(itertools.combinations(np.arange(12),n) for n in range(5))))
+
 
 #array: possible chord_idx in the same order wrt combination
 key_chord_idx=[]
@@ -77,31 +78,11 @@ key_chord_name_mapping={}
 for key in key_chord_mapping:
   key_chord_name_mapping[key]=[''.join(df.loc[idx,['Key','Chord']].tolist()) for idx in key_chord_mapping[key]]
 
-import pickle
+print(key_chord_name_mapping)
+exit()
 
 with open('key_chord_mapping.pickle', 'wb') as handle:
     pickle.dump(key_chord_mapping, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 with open('key_chord_name_mapping.pickle', 'wb') as handle:
     pickle.dump(key_chord_name_mapping, handle, protocol=pickle.HIGHEST_PROTOCOL)
-
-def keys2chords(keys,threshold=3):
-  result=[]
-  keys=keys2num(keys)
-  keys=list(dict.fromkeys(keys)) #remove duplicates
-  for i in range(threshold,5):
-    for each in itertools.combinations(keys,i):
-      result.extend(key_chord_name_mapping[str(each)])
-  return result
-
-#TEST
-import time
-answer=''
-iterations=100000
-start = time.time()
-for i in range(iterations):
-  answer=keys2chords(['C','E','G'],3)
-end = time.time()
-print((end - start)/iterations)
-
-print(answer)
