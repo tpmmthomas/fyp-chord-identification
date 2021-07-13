@@ -13,8 +13,8 @@ pip install -r requirements.txt
 ```
 
 ### Chord to Note Module
+In `modules` directory:  
 ```
-cd modules
 python chordToNote.py [key] [chord]
 ```  
 example:   
@@ -23,14 +23,12 @@ python chordToNote.py Cmajor I
 ```
 
 ### Note to Chord Module
-#### Require to load the Dictionary(Hash Table) First
-- key_chord_name_mapping.pickle
+In `modules` directory:  
 ```
-#function call
-#threshold ~= number of note satisify the chord
-keys2chords(keys,threshold)
+python noteToChord.py [notes ...] [-o NUMOUT]
 ```  
+Enter 3 to 4 notes, optionally specify "-o" argument to control number of output matches.  
 example:   
 ```
-keys2chords(['c','e','g'],3)
+python noteToChord.py C E G -o 5
 ```
