@@ -17,7 +17,7 @@ In `modules` directory:
 ```
 python chordToNote.py [key] [chord]
 ```  
-example:   
+Example:   
 ```
 python chordToNote.py Cmajor I
 ```
@@ -28,7 +28,7 @@ In `modules` directory:
 python noteToChord.py [notes ...] [-o NUMOUT]
 ```  
 Enter 3 to 4 notes, optionally specify "-o" argument to control number of output matches.  
-example:   
+Example:   
 ```
 python noteToChord.py C E G -o 5
 ```
