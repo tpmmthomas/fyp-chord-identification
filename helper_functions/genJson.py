@@ -13,12 +13,6 @@ major_chords = ["I","I7","bII","II","II7","III","III7","IV","IV7","V","V7","bVI"
 minor_chords = ["I","I+","bII","II","II7","III","IV","IV+","V","V+","V+7","VI","GerVI","FreVI","ItaVI","VII","DimVII","DimVII7"]
 
 
-pKey = []
-pChord = []
-pNote1 = []
-pNote2 = []
-pNote3 = []
-pNote4 = []
 
 json_list = []
 for key in major_keys:
