@@ -16,8 +16,12 @@ def ScoringModule(input_idx,input_name,chord_idx,chord_name,chord):
     score += 10 * len(idxMatch)
     nameMatch = intersection(input_name,chord_name)
     score += 5 * len(nameMatch)
-    if chord in ["I","II","III","IV","V","VI","VII"]:
-        score +=1 
+    if chord in ["I","IV","V"]:
+        score +=3
+    elif chord in ["II","VI"]:
+        score += 2
+    elif chord in ["III","VII"]:
+        score += 1
     if len(input_idx) != len(chord_idx):
         score -= 10
     return score
