@@ -247,7 +247,7 @@ def ChordToNote(key,chord):
     notes = [x%12 for x in notes]
     x = noteNaming(notes,key,chord,ctype)
     print(f"The notes in {key}, {chord} chord are: {x}.")
-    return notes,x
+    return x
 
 
 
