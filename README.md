@@ -19,7 +19,7 @@ python chordToNote.py [key] [chord]
 ```  
 example:   
 ```
-python modules/chordToNote.py Cmajor I
+python chordToNote.py Cmajor I
 ```
 
 ### Note to Chord Module
