@@ -12,7 +12,6 @@ def intersection(a, b):
     return c
 
 def edit_distance(a,b):
-
     if len(a) > len(b):
         a = a[:-1]
     if len(b) > len(a):
@@ -72,15 +71,21 @@ def keys2num(keys):
     else:
         return [key2num(key) for key in keys]
 
-def NoteToChord(input_name,key=None,numOut=10):
+def NoteToChord(input_name,key=None,exact=False,numOut=10):
     chords = []
     score = []
     input_idx = keys2num(input_name)
     for entry in data:
         if key is not None and entry["key"].upper() != key.upper():
             continue
-        chords.append(entry["key"]+entry["chord"])
-        score.append(ScoringModule(input_idx,input_name,entry["idx"],entry["naming"],entry["chord"]))
+        if exact:
+            score1 = ScoringModule(input_idx,input_name,entry["idx"],entry["naming"],entry["chord"])
+            if score1 > len(input_name)*1100:
+                chords.append(entry["key"]+entry["chord"])
+                score.append(ScoringModule(input_idx,input_name,entry["idx"],entry["naming"],entry["chord"]))
+        else:    
+            chords.append(entry["key"]+entry["chord"])
+            score.append(ScoringModule(input_idx,input_name,entry["idx"],entry["naming"],entry["chord"]))
     df = pd.DataFrame({"Chord":chords,"Score":score})
     df = df.sort_values("Score",ascending=False)
     print("The most likely chords are:")
@@ -90,14 +95,15 @@ def NoteToChord(input_name,key=None,numOut=10):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Output possible chords with given notes.")
     parser.add_argument("notes", nargs='+',help='The input keys (3 or 4 notes)')
-    parser.add_argument("-o",'--numout',type=int,help='Number of output')
+    parser.add_argument("-o",'--numout',type=int,help='Number of output (optional)')
     parser.add_argument("-k","--key",help="The key (optional)")
+    parser.add_argument("--exactMatch",action='store_true',help='Only output chords with exact matches')
     args = parser.parse_args()
     start = time.time()
     if args.numout is not None:
-        NoteToChord(args.notes,args.key,args.numout)
+        NoteToChord(args.notes,args.key,args.exactMatch,args.numout)
     else:
-        NoteToChord(args.notes,args.key)
+        NoteToChord(args.notes,args.key,args.exactMatch)
     end = time.time()
     print("Time taken:",end-start)
 
