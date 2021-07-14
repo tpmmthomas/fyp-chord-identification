@@ -37,7 +37,7 @@ python noteToChord.py C E G -o 3 -k Cmajor   #output:  CMajorI  CMajorI7  CMajor
 python noteToChord.py C E D -o 3 -k Cmajor   #output:  CMajorI  CMajorVI  CMajorVI7
 ```
 
-#### If only exact match is needed, use `noteToChordFast.py` instead:  
+#### If only exact match is needed, use `noteToChordFast.py` for faster performance:  
 ```
 python noteToChordFast.py [notes ...] [-o NUMOUT] [-k KEY]
 ```
