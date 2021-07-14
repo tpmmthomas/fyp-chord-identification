@@ -13,9 +13,15 @@ Finally, with the correct chord type and starting position, the program will gen
 
 ## Note To Chord Module
 #### loop through all possible chords and sort them by the scoring funcion, finally output the first {NUMOUT} chords
++ noteToChordFast: Create a Dictionary(key-value pair) with all possible key_idx combination as *KEY* and all possible chords corrsponding to each key_idx combination as *value*. Then select the corrsponding key_mapping upon input and loop through them with the scoring function
++ noteToChord : Create a list to store {chord,key,keyname,keyIdx}, then loop through it with the scoring function
+-  > variation1: load the Dictionary in noteToChordFast, and extract all possible chords for all input_keys combinations with at least 2 matched key for each chord. Then loop through them with the scoring function
+
+*****
+
 >scoring is based on key_match > key_name_match > edit_distance
 > + key_match:    key_match(D#,Eb) === *True*
 > + key_name_match: key_name_match(D#,Eb) === *False*
-> + edit_distance (smaller the better): 
+> + edit_distance (smaller the better): __for noteToChord only__
   > > + distance((C,E,G),(C,E,A))  = 2
   > > + distance((C,E,G),(C,E,G#))  = 1
