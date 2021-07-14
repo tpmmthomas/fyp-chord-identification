@@ -25,10 +25,10 @@ python chordToNote.py Cmajor I
 ### Note to Chord Module
 In `modules` directory:  
 ```
-python noteToChord.py [notes ...] [-o NUMOUT]
+python noteToChord.py [notes ...] [-o NUMOUT] [-k KEY]
 ```  
-Enter 3 to 4 notes, optionally specify "-o" argument to control number of output matches.  
+Enter 3 to 4 notes, optionally specify "-o" argument to control number of output matches, and "-k" argument to force match only the given key.  
 Example:   
 ```
-python noteToChord.py C E G -o 5
+python noteToChord.py C E G -o 5 -k Cmajor
 ```
