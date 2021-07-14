@@ -11,6 +11,17 @@ def intersection(a, b):
     c = [value for value in a if value in temp]
     return c
 
+def edit_distance(a,b):
+    if len(a) > len(b):
+        a = a[:-1]
+    if len(b) > len(a):
+        b = b[:-1]
+    dist = 0
+    for i,val in enumerate(a):
+        dist += abs(val-b[i]) 
+    ###Scoring function
+    return 60//(dist+1)
+
 def ScoringModule(input_idx,input_name,chord_idx,chord_name,chord):
     score = 0
     idxMatch = intersection(input_idx,chord_idx)
