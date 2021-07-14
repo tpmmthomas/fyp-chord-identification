@@ -1,6 +1,7 @@
 import json
 import pandas as pd
 import argparse
+import time
 
 with open('json_files/keychordmapping.json') as f:
     data = json.load(f)
@@ -13,9 +14,10 @@ def intersection(a, b):
 def ScoringModule(input_idx,input_name,chord_idx,chord_name,chord):
     score = 0
     idxMatch = intersection(input_idx,chord_idx)
-    score += 10 * len(idxMatch)
+    score += 1000 * len(idxMatch)
     nameMatch = intersection(input_name,chord_name)
-    score += 5 * len(nameMatch)
+    score += 100 * len(nameMatch)
+    score += edit_distance(input_idx,chord_idx)
     if chord in ["I"]:
         score +=4
     elif chord in ["IV","V"]:
@@ -25,8 +27,7 @@ def ScoringModule(input_idx,input_name,chord_idx,chord_name,chord):
     elif chord in ["III","VII"]:
         score += 1
     if len(input_idx) != len(chord_idx):
-        score -= 10
-    #TODO: For not exact pitch, closer pitches have higher score
+        score -= 100
     return score
 
 key_mapping={
@@ -80,8 +81,11 @@ if __name__ == "__main__":
     parser.add_argument("-o",'--numout',type=int,help='Number of output')
     parser.add_argument("-k","--key",help="The key (optional)")
     args = parser.parse_args()
+    start = time.time()
     if args.numout is not None:
         NoteToChord(args.notes,args.key,args.numout)
     else:
         NoteToChord(args.notes,args.key)
+    end = time.time()
+    print("Time taken:",end-start)
 
