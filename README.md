@@ -32,3 +32,8 @@ Example:
 ```
 python noteToChord.py C E G -o 5 -k Cmajor
 ```
+If only exact match is needed, use `noteToChordFast.py` instead:  
+```
+python noteToChordFast.py [notes ...] [-o NUMOUT] [-k KEY]
+```
+
