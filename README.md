@@ -30,17 +30,29 @@ python noteToChord.py [notes ...] [-o NUMOUT] [-k KEY] [--exactMatch]
 Enter 3 to 4 notes, optionally specify "-o" argument to control number of output matches, "-k" argument to force match only the given key, "--exactMatch" to only output chords that match completely with provided notes.  
 Example:   
 ```
-python noteToChord.py C E G -o 5 -k Cmajor
+python noteToChord.py C E G -o 3 -k Cmajor   #output:  CMajorI  CMajorI7  CMajorVI7
 ```
+
+```
+python noteToChord.py C E D -o 3 -k Cmajor   #output:  CMajorI  CMajorVI  CMajorVI7
+```
+
 >scoring is based on key_match > key_name_match > edit_distance
 > + key_match:    key_match(D#,Eb) === *True*
 > + key_name_match: key_name_match(D#,Eb) === *False*
 > + edit_distance: 
-> > distance((C,E,G),(C,E,A))  =20
-> > distance((C,E,G),(C,E,G#))  =30
+  > > + distance((C,E,G),(C,E,A))  =20
+  > > + distance((C,E,G),(C,E,G#))  =30
 
 #### If only exact match is needed, use `noteToChordFast.py` instead:  
 ```
 python noteToChordFast.py [notes ...] [-o NUMOUT] [-k KEY]
 ```
+Example:
+```
+python noteToChord.py C E G -o 3 -k Cmajor   #output:  CMajorI  CMajorI7  CMajorVI7
+```
 
+```
+python noteToChord.py C E D -o 3 -k Cmajor   #output:  EMPTY
+```
