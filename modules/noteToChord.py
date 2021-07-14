@@ -82,7 +82,7 @@ def NoteToChord(input_name,key=None,exact=False,numOut=10):
             score1 = ScoringModule(input_idx,input_name,entry["idx"],entry["naming"],entry["chord"])
             if score1 > len(input_name)*1100:
                 chords.append(entry["key"]+entry["chord"])
-                score.append(ScoringModule(input_idx,input_name,entry["idx"],entry["naming"],entry["chord"]))
+                score.append(score1)
         else:    
             chords.append(entry["key"]+entry["chord"])
             score.append(ScoringModule(input_idx,input_name,entry["idx"],entry["naming"],entry["chord"]))
