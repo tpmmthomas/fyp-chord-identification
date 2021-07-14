@@ -90,6 +90,7 @@ def NoteToChord(input_name,key=None,exact=False,numOut=10):
     df = df.sort_values("Score",ascending=False)
     print("The most likely chords are:")
     print(df.head(numOut))
+    return df.head(numOut)
 
 
 if __name__ == "__main__":
@@ -97,7 +98,7 @@ if __name__ == "__main__":
     parser.add_argument("notes", nargs='+',help='The input keys (3 or 4 notes)')
     parser.add_argument("-o",'--numout',type=int,help='Number of output (optional)')
     parser.add_argument("-k","--key",help="The key (optional)")
-    parser.add_argument("--exactMatch",action='store_true',help='Only output chords with exact matches')
+    parser.add_argument("--exactMatch",action='store_true',help='Only output chords with exact matches (optional)')
     args = parser.parse_args()
     start = time.time()
     if args.numout is not None:

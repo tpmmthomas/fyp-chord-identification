@@ -14,18 +14,32 @@ minor_chords = ["I","I+","bII","II","II7","III","IV","IV+","V","V+","V+7","VI","
 
 
 
-json_list = []
+# json_list = []
+# for key in major_keys:
+#     key = key + "Major"
+#     for chord in major_chords:
+#         x,y = ChordToNote(key,chord)
+#         json_list.append({"key":key,"chord":chord,"idx":x,"naming":y})
+
+# for key in minor_keys:
+#     key = key + "Minor"
+#     for chord in minor_chords:
+#         x,y = ChordToNote(key,chord)
+#         json_list.append({"key":key,"chord":chord,"idx":x,"naming":y})
+
+# with open('../modules/json_files/keychordmapping.json','w') as f:
+#     json.dump(json_list,f)
+json_list = {}
 for key in major_keys:
     key = key + "Major"
     for chord in major_chords:
         x,y = ChordToNote(key,chord)
-        json_list.append({"key":key,"chord":chord,"idx":x,"naming":y})
-
+        json_list[key+chord] = {"idx":x,"naming":y,"chord":chord,"key":key}
 for key in minor_keys:
     key = key + "Minor"
     for chord in minor_chords:
         x,y = ChordToNote(key,chord)
-        json_list.append({"key":key,"chord":chord,"idx":x,"naming":y})
+        json_list[key+chord] = {"idx":x,"naming":y,"chord":chord,"key":key}
 
-with open('../modules/json_files/keychordmapping.json','w') as f:
+with open('../modules/json_files/keychorddict.json','w') as f:
     json.dump(json_list,f)
