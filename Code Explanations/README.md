@@ -12,9 +12,7 @@ Second, the `startPosition` submodule determines the root note of the chord. The
 Finally, with the correct chord type and starting position, the program will generate a list of notes (in their corresponding pitch classes) which are included in the chord, then the list will be passed to the `noteNaming` module. This module will determine the correct naming of the notes given several enharmonic equivalents. It works by first assigning the pitch classes to either all sharp notes or all flat notes according to the given key, then changing some of the notes by analyzing its scale degrees. For example, the diminished seventh chord has scale degree of 7,2,4,b6. Hence we would change the final note (b6) to be the flat version of the originial note naming (e.g. G# to Ab, G to Abb).  
 
 ## Note To Chord Module
- TODO: bla bla bla
-
- 
+#### loop through all possible chords and sort them by scoring funcion, finally output the first {NUMOUT} chords
 >scoring is based on key_match > key_name_match > edit_distance
 > + key_match:    key_match(D#,Eb) === *True*
 > + key_name_match: key_name_match(D#,Eb) === *False*
