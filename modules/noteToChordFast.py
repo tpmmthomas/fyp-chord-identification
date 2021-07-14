@@ -101,7 +101,7 @@ def NoteToChordFast(keys_name,key=None,numOut=10):
   df = df.sort_values("Score",ascending=False)
   print("The most likely chords are:")
   print(df.head(numOut))
-  return df.head(numOut)["Chord"].values()
+  return df.head(numOut)["Chord"].values
 
 #TEST
 # import time

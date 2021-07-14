@@ -90,7 +90,7 @@ def NoteToChord(input_name,key=None,exact=False,numOut=10):
     df = df.sort_values("Score",ascending=False)
     print("The most likely chords are:")
     print(df.head(numOut))
-    return df.head(numOut)["Chord"].values()
+    return df.head(numOut)["Chord"].values
 
 
 if __name__ == "__main__":
