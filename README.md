@@ -36,6 +36,7 @@ python noteToChord.py C E G -o 5 -k Cmajor
 > + key_match:    D# === Eb === Fbb etc..
 > + key_name_match: D# !=== Eb !=== Fbb ,   D#===D#
 > + edit_distance: distance((C,E,G),(C,E,A))  = 20
+
 ####If only exact match is needed, use `noteToChordFast.py` instead:  
 ```
 python noteToChordFast.py [notes ...] [-o NUMOUT] [-k KEY]
