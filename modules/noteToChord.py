@@ -59,11 +59,13 @@ def keys2num(keys):
     else:
         return sorted([key2num(key) for key in keys])
 
-def NoteToChord(input_name,numOut=10):
+def NoteToChord(input_name,key=None,numOut=10):
     chords = []
     score = []
     input_idx = keys2num(input_name)
     for entry in data:
+        if key is not None and entry["key"].upper() != key.upper():
+            continue
         chords.append(entry["key"]+entry["chord"])
         score.append(ScoringModule(input_idx,input_name,entry["idx"],entry["naming"],entry["chord"]))
     df = pd.DataFrame({"Chord":chords,"Score":score})
@@ -73,12 +75,13 @@ def NoteToChord(input_name,numOut=10):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Output possible chords with given chord.")
+    parser = argparse.ArgumentParser(description="Output possible chords with given notes.")
     parser.add_argument("notes", nargs='+',help='The input keys (3 or 4 notes)')
     parser.add_argument("-o",'--numout',type=int,help='Number of output')
+    parser.add_argument("-k","--key",help="The key (optional)")
     args = parser.parse_args()
     if args.numout is not None:
-        NoteToChord(args.notes,args.numout)
+        NoteToChord(args.notes,args.key,args.numout)
     else:
-        NoteToChord(args.notes)
+        NoteToChord(args.notes,args.key)
 
