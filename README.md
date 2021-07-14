@@ -37,12 +37,7 @@ python noteToChord.py C E G -o 3 -k Cmajor   #output:  CMajorI  CMajorI7  CMajor
 python noteToChord.py C E D -o 3 -k Cmajor   #output:  CMajorI  CMajorVI  CMajorVI7
 ```
 
->scoring is based on key_match > key_name_match > edit_distance
-> + key_match:    key_match(D#,Eb) === *True*
-> + key_name_match: key_name_match(D#,Eb) === *False*
-> + edit_distance (smaller the better): 
-  > > + distance((C,E,G),(C,E,A))  = 2
-  > > + distance((C,E,G),(C,E,G#))  = 1
+
 
 #### If only exact match is needed, use `noteToChordFast.py` instead:  
 ```
