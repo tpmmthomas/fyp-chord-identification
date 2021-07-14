@@ -12,6 +12,7 @@ def intersection(a, b):
     return c
 
 def edit_distance(a,b):
+
     if len(a) > len(b):
         a = a[:-1]
     if len(b) > len(a):
@@ -67,9 +68,9 @@ def keys2num(keys):
         elif key[1]=='X':
             return (num+(modifier-1)*2)%12
     if keys[-1]=='-':
-        return sorted([key2num(key) for key in keys[:-1]])
+        return [key2num(key) for key in keys[:-1]]
     else:
-        return sorted([key2num(key) for key in keys])
+        return [key2num(key) for key in keys]
 
 def NoteToChord(input_name,key=None,numOut=10):
     chords = []
