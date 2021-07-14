@@ -33,9 +33,11 @@ Example:
 python noteToChord.py C E G -o 5 -k Cmajor
 ```
 >scoring is based on key_match > key_name_match > edit_distance
-> + key_match:    D# === Eb === Fbb etc..
-> + key_name_match: D# !=== Eb !=== Fbb ,   D#===D#
-> + edit_distance: distance((C,E,G),(C,E,A))  = 20
+> + key_match:    key_match(D#,Eb) === *True*
+> + key_name_match: key_name_match(D#,Eb) === *False*
+> + edit_distance: 
+> > distance((C,E,G),(C,E,A))  =20
+> > distance((C,E,G),(C,E,G#))  =30
 
 #### If only exact match is needed, use `noteToChordFast.py` instead:  
 ```
