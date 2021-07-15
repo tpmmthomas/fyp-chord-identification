@@ -12,16 +12,17 @@ Second, the `startPosition` submodule determines the root note of the chord. The
 Finally, with the correct chord type and starting position, the program will generate a list of notes (in their corresponding pitch classes) which are included in the chord, then the list will be passed to the `noteNaming` module. This module will determine the correct naming of the notes given several enharmonic equivalents. It works by first assigning the pitch classes to either all sharp notes or all flat notes according to the given key, then changing some of the notes by analyzing its scale degrees. For example, the diminished seventh chord has scale degree of 7,2,4,b6. Hence we would change the final note (b6) to be the flat version of the originial note naming (e.g. G# to Ab, G to Abb).  
 
 ## Note To Chord Module
-#### loop through all possible chords and sort them by the scoring funcion, finally output the first {NUMOUT} chords
-+ noteToChordFast: Create a Dictionary(key-value pair) with all possible key_idx combination ___(from length 1 to 4)___ as *KEY* and all possible chords corrsponding to each key_idx combination as *VALUE*. Then select the corrsponding key_mapping upon input and loop through them with the scoring function
-+ noteToChord : Create a list to store ALL{chord,key,keyname,keyIdx}, then loop through it with the scoring function
--  > variation1: load the Dictionary in noteToChordFast, and extract all possible chords for all input_keys combinations with at least 2 matched key for each chord. Then loop through them with the scoring function
+We have two approaches when implementing this module: 
++ `noteToChordFast`: First we created a Dictionary (stored as JSON files) that maps all possible pitch class combination ___(`key_idx`)___ (*KEY*) to all possible chords corrsponding to the combination (*VALUE*). Once users input a set of notes, it will be converted into their corresponding pitch class. Then a list of possible chords will be obtained using the dictionary. We then loop through those possible chords, rank it according to the scoring function, filtering specific keys if necessary. Finally it will return the first {NUMOUT} highest-scored chords as a list. 
++ `noteToChord` : First we created a list to store ALL possible {chord,key,keyname,keyIdx} combinations (stored as JSON). Once users input a set of notes, it will then loop through all the chords within the file rating each chord with the scoring function, and output the first {NUMOUT} highest-scored chords as a list. 
+> variation1: load the Dictionary in noteToChordFast, and extract all possible chords for all input_keys combinations with at least 2 matched key for each chord. Then loop through them with the scoring function
 
-*****
-
->scoring is based on key_match > key_name_match > edit_distance
-> + key_match:    key_match(D#,Eb) === *True*
-> + key_name_match: key_name_match(D#,Eb) === *False*
+****** 
+Scoring is based on pitch class match > pitch naming match > edit distance
+> + pitch_class_match:    pitch_class_match(D#,Eb) === *True*
+> + pitch_naming_match: pitch_naming_match(D#,Eb) === *False*
 > + edit_distance (smaller the better): __for noteToChord only__
   > > + distance((C,E,G),(C,E,A))  = 2
   > > + distance((C,E,G),(C,E,G#))  = 1
+******
+While `noteToChordFast` provides a faster performance as it uses a dictionary to significantly reduce the number of chords to be considered, it only allows an exact match between the chord and the given keys. `noteToChord` is slower but allows searching for similar chords (e.g. chords that differ by one note).
