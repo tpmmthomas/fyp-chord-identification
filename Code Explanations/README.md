@@ -18,7 +18,7 @@ We have two approaches when implementing this module:
 > a variation for `noteToChord` module : load the Dictionary in `noteToChordFast`, and extract all possible chords for all input_keys combinations with at least 2 matched key for each chord. Then loop through them with the scoring function.
 
 ****** 
-Scoring is based on pitch class match > pitch naming match > edit distance
+Scoring is based on pitch class match > pitch naming match > edit distance. 
 > + pitch_class_match:    pitch_class_match(D#,Eb) === *True*
 > + pitch_naming_match: pitch_naming_match(D#,Eb) === *False*
 > + edit_distance (smaller the better): __for noteToChord only__
