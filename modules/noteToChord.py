@@ -86,29 +86,31 @@ def NoteToChord(keys_name,key=None,numOut=10,threshold=2):
         numOut = 10
     if threshold is None:
         threshold = 2
-    keys_idx=keys2num(keys_name)
     if key is not None:
         key=key.upper()
+        
+    keys_idx=keys2num(keys_name)
     sorted_keys = sorted(keys_idx)
+    
     possible_chords=set()
     for i in range(threshold,5):
         for each in itertools.combinations(sorted_keys,i):
             possible_chords.update(key_chord_name_mapping[str(each)])
     chords = list(possible_chords)
-    score = []
+    
+    if chords == []:
+        return None,None
+    
+    score = [-1 for temp in range(len(chords))]
+    
     numOk = 0
-    for r in chords:
-        entry = data[r]
-        if key is not None and entry["key"]!=key:  ## make all key upper() after import**********
-            score.append(-1)
-        else:
+    for idx in range(len(chords)):
+        entry = data[chords[idx]]
+        if key is None or entry["key"]==key:  ## make all key upper() after import**********
             score.append(ScoringModule(keys_idx,keys_name,entry["idx"],entry["naming"],entry["chord"]))
             numOk += 1
 
     score,chords=zip(*sorted(zip(score,chords),reverse=True)[:min(numOk,numOut)])
-
-    #print(chords)
-    #print(score)
     return chords,score
 
 
