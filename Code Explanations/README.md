@@ -15,14 +15,18 @@ Finally, with the correct chord type and starting position, the program will gen
 We have two approaches when implementing this module: 
 + `noteToChordFast`: First we created a Dictionary (stored as JSON files) that maps every possible pitch class combination (*KEY*) to all possible chords corrsponding to the combination (*VALUE*). Once users input a set of notes, it will be converted into their corresponding pitch class. Then a list of possible chords will be obtained using the dictionary. We then loop through those possible chords, rank it according to the scoring function, filtering specific keys if necessary. Finally it will return the first {NUMOUT} highest-scored chords as a list. 
 + `noteToChord` : First we created a list to store ALL possible {chord,key,keyname,keyIdx} combinations (stored as JSON). Once users input a set of notes, it will then loop through all the chords within the file while rating each chord with the scoring function, and output the first {NUMOUT} highest-scored chords as a list. 
-> a variation for `noteToChord` module : load the Dictionary in `noteToChordFast`, and extract all possible chords for all input_keys combinations with at least 2 matched key for each chord. Then loop through them with the scoring function.
+>__Update V2(17/7/2021)__: a variation for `noteToChord` module : load the Dictionary in `noteToChordFast`, and extract all possible chords for all input_keys combinations with at least 2 matched key for each chord. Then loop through them with the scoring function.
 
 ****** 
 Scoring is based on pitch class match > pitch naming match > edit distance. 
-> + pitch_class_match:    pitch_class_match(D#,Eb) === *True*
-> + pitch_naming_match: pitch_naming_match(D#,Eb) === *False*
-> + edit_distance (smaller the better): __for noteToChord only__
-  > > + distance((C,E,G),(C,E,A))  = 2
-  > > + distance((C,E,G),(C,E,G#))  = 1
+ + pitch_class_match:    pitch_class_match(D#,Eb) === *True*
+ + pitch_naming_match: pitch_naming_match(D#,Eb) === *False*
+ + edit_distance (smaller the better): __for noteToChord only__
+   +  distance((C,E,G),(C,E,A))  = 2
+   +  distance((C,E,G),(C,E,G#))  = 1
+
+>__Update (17/7/2021)__ : The base key of each chord is now part of the consideration. For any chords whose base key appear in the input notes are more likely to be the true prediction.
+> > 50 extra marks were given to the chords whose base key is in the input notes.
 ******
 While `noteToChordFast` provides a faster performance as it uses a dictionary to significantly reduce the number of chords to be considered, it only allows an exact match between the chord and the given keys. `noteToChord` is slower but allows searching for similar chords (e.g. chords that differ by one note).
+> __Update 17/7/2021 'noteToChord'__ : To strike a balance between efficency and accurancy, we roll back to the dictionary approach with all combination of given note. Duplicated chords are filtered by set(). The overall time cost was improved by ~5-15x compare to the old version. Threshold =2 is recommended to filter out unreliable predictions.
