@@ -24,7 +24,7 @@ Scoring is based on pitch class match > pitch naming match > edit distance.
    +  distance((C,E,G),(C,E,A))  = 2
    +  distance((C,E,G),(C,E,G#))  = 1
 
->__Update (17/7/2021)__ : The root note of each chord is now part of the consideration. For any chords whose root note appear in the input notes are more likely to be the true prediction.
+>__Update (17/7/2021)__ : The root note of each chord is now part of the consideration. Any chords whose root note appear in the input notes are more likely to be the true prediction.
 > > 50 extra marks were given to the chords whose root note is in the input notes.
 ******
 While `noteToChordFast` provides a faster performance as it uses a dictionary to significantly reduce the number of chords to be considered, it only allows an exact match between the chord and the given keys. `noteToChord` is slower but allows searching for similar chords (e.g. chords that differ by one note).
