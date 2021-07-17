@@ -107,7 +107,7 @@ def NoteToChord(keys_name,key=None,numOut=10,threshold=2):
     for idx in range(len(chords)):
         entry = data[chords[idx]]
         if key is None or entry["key"]==key:  ## make all key upper() after import**********
-            score.append(ScoringModule(keys_idx,keys_name,entry["idx"],entry["naming"],entry["chord"]))
+            score[idx]=ScoringModule(keys_idx,keys_name,entry["idx"],entry["naming"],entry["chord"])
             numOk += 1
 
     score,chords=zip(*sorted(zip(score,chords),reverse=True)[:min(numOk,numOut)])
@@ -122,7 +122,7 @@ if __name__ == "__main__":
     parser.add_argument("-t","--threshold",type=int,help='Least number of key matches (optional)')
     args = parser.parse_args()
     start = time.time()
-    print(NoteToChord(args.notes,args.key,args.numout,args.threshold))
+    result=NoteToChord(args.notes,args.key,args.numout,args.threshold)
     end = time.time()
-    print("Time taken:",end-start)
+    print("Time taken:",end-start,'\n',result)
 
