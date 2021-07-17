@@ -25,7 +25,7 @@ python chordToNote.py Cmajor I
 ### Note to Chord Module
 In `modules` directory:  
 ```
-python noteToChord.py [notes ...] [-o NUMOUT] [-k KEY] [--exactMatch]
+python noteToChord.py [notes ...] [-o NUMOUT] [-k KEY] [-t THRESHOLD]
 ```  
 Enter 3 to 4 notes, optionally specify "-o" argument to control number of output matches, "-k" argument to force match only the given key, "-t" to decide the minimum required matching notes.
 
