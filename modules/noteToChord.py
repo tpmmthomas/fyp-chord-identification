@@ -96,14 +96,16 @@ def NoteToChord(keys_name,key=None,numOut=10,threshold=2):
             possible_chords.update(key_chord_name_mapping[str(each)])
     chords = list(possible_chords)
     score = []
+    numOk = 0
     for r in chords:
         entry = data[r]
         if key is not None and entry["key"]!=key:  ## make all key upper() after import**********
             score.append(-1)
         else:
             score.append(ScoringModule(keys_idx,keys_name,entry["idx"],entry["naming"],entry["chord"]))
+            numOk += 1
 
-    score,chords=zip(*sorted(zip(score,chords),reverse=True)[:numOut])
+    score,chords=zip(*sorted(zip(score,chords),reverse=True)[:min(numOk,numOut)])
 
     #print(chords)
     #print(score)
