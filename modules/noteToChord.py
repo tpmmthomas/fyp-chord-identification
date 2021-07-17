@@ -106,7 +106,7 @@ def NoteToChord(keys_name,key=None,numOut=10,threshold=2):
     numOk = 0
     for idx in range(len(chords)):
         entry = data[chords[idx]]
-        if key is None or entry["key"]==key:  ## make all key upper() after import**********
+        if key is None or entry["key"]==key:  ## remeber to make all key upper() after import**********
             score[idx]=ScoringModule(keys_idx,keys_name,entry["idx"],entry["naming"],entry["chord"])
             numOk += 1
 
