@@ -107,7 +107,6 @@ def NoteToChord(keys_name,key=None,numOut=10,threshold=2):
         for each in itertools.combinations(sorted_keys,i):
             possible_chords.update(key_chord_name_mapping[str(each)])
     chords = list(possible_chords)
-    
     if chords == []:
         return None,None
     
@@ -121,7 +120,7 @@ def NoteToChord(keys_name,key=None,numOut=10,threshold=2):
     numOk = 0
     for idx, chord in enumerate(chords):
         entry = data[chord]
-        if key is None or entry["key"]==key:  ## remeber to make all key upper() after import**********
+        if key is None or entry["key"]==key:  ## remeber to make all key upper() after import**********\
             idxMatch,nameMatch,rootMatch,ed,length_match = MatchAnalysis(keys_idx,keys_name,entry["idx"],entry["naming"],entry["chord"])
             score = ScoringModule(idxMatch,nameMatch,rootMatch,ed,length_match,entry["chord"])
             rscore.append(score)
@@ -132,15 +131,16 @@ def NoteToChord(keys_name,key=None,numOut=10,threshold=2):
             reditdist.append(ed)
             rlengthMatch.append(length_match)
             numOk += 1
+    #print(rchord,rscore)
     rscore,rchord,ridxMatch,rnameMatch,rrootMatch,reditdist,rlengthMatch=zip(*sorted(zip(rscore,rchord,ridxMatch,rnameMatch,rrootMatch,reditdist,rlengthMatch))[:min(numOk,numOut)])
     #df = pd.DataFrame({"Chord":rchord,"Score":rscore,"pitch match":ridxMatch,"name match":rnameMatch,"root present":rrootMatch,"edit distance":reditdist,"length match":rlengthMatch})
     #df = df.sort_values("Score",ascending=False)
     #score,chords=zip(*sorted(zip(score,chords),reverse=True)[:min(numOk,numOut)])
     
     #format output
-    result={}
+    result=[]
     for idx in range(len(rscore)):
-        result[rchord[idx]]={"Score":rscore[idx],"pitch match":ridxMatch[idx],"name match":rnameMatch[idx],"root present":rrootMatch[idx],"edit distance":reditdist[idx],"length match":rlengthMatch[idx]}
+        result.append({"Chord":rchord[idx],"Score":rscore[idx],"pitch match":ridxMatch[idx],"name match":rnameMatch[idx],"root present":rrootMatch[idx],"edit distance":reditdist[idx],"length match":rlengthMatch[idx]})
     
     return result
 
