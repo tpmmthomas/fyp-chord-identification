@@ -92,6 +92,7 @@ def keys2num(keys):
         return [key2num(key) for key in keys]
 
 def NoteToChord(keys_name,key=None,numOut=10,threshold=2):
+
     if numOut is None:
         numOut = 10
     if threshold is None:
@@ -132,8 +133,12 @@ def NoteToChord(keys_name,key=None,numOut=10,threshold=2):
             reditdist.append(ed)
             rlengthMatch.append(length_match)
             numOk += 1
+
+
+    rscore,rchord,ridxMatch,rnameMatch,rrootMatch,reditdist,rlengthMatch=zip(*sorted(zip(rscore,rchord,ridxMatch,rnameMatch,rrootMatch,reditdist,rlengthMatch),reverse=True)[:min(numOk,numOut)])
+
     #print(rchord,rscore)
-    rscore,rchord,ridxMatch,rnameMatch,rrootMatch,reditdist,rlengthMatch=zip(*sorted(zip(rscore,rchord,ridxMatch,rnameMatch,rrootMatch,reditdist,rlengthMatch))[:min(numOk,numOut)])
+
     #df = pd.DataFrame({"Chord":rchord,"Score":rscore,"pitch match":ridxMatch,"name match":rnameMatch,"root present":rrootMatch,"edit distance":reditdist,"length match":rlengthMatch})
     #df = df.sort_values("Score",ascending=False)
     #score,chords=zip(*sorted(zip(score,chords),reverse=True)[:min(numOk,numOut)])
@@ -142,7 +147,6 @@ def NoteToChord(keys_name,key=None,numOut=10,threshold=2):
     result=[]
     for idx in range(len(rscore)):
         result.append({"Chord":rchord[idx],"Score":rscore[idx],"pitch match":ridxMatch[idx],"name match":rnameMatch[idx],"root present":rrootMatch[idx],"edit distance":reditdist[idx],"length match":rlengthMatch[idx]})
-    
     return result
 
 if __name__ == "__main__":
