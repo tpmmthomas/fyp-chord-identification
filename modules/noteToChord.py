@@ -26,19 +26,15 @@ def edit_distance(a,b):
     for i,val in enumerate(a):
         dist += abs(val-b[i]) 
     ###Scoring function
-    return 60//(dist+1)
+    return dist
 
-def ScoringModule(input_idx,input_name,chord_idx,chord_name,chord):
+def ScoringModule(idxMatch,nameMatch,rootMatch,ed,lengthMatch,chord):
     score = 0
-    idxMatch = intersection(input_idx,chord_idx)
-    score += 1000 * len(idxMatch)
-    if chord_idx[0] in input_idx:
+    score += 1000 * idxMatch
+    score += 100 * nameMatch
+    if rootMatch:
         score += 500
-    nameMatch = intersection(input_name,chord_name)
-    score += 100 * len(nameMatch)
-    if chord_name[0] in input_name:
-        score += 50
-    score += edit_distance(input_idx,chord_idx)
+    score += 60//(ed+1)
     if chord in ["I"]:
         score +=4
     elif chord in ["IV","V"]:
@@ -47,9 +43,25 @@ def ScoringModule(input_idx,input_name,chord_idx,chord_name,chord):
         score += 2
     elif chord in ["III","VII"]:
         score += 1
-    if len(input_idx) != len(chord_idx):
+    if not lengthMatch:
         score -= 100
     return score
+
+def MatchAnalysis(input_idx,input_name,chord_idx,chord_name,chord):
+    idxMatch = intersection(input_idx,chord_idx)
+    len(idxMatch)
+    nameMatch = intersection(input_name,chord_name)
+    score += 100 * len(nameMatch)
+    if chord_name[0] in input_name:
+        root_match = True
+    else:
+        root_match = False
+    ed = edit_distance(input_idx,chord_idx)
+    if len(input_idx) != len(chord_idx):
+        length_match = False
+    else:
+        length_match = True
+    return len(idxMatch),len(nameMatch),root_match,ed,length_match
 
 key_mapping={
     'C':0,
