@@ -49,9 +49,7 @@ def ScoringModule(idxMatch,nameMatch,rootMatch,ed,lengthMatch,chord):
 
 def MatchAnalysis(input_idx,input_name,chord_idx,chord_name,chord):
     idxMatch = intersection(input_idx,chord_idx)
-    len(idxMatch)
     nameMatch = intersection(input_name,chord_name)
-    score += 100 * len(nameMatch)
     if chord_name[0] in input_name:
         root_match = True
     else:
