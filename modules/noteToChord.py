@@ -131,13 +131,12 @@ def NoteToChord(keys_name,key=None,numOut=10,threshold=2):
             reditdist.append(ed)
             rlengthMatch.append(length_match)
             numOk += 1
-<<<<<<< HEAD
+
 
     rscore,rchord,ridxMatch,rnameMatch,rrootMatch,reditdist,rlengthMatch=zip(*sorted(zip(rscore,rchord,ridxMatch,rnameMatch,rrootMatch,reditdist,rlengthMatch),reverse=True)[:min(numOk,numOut)])
-=======
+
     #print(rchord,rscore)
-    rscore,rchord,ridxMatch,rnameMatch,rrootMatch,reditdist,rlengthMatch=zip(*sorted(zip(rscore,rchord,ridxMatch,rnameMatch,rrootMatch,reditdist,rlengthMatch))[:min(numOk,numOut)])
->>>>>>> a21294a61601218ba878ad1e7644bd6979a5a35a
+
     #df = pd.DataFrame({"Chord":rchord,"Score":rscore,"pitch match":ridxMatch,"name match":rnameMatch,"root present":rrootMatch,"edit distance":reditdist,"length match":rlengthMatch})
     #df = df.sort_values("Score",ascending=False)
     #score,chords=zip(*sorted(zip(score,chords),reverse=True)[:min(numOk,numOut)])
