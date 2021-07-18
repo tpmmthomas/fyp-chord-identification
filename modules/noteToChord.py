@@ -111,19 +111,31 @@ def NoteToChord(keys_name,key=None,numOut=10,threshold=2):
     if chords == []:
         return None,None
     
-    score = [-1 for temp in range(len(chords))]
-    
+    rscore = [] #-1 for temp in range(len(chords))]
+    rchord = []
+    ridxMatch = []
+    rnameMatch = []
+    rrootMatch = []
+    reditdist = []
+    rlengthMatch = []
     numOk = 0
     for idx, chord in enumerate(chords):
         entry = data[chord]
         if key is None or entry["key"]==key:  ## remeber to make all key upper() after import**********
-            a,b,c,d,e = MatchAnalysis(keys_idx,keys_name,entry["idx"],entry["naming"],entry["chord"])
-            score[idx]= ScoringModule(a,b,c,d,e,entry["chord"])
-            #TODO: return info on a,b,c,d,e
+            idxMatch,nameMatch,rootMatch,ed,length_match = MatchAnalysis(keys_idx,keys_name,entry["idx"],entry["naming"],entry["chord"])
+            score = ScoringModule(idxMatch,nameMatch,rootMatch,ed,length_match,entry["chord"])
+            rscore.append(score)
+            rchord.append(chord)
+            ridxMatch.append(idxMatch)
+            rnameMatch.append(nameMatch)
+            rrootMatch.append(rootMatch)
+            reditdist.append(ed)
+            rlengthMatch.append(length_match)
             numOk += 1
-
-    score,chords=zip(*sorted(zip(score,chords),reverse=True)[:min(numOk,numOut)])
-    return chords,score
+    df = pd.DataFrame({"Chord":rchord,"Score":rscore,"pitch match":ridxMatch,"name match":rnameMatch,"root present":rrootMatch,"edit distance":reditdist,"length match":rlengthMatch})
+    df = df.sort_values("Score",ascending=False)
+    #score,chords=zip(*sorted(zip(score,chords),reverse=True)[:min(numOk,numOut)])
+    return df.head(numOut)
 
 
 if __name__ == "__main__":
