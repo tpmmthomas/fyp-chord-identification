@@ -92,6 +92,7 @@ def keys2num(keys):
         return [key2num(key) for key in keys]
 
 def NoteToChord(keys_name,key=None,numOut=10,threshold=2):
+
     if numOut is None:
         numOut = 10
     if threshold is None:
@@ -145,7 +146,6 @@ def NoteToChord(keys_name,key=None,numOut=10,threshold=2):
     result=[]
     for idx in range(len(rscore)):
         result.append({"Chord":rchord[idx],"Score":rscore[idx],"pitch match":ridxMatch[idx],"name match":rnameMatch[idx],"root present":rrootMatch[idx],"edit distance":reditdist[idx],"length match":rlengthMatch[idx]})
-    
     return result
 
 if __name__ == "__main__":
