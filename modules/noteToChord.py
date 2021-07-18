@@ -132,11 +132,17 @@ def NoteToChord(keys_name,key=None,numOut=10,threshold=2):
             reditdist.append(ed)
             rlengthMatch.append(length_match)
             numOk += 1
-    df = pd.DataFrame({"Chord":rchord,"Score":rscore,"pitch match":ridxMatch,"name match":rnameMatch,"root present":rrootMatch,"edit distance":reditdist,"length match":rlengthMatch})
-    df = df.sort_values("Score",ascending=False)
+    rscore,rchord,ridxMatch,rnameMatch,rrootMatch,reditdist,rlengthMatch=zip(*sorted(zip(rscore,rchord,ridxMatch,rnameMatch,rrootMatch,reditdist,rlengthMatch))[:min(numOk,numOut)])
+    #df = pd.DataFrame({"Chord":rchord,"Score":rscore,"pitch match":ridxMatch,"name match":rnameMatch,"root present":rrootMatch,"edit distance":reditdist,"length match":rlengthMatch})
+    #df = df.sort_values("Score",ascending=False)
     #score,chords=zip(*sorted(zip(score,chords),reverse=True)[:min(numOk,numOut)])
-    return df.head(numOut)
-
+    
+    #format output
+    result={}
+    for idx in range(len(rscore)):
+        result[rchord[idx]]={"Score":rscore[idx],"pitch match":ridxMatch[idx],"name match":rnameMatch[idx],"root present":rrootMatch[idx],"edit distance":reditdist[idx],"length match":rlengthMatch[idx]}
+    
+    return result
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Output possible chords with given notes.")
