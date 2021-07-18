@@ -117,7 +117,9 @@ def NoteToChord(keys_name,key=None,numOut=10,threshold=2):
     for idx, chord in enumerate(chords):
         entry = data[chord]
         if key is None or entry["key"]==key:  ## remeber to make all key upper() after import**********
-            score[idx]=ScoringModule(keys_idx,keys_name,entry["idx"],entry["naming"],entry["chord"])
+            a,b,c,d,e = MatchAnalysis(keys_idx,keys_name,entry["idx"],entry["naming"],entry["chord"])
+            score[idx]= ScoringModule(a,b,c,d,e,entry["chord"])
+            #TODO: return info on a,b,c,d,e
             numOk += 1
 
     score,chords=zip(*sorted(zip(score,chords),reverse=True)[:min(numOk,numOut)])
