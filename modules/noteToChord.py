@@ -110,6 +110,7 @@ def NoteToChord(keys_name,key=None,numOut=10,threshold=2):
     chords = list(possible_chords)
     if chords == []:
         return None,None
+
     
     rscore = [] #-1 for temp in range(len(chords))]
     rchord = []
