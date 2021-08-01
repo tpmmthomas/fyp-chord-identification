@@ -8,7 +8,7 @@ import pandas as pd
 major_keys = ["C","G","D","A","E","B","F","Bb","Eb","Ab","Db","Gb"]
 minor_keys = ["a","e","b","f#","c#","g#","d","g","c","f","bb",'eb']
 
-major_chords = ["I","I7","bII","II","II7","III","III7","IV","IV7","V","V7","bVI","GerVI","FreVI","ItaVI","VI","VI7","VII","VII7","DimVII7"]
+major_chords = ["I","bII","II","II7","III","IV","V","V7","bVI","GerVI","FreVI","ItaVI","VI","VI7","VII","VII7","DimVII7"]
 minor_chords = ["I","I+","bII","II","II7","III","IV","IV+","V","V+","V+7","VI","GerVI","FreVI","ItaVI","VII","DimVII","DimVII7"]
 
 pKey = []
