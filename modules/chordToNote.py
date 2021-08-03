@@ -89,7 +89,7 @@ relative_major = {
     "F#": "A",
     "C#": "E",
     "G#": "B",
-    "EB": "F#",
+    "EB": "GB",
     "BB": "DB",
     "F": "AB",
     "C": "EB",
@@ -223,8 +223,11 @@ def noteNaming(notes, key, chord, ctype):
     # if ctype in ["ger","ita","fre"]: #These chords are same regardless of major or minor, therefore use notation of major
     #     key = key[:-5] + "Major"
     isMinor = False
+    isEbMinor = False
     key = key.upper()
     if key[-5:] == "MINOR":
+        if key == "EBMINOR":
+            isEbMinor = True
         key = relative_major[key[:-5]] + "MAJOR"
         isMinor = True
     if key in [
@@ -285,6 +288,9 @@ def noteNaming(notes, key, chord, ctype):
             output_notes[1] = index_to_pitch_sharp[notes[1]]
         else:
             output_notes[1] = index_to_pitch_doublesharp[notes[1]]
+    if isEbMinor:
+        for i, note in enumerate(output_notes):
+            output_notes[i] = note if note != "B" else "Cb"
     return output_notes
 
 
