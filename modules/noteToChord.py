@@ -5,9 +5,9 @@ import time
 import itertools
 import pickle
 
-with open("json_files/keychorddict.json") as f:
+with open("../modules/json_files/keychorddict.json") as f:
     data = json.load(f)
-with open("pickle_files/key_chord_name_mapping.pickle", "rb") as f:
+with open("../modules/pickle_files/key_chord_name_mapping.pickle", "rb") as f:
     key_chord_name_mapping = pickle.load(f)
 for k in data:
     data[k]["key"] = data[k]["key"].upper()
@@ -20,7 +20,7 @@ def intersection(a, b):
 
 
 def edit_distance(a, b):
-    if abs(len(a)-len(b)) >=2:
+    if abs(len(a) - len(b)) >= 2:
         return 999
     if len(a) > len(b):
         a = a[:-1]
@@ -33,19 +33,29 @@ def edit_distance(a, b):
     return dist
 
 
-def ScoringModule(idxMatch, nameMatch, rootMatch, ed, lengthMatch, chord):
+def ScoringModule(idxMatch, nameMatch, rootMatch, ed, lengthMatch, chord, ismajor):
     score = 0
     score += 1000 * nameMatch
     score += 100 * idxMatch
     if rootMatch:
         score += 500
     score += 60 // (ed + 1)
-    if chord in ["I", "VI"]:  # Tonic function chords
-        score += 4
-    elif chord in ["IV", "II"]:  # Predominant function chords
-        score += 3
-    elif chord in ["V", "VII"]:  # Dominant function chords
-        score += 2
+    if ismajor:
+        if chord in ["I"]:  # Tonic function chords
+            score += 5
+        elif chord == "VI":
+            score += 4
+        elif chord in ["IV", "II"]:  # Predominant function chords
+            score += 3
+        elif chord in ["V", "VII"]:  # Dominant function chords
+            score += 2
+    else:
+        if chord in ["I", "VI"]:
+            score += 4
+        elif chord in ["IV", "II"]:  # Predominant function chords
+            score += 3
+        elif chord in ["V", "VII"]:  # Dominant function chords
+            score += 2
     if not lengthMatch:
         score -= 100
     return score
@@ -123,11 +133,21 @@ def NoteToChord(keys_name, key=None, numOut=10, threshold=2):
         if (
             key is None or entry["key"] == key
         ):  ## remeber to make all key upper() after import**********\
+            if entry["key"].upper().find("MAJOR") != -1:
+                ismajor = True
+            else:
+                ismajor = False
             idxMatch, nameMatch, rootMatch, ed, length_match = MatchAnalysis(
                 keys_idx, keys_name, entry["idx"], entry["naming"], entry["chord"]
             )
             score = ScoringModule(
-                idxMatch, nameMatch, rootMatch, ed, length_match, entry["chord"]
+                idxMatch,
+                nameMatch,
+                rootMatch,
+                ed,
+                length_match,
+                entry["chord"],
+                ismajor,
             )
             rscore.append(score)
             rchord.append(chord)

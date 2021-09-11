@@ -16,93 +16,20 @@ test_cases = [
     [["A", "C", "E"], "Aminor"],
     [["A", "C", "E", "F", "G", "B"], "Aminor"],
     [["A", "C", "E", "F", "G", "B"], ""],
-    [["Ab", "C", "Eb", "Gb", "G", "B"], ""],
+    [["Ab", "C", "Eb", "Gb"], ""],
 ]
 
-major_chords = [
-    "I",
-    "bII",
-    "II",
-    "II7",
-    "III",
-    "IV",
-    "V",
-    "V7",
-    "bVI",
-    "GerVI",
-    "FreVI",
-    "ItaVI",
-    "VI",
-    "VI7",
-    "VII",
-    "VII7",
-    "DimVII7",
-]
-minor_chords = [
-    "I",
-    "I+",
-    "bII",
-    "II",
-    "II7",
-    "III",
-    "IV",
-    "IV+",
-    "V",
-    "V+",
-    "V+7",
-    "VI",
-    "GerVI",
-    "FreVI",
-    "ItaVI",
-    "VII",
-    "DimVII",
-    "DimVII7",
-]
+for tc in test_cases:
+    keyinput = None if tc[1] == "" else tc[1]
+    result = NoteToChord(tc[0], keyinput, 5)
+    with open("../results/noteToChordResult.txt", "a") as f:
+        f.write(
+            f"For the notes {tc[0]}, with input key {str(keyinput)}, the results are:\n"
+        )
+        for i, ans in enumerate(result):
+            f.write(
+                f'{i}. {ans["Chord"]}, score: {ans["Score"]}, number of name match: {ans["name match"]}, number of pitch match: {ans["pitch match"]}, root present: {ans["root present"]}\n'
+            )
+        f.write("\n")
 
-pKey = []
-pChord = []
-pNote1 = []
-pNote2 = []
-pNote3 = []
-pNote4 = []
-
-for key in major_keys:
-    key = key + "Major"
-    for chord in major_chords:
-        x = ChordToNote(key, chord)
-        pKey.append(key)
-        pChord.append(chord)
-        pNote1.append(x[0])
-        pNote2.append(x[1])
-        pNote3.append(x[2])
-        try:
-            pNote4.append(x[3])
-        except:
-            pNote4.append("-")
-
-for key in minor_keys:
-    key = key + "Minor"
-    for chord in minor_chords:
-        x = ChordToNote(key, chord)
-        pKey.append(key)
-        pChord.append(chord)
-        pNote1.append(x[0])
-        pNote2.append(x[1])
-        pNote3.append(x[2])
-        try:
-            pNote4.append(x[3])
-        except:
-            pNote4.append("-")
-
-df = pd.DataFrame(
-    {
-        "Key": pKey,
-        "Chord": pChord,
-        "Note1": pNote1,
-        "Note2": pNote2,
-        "Note3": pNote3,
-        "Note4": pNote4,
-    }
-)
-df.to_csv("../results/chordToNoteResult.csv")
 print("Done!")

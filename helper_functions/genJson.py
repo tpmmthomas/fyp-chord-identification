@@ -13,14 +13,11 @@ minor_keys = ["a", "e", "b", "f#", "c#", "g#", "d", "g", "c", "f", "bb", "eb"]
 
 major_chords = [
     "I",
-    "I7",
     "bII",
     "II",
     "II7",
     "III",
-    "III7",
     "IV",
-    "IV7",
     "V",
     "V7",
     "bVI",
@@ -53,7 +50,6 @@ minor_chords = [
     "DimVII",
     "DimVII7",
 ]
-
 
 # json_list = []
 # for key in major_keys:
