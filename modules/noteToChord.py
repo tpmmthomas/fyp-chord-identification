@@ -20,6 +20,8 @@ def intersection(a, b):
 
 
 def edit_distance(a, b):
+    if abs(len(a)-len(b)) >=2:
+        return 999
     if len(a) > len(b):
         a = a[:-1]
     if len(b) > len(a):
@@ -40,16 +42,13 @@ def ScoringModule(idxMatch, nameMatch, rootMatch, ed, lengthMatch, chord):
     score += 60 // (ed + 1)
     if chord in ["I", "VI"]:  # Tonic function chords
         score += 4
-    elif chord in ["IV", "V"]:  # Predominant function chords
+    elif chord in ["IV", "II"]:  # Predominant function chords
         score += 3
-    elif chord in ["II", "VI"]:  # Dominant function chords
+    elif chord in ["V", "VII"]:  # Dominant function chords
         score += 2
-    elif chord in ["III", "VII"]:
-        score += 1
     if not lengthMatch:
         score -= 100
     return score
-    # C major I : CEG, provided input: C D G
 
 
 def MatchAnalysis(input_idx, input_name, chord_idx, chord_name, chord):
