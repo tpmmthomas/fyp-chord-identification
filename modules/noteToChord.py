@@ -33,13 +33,17 @@ def edit_distance(a, b):
     return dist
 
 
-def ScoringModule(idxMatch, nameMatch, rootMatch, ed, lengthMatch, chord, ismajor):
+def ScoringModule(
+    idxMatch, nameMatch, rootMatch, ed, lengthMatch, chord, ismajor, root_first
+):
     score = 0
     score += 1000 * nameMatch
     score += 100 * idxMatch
     if rootMatch:
         score += 500
     score += 60 // (ed + 1)
+    if root_first:
+        score += 10
     if ismajor:
         if chord in ["I"]:  # Tonic function chords
             score += 5
@@ -68,12 +72,16 @@ def MatchAnalysis(input_idx, input_name, chord_idx, chord_name, chord):
         root_match = True
     else:
         root_match = False
+    if chord_name[0] == input_name[0]:
+        root_first = True
+    else:
+        root_first = False
     ed = edit_distance(input_idx, chord_idx)
     if len(input_idx) != len(chord_idx):
         length_match = False
     else:
         length_match = True
-    return len(idxMatch), len(nameMatch), root_match, ed, length_match
+    return len(idxMatch), len(nameMatch), root_match, ed, length_match, root_first
 
 
 key_mapping = {"C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "A": 9, "B": 11}
@@ -137,7 +145,14 @@ def NoteToChord(keys_name, key=None, numOut=10, threshold=2):
                 ismajor = True
             else:
                 ismajor = False
-            idxMatch, nameMatch, rootMatch, ed, length_match = MatchAnalysis(
+            (
+                idxMatch,
+                nameMatch,
+                rootMatch,
+                ed,
+                length_match,
+                root_first,
+            ) = MatchAnalysis(
                 keys_idx, keys_name, entry["idx"], entry["naming"], entry["chord"]
             )
             score = ScoringModule(
@@ -148,6 +163,7 @@ def NoteToChord(keys_name, key=None, numOut=10, threshold=2):
                 length_match,
                 entry["chord"],
                 ismajor,
+                root_first,
             )
             rscore.append(score)
             rchord.append(chord)
