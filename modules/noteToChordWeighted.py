@@ -109,6 +109,11 @@ def keys2num(keys):
 
 
 def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
+    """
+        This is a weighted version.
+        keys_dict will be a dictionary, notes as key, value as weight.
+        Value should be normalized (add up to 1)
+    """
 
     if numOut is None:
         numOut = 10
@@ -122,6 +127,7 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
     sorted_keys = sorted(keys_idx)
 
     possible_chords = set()
+    sorted_keys = list(set(sorted_keys))
     for i in range(threshold, 5):
         for each in itertools.combinations(sorted_keys, i):
             possible_chords.update(key_chord_name_mapping[str(each)])
