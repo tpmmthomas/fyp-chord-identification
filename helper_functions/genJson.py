@@ -25,7 +25,6 @@ major_chords = [
     "FreVI",
     "ItaVI",
     "VI",
-    "VI7",
     "VII",
     "VII7",
     "DimVII7",

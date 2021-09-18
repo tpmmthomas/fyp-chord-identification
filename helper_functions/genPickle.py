@@ -83,8 +83,8 @@ for key in key_chord_mapping:
     ]
 
 
-with open("key_chord_mapping.pickle", "wb") as handle:
+with open("../modules/pickle_files/key_chord_mapping.pickle", "wb") as handle:
     pickle.dump(key_chord_mapping, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-with open("key_chord_name_mapping.pickle", "wb") as handle:
+with open("../modules/pickle_files/key_chord_name_mapping.pickle", "wb") as handle:
     pickle.dump(key_chord_name_mapping, handle, protocol=pickle.HIGHEST_PROTOCOL)

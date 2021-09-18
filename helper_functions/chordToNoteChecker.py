@@ -1,15 +1,53 @@
-import os,sys
-p = os.path.abspath('../modules')
+import os, sys
+
+p = os.path.abspath("../modules")
 sys.path.append(p)
 from chordToNote import ChordToNote
-#import numpy as np
+
+# import numpy as np
 import pandas as pd
 
-major_keys = ["C","G","D","A","E","B","F","Bb","Eb","Ab","Db","Gb"]
-minor_keys = ["a","e","b","f#","c#","g#","d","g","c","f","bb",'eb']
+major_keys = ["C", "G", "D", "A", "E", "B", "F", "Bb", "Eb", "Ab", "Db", "Gb"]
+minor_keys = ["a", "e", "b", "f#", "c#", "g#", "d", "g", "c", "f", "bb", "eb"]
 
-major_chords = ["I","bII","II","II7","III","IV","V","V7","bVI","GerVI","FreVI","ItaVI","VI","VI7","VII","VII7","DimVII7"]
-minor_chords = ["I","I+","bII","II","II7","III","IV","IV+","V","V+","V+7","VI","GerVI","FreVI","ItaVI","VII","DimVII","DimVII7"]
+major_chords = [
+    "I",
+    "bII",
+    "II",
+    "II7",
+    "III",
+    "IV",
+    "V",
+    "V7",
+    "bVI",
+    "GerVI",
+    "FreVI",
+    "ItaVI",
+    "VI",
+    "VII",
+    "VII7",
+    "DimVII7",
+]
+minor_chords = [
+    "I",
+    "I+",
+    "bII",
+    "II",
+    "II7",
+    "III",
+    "IV",
+    "IV+",
+    "V",
+    "V+",
+    "V+7",
+    "VI",
+    "GerVI",
+    "FreVI",
+    "ItaVI",
+    "VII",
+    "DimVII",
+    "DimVII7",
+]
 
 pKey = []
 pChord = []
@@ -21,7 +59,7 @@ pNote4 = []
 for key in major_keys:
     key = key + "Major"
     for chord in major_chords:
-        x = ChordToNote(key,chord)
+        x = ChordToNote(key, chord)
         pKey.append(key)
         pChord.append(chord)
         pNote1.append(x[0])
@@ -35,7 +73,7 @@ for key in major_keys:
 for key in minor_keys:
     key = key + "Minor"
     for chord in minor_chords:
-        x = ChordToNote(key,chord)
+        x = ChordToNote(key, chord)
         pKey.append(key)
         pChord.append(chord)
         pNote1.append(x[0])
@@ -46,6 +84,15 @@ for key in minor_keys:
         except:
             pNote4.append("-")
 
-df = pd.DataFrame({"Key":pKey,"Chord":pChord,"Note1":pNote1,"Note2":pNote2,"Note3":pNote3,"Note4":pNote4})
+df = pd.DataFrame(
+    {
+        "Key": pKey,
+        "Chord": pChord,
+        "Note1": pNote1,
+        "Note2": pNote2,
+        "Note3": pNote3,
+        "Note4": pNote4,
+    }
+)
 df.to_csv("../results/chordToNoteResult.csv")
 print("Done!")
