@@ -102,10 +102,10 @@ def keys2num(keys):
         elif key[1] == "X":
             return (num + (modifier - 1) * 2) % 12
 
-    if keys[-1] == "-":
-        return [key2num(key) for key in keys[:-1]]
-    else:
-        return [key2num(key) for key in keys]
+ #   if keys[-1] == "-":
+  #      return [key2num(key) for key in keys[:-1]]
+ #   else:
+    return [key2num(key) for key in keys]
 
 
 def NoteToChord(keys_name, key=None, numOut=10, threshold=2):
