@@ -118,10 +118,9 @@ def NoteToChord(keys_name, key=None, numOut=10, threshold=2):
         key = key.upper()
 
     keys_idx = keys2num(keys_name)
-    sorted_keys = sorted(keys_idx)
+    sorted_keys = sorted(list(set(keys_idx)))
 
     possible_chords = set()
-    sorted_keys = list(set(sorted_keys))
     for i in range(threshold, 5):
         for each in itertools.combinations(sorted_keys, i):
             possible_chords.update(key_chord_name_mapping[str(each)])

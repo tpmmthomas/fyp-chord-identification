@@ -123,6 +123,7 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
         key = key.upper()
 
     keys_name = list(keys_dict.keys())
+    keys_weight = list(keys_dict.values())
     keys_idx = keys2num(keys_name)
     sorted_keys = sorted(keys_idx)
 
@@ -214,7 +215,7 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
 
 if __name__ == "__main__":
     start = time.time()
-    result = NoteToChord()
+    result = NoteToChord({"C": 0.5, "E": 0.25, "G": 0.25})
     end = time.time()
     print("Time taken:", end - start, "\n", result)
 
