@@ -102,9 +102,9 @@ def keys2num(keys):
         elif key[1] == "X":
             return (num + (modifier - 1) * 2) % 12
 
- #   if keys[-1] == "-":
-  #      return [key2num(key) for key in keys[:-1]]
- #   else:
+    #   if keys[-1] == "-":
+    #      return [key2num(key) for key in keys[:-1]]
+    #   else:
     return [key2num(key) for key in keys]
 
 
@@ -121,8 +121,11 @@ def NoteToChord(keys_name, key=None, numOut=10, threshold=2):
     sorted_keys = sorted(keys_idx)
 
     possible_chords = set()
+    print(sorted_keys)
+    sorted_keys = list(set(sorted_keys))
     for i in range(threshold, 5):
         for each in itertools.combinations(sorted_keys, i):
+            print(str(each))
             possible_chords.update(key_chord_name_mapping[str(each)])
     chords = list(possible_chords)
     if chords == []:
