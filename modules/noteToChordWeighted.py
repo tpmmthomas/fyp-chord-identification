@@ -97,7 +97,7 @@ def keys2num(keys):
             return num
         elif key[1] == "#":
             return (num + (modifier - 1)) % 12
-        elif key[1] == "B":
+        elif key[1] == "B" or key[1] == "-":
             return (num - (modifier - 1)) % 12
         elif key[1] == "X":
             return (num + (modifier - 1) * 2) % 12
