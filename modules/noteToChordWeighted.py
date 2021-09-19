@@ -34,16 +34,30 @@ def edit_distance(a, b):
 
 
 def ScoringModule(
-    idxMatch, nameMatch, rootMatch, ed, lengthMatch, chord, ismajor, root_first
+    input_idx,
+    input_name,
+    input_dict,
+    chord_idx,
+    chord_name,
+    ed,
+    length_match,
+    chord,
+    ismajor,
 ):
     score = 0
-    score += 1000 * nameMatch
-    score += 100 * idxMatch
-    if rootMatch:
-        score += 500
+    for i, idx in enumerate(input_idx):
+        if idx in chord_idx:
+            score += 100 * input_dict[input_name[i]]
+    for i, name in enumerate(input_name):
+        if name in chord_name:
+            score += 1000 * input_dict[input_name[i]]
+    if chord_name[0] in input_name:  # root is contained
+        score += 500 * input_dict[chord_name[0]]
+    if chord_name[0] == input_name[0]:  # root is first
+        score += 10 * input_dict[chord_name[0]]
     score += 60 // (ed + 1)
-    if root_first:
-        score += 10
+    if not length_match:
+        score -= 100
     if ismajor:
         if chord in ["I"]:  # Tonic function chords
             score += 5
@@ -60,8 +74,6 @@ def ScoringModule(
             score += 3
         elif chord in ["V", "VII"]:  # Dominant function chords
             score += 2
-    if not lengthMatch:
-        score -= 100
     return score
 
 
@@ -123,7 +135,6 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
         key = key.upper()
 
     keys_name = list(keys_dict.keys())
-    keys_weight = list(keys_dict.values())
     keys_idx = keys2num(keys_name)
     sorted_keys = sorted(keys_idx)
 
@@ -164,14 +175,15 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
                 keys_idx, keys_name, entry["idx"], entry["naming"], entry["chord"]
             )
             score = ScoringModule(
-                idxMatch,
-                nameMatch,
-                rootMatch,
+                keys_idx,
+                keys_name,
+                keys_dict,  # for retrieving weight
+                entry["idx"],
+                entry["naming"],
                 ed,
                 length_match,
                 entry["chord"],
                 ismajor,
-                root_first,
             )
             rscore.append(score)
             rchord.append(chord)
@@ -215,7 +227,9 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
 
 if __name__ == "__main__":
     start = time.time()
-    result = NoteToChord({"C": 0.5, "E": 0.25, "G": 0.25})
+    result = NoteToChord(
+        {"C": 0.3, "E": 0.025, "A": 0.3, "F": 0.3, "G": 0.05, "B": 0.025}, "Cmajor"
+    )
     end = time.time()
     print("Time taken:", end - start, "\n", result)
 
