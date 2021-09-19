@@ -84,16 +84,12 @@ def MatchAnalysis(input_idx, input_name, chord_idx, chord_name, chord):
         root_match = True
     else:
         root_match = False
-    if chord_name[0] == input_name[0]:
-        root_first = True
-    else:
-        root_first = False
     ed = edit_distance(input_idx, chord_idx)
     if len(input_idx) != len(chord_idx):
         length_match = False
     else:
         length_match = True
-    return len(idxMatch), len(nameMatch), root_match, ed, length_match, root_first
+    return len(idxMatch), len(nameMatch), root_match, ed, length_match
 
 
 key_mapping = {"C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "A": 9, "B": 11}
@@ -133,11 +129,17 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
         threshold = 2
     if key is not None:
         key = key.upper()
-
+    newkeydict = {}
+    for dictkey in keys_dict:
+        if dictkey[-1] == "-":
+            newdictkey = dictkey[:-1] + "b"
+            newkeydict[newdictkey] = keys_dict[dictkey]
+        else:
+            newkeydict[dictkey] = keys_dict[dictkey]
+    keys_dict = newkeydict
     keys_name = list(keys_dict.keys())
     keys_idx = keys2num(keys_name)
     sorted_keys = sorted(keys_idx)
-
     possible_chords = set()
     sorted_keys = list(set(sorted_keys))
     for i in range(threshold, 5):
@@ -164,14 +166,7 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
                 ismajor = True
             else:
                 ismajor = False
-            (
-                idxMatch,
-                nameMatch,
-                rootMatch,
-                ed,
-                length_match,
-                root_first,
-            ) = MatchAnalysis(
+            (idxMatch, nameMatch, rootMatch, ed, length_match,) = MatchAnalysis(
                 keys_idx, keys_name, entry["idx"], entry["naming"], entry["chord"]
             )
             score = ScoringModule(
@@ -228,7 +223,7 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
 if __name__ == "__main__":
     start = time.time()
     result = NoteToChord(
-        {"C": 0.3, "E": 0.025, "A": 0.3, "F": 0.3, "G": 0.05, "B": 0.025}, "Cmajor"
+        {"C-": 0.3, "E": 0.025, "A": 0.3, "F": 0.3, "G": 0.05, "B": 0.025}, "Cmajor"
     )
     end = time.time()
     print("Time taken:", end - start, "\n", result)

@@ -116,7 +116,7 @@ def NoteToChord(keys_name, key=None, numOut=10, threshold=2):
         threshold = 2
     if key is not None:
         key = key.upper()
-
+    keys_name = [kn[:-1] + "b" if kn[-1] == "-" else kn for kn in keys_name]
     keys_idx = keys2num(keys_name)
     sorted_keys = sorted(list(set(keys_idx)))
 
