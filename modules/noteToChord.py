@@ -41,7 +41,7 @@ def ScoringModule(
     score += 100 * idxMatch
     if rootMatch:
         score += 500
-    score += 60 // (ed + 1)
+    score += 60 / (ed + 1)
     if root_first:
         score += 10
     if ismajor:
@@ -60,8 +60,10 @@ def ScoringModule(
             score += 3
         elif chord in ["V", "VII"]:  # Dominant function chords
             score += 2
-    if not lengthMatch:
-        score -= 100
+    # if not lengthMatch:
+    #     score -= 100
+    if chord[-1] == "7":
+        score -= 1
     return score
 
 

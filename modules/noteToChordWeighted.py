@@ -52,12 +52,12 @@ def ScoringModule(
         if name in chord_name:
             score += 1000 * input_dict[input_name[i]]
     if chord_name[0] in input_name:  # root is contained
-        score += 500 * input_dict[chord_name[0]]
+        score += 100 * input_dict[chord_name[0]]
     if chord_name[0] == input_name[0]:  # root is first
-        score += 10 * input_dict[chord_name[0]]
-    score += 60 // (ed + 1)
-    if not length_match:
-        score -= 100
+        score += 100 * input_dict[chord_name[0]]
+    # score += 60 / (ed + 1)
+    # if not length_match: #length match is not reliable when there are so many passing notes
+    #     score -= 100
     if ismajor:
         if chord in ["I"]:  # Tonic function chords
             score += 5
@@ -74,6 +74,10 @@ def ScoringModule(
             score += 3
         elif chord in ["V", "VII"]:  # Dominant function chords
             score += 2
+    if (
+        chord[-1] == "7"
+    ):  # in case normal and 7 get the same points, definitely get the nomral version first.
+        score -= 1
     return score
 
 
@@ -92,7 +96,21 @@ def MatchAnalysis(input_idx, input_name, chord_idx, chord_name, chord):
     return len(idxMatch), len(nameMatch), root_match, ed, length_match
 
 
+# ["a", "e", "b", "f#", "c#", "g#", "d", "g", "c", "f", "bb", "eb"]
+# "Bb", "Eb", "Ab", "Db", "Gb"
 key_mapping = {"C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "A": 9, "B": 11}
+changekey = {
+    "GBMINOR": "F#MINOR",
+    "DBMINOR": "C#MINOR",
+    "ABMINOR": "G#MINOR",
+    "A#MINOR": "BBMINOR",
+    "D#MINOR": "EBMINOR",
+    "A#MAJOR": "BBMAJOR",
+    "D#MAJOR": "EBMAJOR",
+    "G#MAJOR": "ABMAJOR",
+    "C#MAJOR": "DBMAJOR",
+    "F#MAJOR": "GBMAJOR",
+}
 
 # key_list to number_list
 def keys2num(keys):
@@ -116,12 +134,47 @@ def keys2num(keys):
         return [key2num(key) for key in keys]
 
 
+major_root_offset = [0, 2, 4, 5, 7, 9, 11]  # Defining major scale as WWHWWWH
+minor_root_offset = [0, 2, 3, 5, 7, 8, 10]  # Defining (natural) minor scale as WHWWHWW#
+num_root_mapping = {1: "I", 2: "II", 3: "III", 4: "IV", 5: "V", 6: "VI", 7: "VII"}
+
+
 def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
     """
         This is a weighted version.
         keys_dict will be a dictionary, notes as key, value as weight.
         Value should be normalized (add up to 1)
     """
+    if len(keys_dict) == 0:
+        return None
+    elif len(keys_dict) == 1:
+        onlynote = list(keys_dict.keys())[0]
+        if onlynote[-2:] == "--":
+            onlynote = onlynote[:-2] + "bb"
+        elif onlynote[-1] == "-":
+            onlynote = onlynote[:-1] + "b"
+        if not key is None:
+            note_idx = keys2num([onlynote])[0]
+            key_idx = keys2num([key[:-5]])[0]
+            if key.upper().find("MAJOR") != -1:
+                ismajor = True
+            else:
+                ismajor = False
+            offset = note_idx - key_idx
+            offset = offset + 12 if offset < 0 else offset
+            if ismajor:
+                try:
+                    idx = major_root_offset.index(offset) + 1
+                except:
+                    return None
+            else:
+                try:
+                    idx = minor_root_offset.index(offset) + 1
+                except:
+                    return None
+            return [{"Chord": key + num_root_mapping[idx]}]
+        else:
+            return [{"Chord": onlynote + "MajorI"}]
 
     if numOut is None:
         numOut = 10
@@ -131,7 +184,10 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
         key = key.upper()
     newkeydict = {}
     for dictkey in keys_dict:
-        if dictkey[-1] == "-":
+        if dictkey[-2:] == "--":
+            newdictkey = dictkey[:-2] + "bb"
+            newkeydict[newdictkey] = keys_dict[dictkey]
+        elif dictkey[-1] == "-":
             newdictkey = dictkey[:-1] + "b"
             newkeydict[newdictkey] = keys_dict[dictkey]
         else:
@@ -141,14 +197,14 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
     keys_idx = keys2num(keys_name)
     sorted_keys = sorted(keys_idx)
     possible_chords = set()
-    sorted_keys = list(set(sorted_keys))
+    sorted_keys = sorted(list(set(keys_idx)))
     for i in range(threshold, 5):
         for each in itertools.combinations(sorted_keys, i):
             possible_chords.update(key_chord_name_mapping[str(each)])
     chords = list(possible_chords)
     if chords == []:
-        return None, None
-
+        return None
+    # print(chords)
     rscore = []  # -1 for temp in range(len(chords))]
     rchord = []
     ridxMatch = []
@@ -157,6 +213,8 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
     reditdist = []
     rlengthMatch = []
     numOk = 0
+    if not key is None and key.upper() in changekey:
+        key = changekey[key.upper()]
     for idx, chord in enumerate(chords):
         entry = data[chord]
         if (
@@ -188,7 +246,8 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
             reditdist.append(ed)
             rlengthMatch.append(length_match)
             numOk += 1
-
+    if len(rscore) == 0:
+        return None
     rscore, rchord, ridxMatch, rnameMatch, rrootMatch, reditdist, rlengthMatch = zip(
         *sorted(
             zip(
@@ -222,9 +281,7 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
 
 if __name__ == "__main__":
     start = time.time()
-    result = NoteToChord(
-        {"C-": 0.3, "E": 0.025, "A": 0.3, "F": 0.3, "G": 0.05, "B": 0.025}, "Cmajor"
-    )
+    result = NoteToChord({"B": 0.333, "A#": 0.111, "B#": 0.556}, "F#Major")
     end = time.time()
     print("Time taken:", end - start, "\n", result)
 
