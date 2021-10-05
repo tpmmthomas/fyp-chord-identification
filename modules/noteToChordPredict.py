@@ -32,6 +32,7 @@ for piece in list(data.keys()):
         idx = result.find("or")
         result = result[idx + 2 :]
         # print(chord, result)
+        print(f"Expected: {chord}, returned: {result}")
         if (
             len(chord) >= 3
             and len(result) >= 3
