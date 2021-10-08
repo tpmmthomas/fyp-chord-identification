@@ -8,7 +8,7 @@
     <creator type="composer">Claude Debussy(1862 – 1918)</creator>
     <encoding>
       <software>MuseScore 3.3.4</software>
-      <encoding-date>2021-10-07</encoding-date>
+      <encoding-date>2021-10-08</encoding-date>
       <supports element="accidental" type="yes"/>
       <supports element="beam" type="yes"/>
       <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -42,7 +42,7 @@
     <lyric-font font-family="Edwin" font-size="10"/>
     </defaults>
   <credit page="1">
-    <credit-words default-x="1133.86" default-y="1502.09" justify="right" valign="bottom">Claude Debussy
+    <credit-words default-x="1133.86" default-y="1477.09" justify="right" valign="bottom" font-size="12">Claude Debussy
 </credit-words>
     <credit-words>(1862–1918)</credit-words>
     </credit>
@@ -77,10 +77,10 @@
             <left-margin>21.00</left-margin>
             <right-margin>0.00</right-margin>
             </system-margins>
-          <top-system-distance>195.00</top-system-distance>
+          <top-system-distance>220.00</top-system-distance>
           </system-layout>
         <staff-layout number="2">
-          <staff-distance>88.15</staff-distance>
+          <staff-distance>132.95</staff-distance>
           </staff-layout>
         </print>
       <attributes>
@@ -120,7 +120,7 @@
         </direction>
       <direction placement="below">
         <direction-type>
-          <words default-y="-75.20" relative-y="-35.00" font-family="MScore Text"></words>
+          <words default-y="-120.00" relative-y="-35.00" font-family="MScore Text"></words>
           <words font-style="italic" font-family="Edwin">     con sordina</words>
           </direction-type>
         <staff>1</staff>
@@ -132,7 +132,7 @@
         <type>eighth</type>
         <staff>1</staff>
         </note>
-      <note default-x="181.19" default-y="-163.15">
+      <note default-x="181.19" default-y="-207.95">
         <pitch>
           <step>F</step>
           <octave>4</octave>
@@ -146,12 +146,12 @@
         <notations>
           <slur type="start" placement="above" number="1"/>
           </notations>
-        <lyric number="1" default-x="6.58" default-y="-40.00" relative-y="-30.00">
+        <lyric number="1" default-x="10.58" default-y="-80.80" relative-y="-30.00">
           <syllabic>single</syllabic>
-          <text>x</text>
+          <text>DbM(x)</text>
           </lyric>
         </note>
-      <note default-x="181.19" default-y="-153.15">
+      <note default-x="181.19" default-y="-197.95">
         <chord/>
         <pitch>
           <step>A</step>
@@ -282,7 +282,7 @@
         <type>eighth</type>
         <staff>2</staff>
         </note>
-      <note default-x="181.19" default-y="-163.15" print-object="no">
+      <note default-x="181.19" default-y="-207.95" print-object="no">
         <pitch>
           <step>F</step>
           <octave>4</octave>
@@ -297,7 +297,7 @@
           <tied type="start"/>
           </notations>
         </note>
-      <note default-x="181.19" default-y="-153.15" print-object="no">
+      <note default-x="181.19" default-y="-197.95" print-object="no">
         <chord/>
         <pitch>
           <step>A</step>
@@ -314,7 +314,7 @@
           <tied type="start"/>
           </notations>
         </note>
-      <note default-x="265.16" default-y="-163.15">
+      <note default-x="265.16" default-y="-207.95">
         <pitch>
           <step>F</step>
           <octave>4</octave>
@@ -330,7 +330,7 @@
           <tied type="stop"/>
           </notations>
         </note>
-      <note default-x="265.16" default-y="-153.15">
+      <note default-x="265.16" default-y="-197.95">
         <chord/>
         <pitch>
           <step>A</step>
@@ -484,7 +484,7 @@
           </direction-type>
         <staff>2</staff>
         </direction>
-      <note default-x="14.00" default-y="-158.15">
+      <note default-x="14.00" default-y="-202.95">
         <pitch>
           <step>G</step>
           <alter>-1</alter>
@@ -505,7 +505,7 @@
           <text>x</text>
           </lyric>
         </note>
-      <note default-x="26.58" default-y="-153.15">
+      <note default-x="26.58" default-y="-197.95">
         <chord/>
         <pitch>
           <step>A</step>
@@ -523,7 +523,7 @@
           <tied type="start"/>
           </notations>
         </note>
-      <note default-x="215.56" default-y="-158.15">
+      <note default-x="215.56" default-y="-202.95">
         <pitch>
           <step>G</step>
           <alter>-1</alter>
@@ -540,7 +540,7 @@
           <tied type="stop"/>
           </notations>
         </note>
-      <note default-x="227.43" default-y="-153.15">
+      <note default-x="227.43" default-y="-197.95">
         <chord/>
         <pitch>
           <step>A</step>
@@ -763,7 +763,7 @@
           </direction-type>
         <staff>2</staff>
         </direction>
-      <note default-x="10.00" default-y="-163.15">
+      <note default-x="10.00" default-y="-207.95">
         <pitch>
           <step>F</step>
           <octave>4</octave>
@@ -783,7 +783,7 @@
           <text>x</text>
           </lyric>
         </note>
-      <note default-x="10.00" default-y="-153.15">
+      <note default-x="10.00" default-y="-197.95">
         <chord/>
         <pitch>
           <step>A</step>
@@ -801,7 +801,7 @@
           <tied type="start"/>
           </notations>
         </note>
-      <note default-x="224.83" default-y="-163.15">
+      <note default-x="224.83" default-y="-207.95">
         <pitch>
           <step>F</step>
           <octave>4</octave>
@@ -817,7 +817,7 @@
           <tied type="stop"/>
           </notations>
         </note>
-      <note default-x="224.83" default-y="-153.15">
+      <note default-x="224.83" default-y="-197.95">
         <chord/>
         <pitch>
           <step>A</step>
@@ -1066,7 +1066,7 @@
     <measure number="5" width="277.05">
       <direction placement="above">
         <direction-type>
-          <words default-y="12.43" relative-y="20.00" font-weight="bold" font-style="italic">49</words>
+          <words default-y="12.43" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">49</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="49"/>
@@ -1504,7 +1504,7 @@
         </attributes>
       <direction placement="above">
         <direction-type>
-          <words relative-y="20.00" font-weight="bold" font-style="italic">50</words>
+          <words relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">50</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="50"/>
@@ -1986,7 +1986,7 @@
     <measure number="9" width="239.84">
       <direction placement="above">
         <direction-type>
-          <words default-y="18.85" relative-y="20.00" font-weight="bold" font-style="italic">51</words>
+          <words default-y="18.85" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">51</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="51"/>
@@ -2575,7 +2575,7 @@
     <measure number="11" width="231.86">
       <direction placement="above">
         <direction-type>
-          <words default-y="22.11" relative-y="20.00" font-weight="bold" font-style="italic">52</words>
+          <words default-y="23.25" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">52</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="52"/>
@@ -3293,7 +3293,7 @@
     <measure number="13" width="392.93">
       <direction placement="above">
         <direction-type>
-          <words default-y="17.92" relative-y="20.00" font-weight="bold" font-style="italic">53</words>
+          <words default-y="20.80" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">53</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="53"/>
@@ -3798,7 +3798,7 @@
     <measure number="14" width="296.49">
       <direction placement="above">
         <direction-type>
-          <words default-y="38.60" relative-y="20.00" font-weight="bold" font-style="italic">54</words>
+          <words default-y="38.60" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">54</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="54"/>
@@ -4231,7 +4231,7 @@
             <left-margin>21.00</left-margin>
             <right-margin>0.00</right-margin>
             </system-margins>
-          <top-system-distance>90.58</top-system-distance>
+          <top-system-distance>93.38</top-system-distance>
           </system-layout>
         <staff-layout number="2">
           <staff-distance>65.00</staff-distance>
@@ -4269,7 +4269,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words default-y="56.98" relative-y="20.00" font-weight="bold" font-style="italic">54</words>
+          <words default-y="56.98" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">54</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="54"/>
@@ -4477,7 +4477,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words default-y="26.18" relative-y="20.00" font-weight="bold" font-style="italic">57</words>
+          <words default-y="26.18" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">57</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="57"/>
@@ -5022,7 +5022,7 @@
     <measure number="16" width="258.08">
       <direction placement="above">
         <direction-type>
-          <words default-y="21.18" relative-y="20.00" font-weight="bold" font-style="italic">60</words>
+          <words default-y="21.18" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">60</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="60"/>
@@ -5183,7 +5183,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words default-y="16.18" relative-y="20.00" font-weight="bold" font-style="italic">57</words>
+          <words default-y="16.18" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">57</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="57"/>
@@ -5262,7 +5262,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words default-y="21.18" relative-y="20.00" font-weight="bold" font-style="italic">54</words>
+          <words default-y="21.18" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">54</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="54"/>
@@ -5678,7 +5678,7 @@
         </attributes>
       <direction placement="above">
         <direction-type>
-          <words relative-y="20.00" font-weight="bold" font-style="italic">57</words>
+          <words relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">57</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="57"/>
@@ -5708,7 +5708,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words default-y="38.43" relative-y="20.00" font-weight="bold" font-style="italic">54</words>
+          <words default-y="38.43" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">54</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="54"/>
@@ -5905,7 +5905,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words default-y="50.56" relative-y="20.00" font-weight="bold" font-style="italic">57</words>
+          <words default-y="50.56" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">57</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="57"/>
@@ -6425,7 +6425,7 @@
             <left-margin>21.00</left-margin>
             <right-margin>0.00</right-margin>
             </system-margins>
-          <top-system-distance>85.93</top-system-distance>
+          <top-system-distance>88.73</top-system-distance>
           </system-layout>
         <staff-layout number="2">
           <staff-distance>120.21</staff-distance>
@@ -6433,7 +6433,7 @@
         </print>
       <direction placement="above">
         <direction-type>
-          <words default-y="44.03" relative-y="20.00" font-weight="bold" font-style="italic">60</words>
+          <words default-y="44.03" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">60</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="60"/>
@@ -6557,7 +6557,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words default-y="52.73" relative-y="20.00" font-weight="bold" font-style="italic">57</words>
+          <words default-y="52.73" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">57</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="57"/>
@@ -6600,7 +6600,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words default-y="46.02" relative-y="20.00" font-weight="bold" font-style="italic">54</words>
+          <words default-y="46.02" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">54</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="54"/>
@@ -7013,7 +7013,7 @@
         </attributes>
       <direction placement="above">
         <direction-type>
-          <words default-y="47.89" relative-y="20.00" font-weight="bold" font-style="italic">57</words>
+          <words default-y="47.89" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">57</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="57"/>
@@ -7545,7 +7545,7 @@
     <measure number="20" width="327.13">
       <direction placement="above">
         <direction-type>
-          <words relative-y="20.00" font-weight="bold" font-style="italic">60</words>
+          <words relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">60</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="60"/>
@@ -8238,7 +8238,7 @@
         </print>
       <direction placement="above">
         <direction-type>
-          <words relative-y="20.00" font-weight="bold" font-style="italic">63</words>
+          <words relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">63</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="63"/>
@@ -8734,7 +8734,7 @@
     <measure number="22" width="324.69">
       <direction placement="above">
         <direction-type>
-          <words relative-y="20.00" font-weight="bold" font-style="italic">66</words>
+          <words relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">66</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="66"/>
@@ -9418,7 +9418,7 @@
     <measure number="23" width="292.84">
       <direction placement="above">
         <direction-type>
-          <words relative-y="20.00" font-weight="bold" font-style="italic">69</words>
+          <words relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">69</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="69"/>
@@ -9969,7 +9969,7 @@
             <left-margin>21.00</left-margin>
             <right-margin>0.00</right-margin>
             </system-margins>
-          <system-distance>160.55</system-distance>
+          <system-distance>171.75</system-distance>
           </system-layout>
         <staff-layout number="2">
           <staff-distance>87.72</staff-distance>
@@ -9977,7 +9977,7 @@
         </print>
       <direction placement="above">
         <direction-type>
-          <words relative-y="20.00" font-weight="bold" font-style="italic">72</words>
+          <words relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">72</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="72"/>
@@ -10694,7 +10694,7 @@
     <measure number="25" width="219.09">
       <direction placement="above">
         <direction-type>
-          <words default-y="26.65" relative-y="20.00" font-weight="bold" font-style="italic">70</words>
+          <words default-y="26.65" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">70</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="70.0002"/>
@@ -10714,15 +10714,15 @@
         <staff>1</staff>
         <sound dynamics="88.89"/>
         </direction>
-      <direction placement="below">
-        <direction-type>
-          <wedge type="diminuendo" number="1" default-y="-75.00"/>
-          </direction-type>
-        <staff>1</staff>
-        </direction>
       <direction placement="above">
         <direction-type>
           <octave-shift type="down" size="8" number="1" default-y="31.85"/>
+          </direction-type>
+        <staff>1</staff>
+        </direction>
+      <direction placement="below">
+        <direction-type>
+          <wedge type="diminuendo" number="1" default-y="-75.00"/>
           </direction-type>
         <staff>1</staff>
         </direction>
@@ -10778,7 +10778,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words default-y="17.75" relative-y="20.00" font-weight="bold" font-style="italic">66</words>
+          <words default-y="17.75" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">66</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="66"/>
@@ -11277,7 +11277,7 @@
     <measure number="26" width="327.33">
       <direction placement="above">
         <direction-type>
-          <words default-y="17.75" relative-y="20.00" font-weight="bold" font-style="italic">63</words>
+          <words default-y="17.75" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">63</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="63"/>
@@ -11343,7 +11343,7 @@
         </direction>
       <direction placement="above">
         <direction-type>
-          <words default-y="2.73" relative-y="20.00" font-weight="bold" font-style="italic">60</words>
+          <words default-y="2.73" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">60</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="60"/>
@@ -11848,28 +11848,28 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words relative-y="20.00" font-weight="bold" font-style="italic">57</words>
+          <words relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">57</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="57"/>
         </direction>
       <direction placement="above">
         <direction-type>
-          <words default-y="18.20" relative-y="20.00" font-weight="bold" font-style="italic">42</words>
+          <words default-y="21.00" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">42</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="42"/>
         </direction>
       <direction placement="above">
         <direction-type>
-          <words default-y="36.80" relative-y="20.00" font-weight="bold" font-style="italic">24</words>
+          <words default-y="42.40" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">24</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="24"/>
         </direction>
       <direction placement="above">
         <direction-type>
-          <words default-y="55.80" relative-y="20.00" font-weight="bold" font-style="italic">18</words>
+          <words default-y="64.20" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">18</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="18"/>
@@ -16869,9 +16869,9 @@
         <dot/>
         <stem>down</stem>
         <staff>2</staff>
-        <lyric number="1" default-x="-5.28" default-y="-85.70" relative-y="-30.00">
+        <lyric number="1" default-x="-1.68" default-y="-90.10" relative-y="-30.00">
           <syllabic>single</syllabic>
-          <text>x</text>
+          <text>C#m(x)</text>
           </lyric>
         </note>
       <note default-x="315.84" default-y="-189.02">
@@ -16886,7 +16886,7 @@
         <dot/>
         <stem>down</stem>
         <staff>2</staff>
-        <lyric number="1" default-x="6.58" default-y="-85.70" relative-y="-30.00">
+        <lyric number="1" default-x="6.58" default-y="-90.10" relative-y="-30.00">
           <syllabic>single</syllabic>
           <text>x</text>
           </lyric>
@@ -16902,7 +16902,7 @@
         <dot/>
         <stem>down</stem>
         <staff>2</staff>
-        <lyric number="1" default-x="6.58" default-y="-85.70" relative-y="-30.00">
+        <lyric number="1" default-x="6.58" default-y="-90.10" relative-y="-30.00">
           <syllabic>single</syllabic>
           <text>x</text>
           </lyric>
@@ -16966,7 +16966,7 @@
         <notations>
           <slur type="start" placement="below" number="1"/>
           </notations>
-        <lyric number="1" default-x="6.58" default-y="-85.70" relative-y="-30.00">
+        <lyric number="1" default-x="6.58" default-y="-90.10" relative-y="-30.00">
           <syllabic>single</syllabic>
           <text>x</text>
           </lyric>
@@ -17070,7 +17070,7 @@
         <notations>
           <slur type="start" placement="below" number="1"/>
           </notations>
-        <lyric number="1" default-x="6.58" default-y="-85.70" relative-y="-30.00">
+        <lyric number="1" default-x="6.58" default-y="-90.10" relative-y="-30.00">
           <syllabic>single</syllabic>
           <text>x</text>
           </lyric>
@@ -17288,7 +17288,7 @@
         <accidental>sharp</accidental>
         <stem>down</stem>
         <staff>2</staff>
-        <lyric number="1" default-x="6.58" default-y="-85.70" relative-y="-30.00">
+        <lyric number="1" default-x="6.58" default-y="-90.10" relative-y="-30.00">
           <syllabic>single</syllabic>
           <text>x</text>
           </lyric>
@@ -17301,7 +17301,7 @@
             <left-margin>21.00</left-margin>
             <right-margin>0.00</right-margin>
             </system-margins>
-          <system-distance>196.74</system-distance>
+          <system-distance>201.14</system-distance>
           </system-layout>
         <staff-layout number="2">
           <staff-distance>67.30</staff-distance>
@@ -19461,9 +19461,9 @@
         <notations>
           <slur type="start" placement="above" number="1"/>
           </notations>
-        <lyric number="1" default-x="6.58" default-y="-93.81" relative-y="-30.00">
+        <lyric number="1" default-x="10.58" default-y="-98.21" relative-y="-30.00">
           <syllabic>single</syllabic>
-          <text>x</text>
+          <text>DbM(x)</text>
           </lyric>
         </note>
       <note default-x="149.69" default-y="-160.41">
@@ -19657,7 +19657,7 @@
         <staff>2</staff>
         <beam number="1">begin</beam>
         <beam number="2">begin</beam>
-        <lyric number="1" default-x="6.58" default-y="-93.81" relative-y="-30.00">
+        <lyric number="1" default-x="6.58" default-y="-98.21" relative-y="-30.00">
           <syllabic>single</syllabic>
           <text>x</text>
           </lyric>
@@ -19935,7 +19935,7 @@
         <staff>2</staff>
         <beam number="1">begin</beam>
         <beam number="2">begin</beam>
-        <lyric number="1" default-x="6.58" default-y="-93.81" relative-y="-30.00">
+        <lyric number="1" default-x="6.58" default-y="-98.21" relative-y="-30.00">
           <syllabic>single</syllabic>
           <text>x</text>
           </lyric>
@@ -20131,7 +20131,7 @@
         <staff>2</staff>
         <beam number="1">begin</beam>
         <beam number="2">begin</beam>
-        <lyric number="1" default-x="6.58" default-y="-93.81" relative-y="-30.00">
+        <lyric number="1" default-x="6.58" default-y="-98.21" relative-y="-30.00">
           <syllabic>single</syllabic>
           <text>x</text>
           </lyric>
@@ -20223,7 +20223,7 @@
             <left-margin>21.00</left-margin>
             <right-margin>0.00</right-margin>
             </system-margins>
-          <system-distance>150.00</system-distance>
+          <system-distance>165.15</system-distance>
           </system-layout>
         <staff-layout number="2">
           <staff-distance>84.61</staff-distance>
@@ -27833,7 +27833,7 @@
             <left-margin>21.00</left-margin>
             <right-margin>0.00</right-margin>
             </system-margins>
-          <system-distance>153.30</system-distance>
+          <system-distance>158.90</system-distance>
           </system-layout>
         <staff-layout number="2">
           <staff-distance>114.06</staff-distance>
@@ -28216,14 +28216,14 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words relative-y="20.00" font-weight="bold" font-style="italic">93</words>
+          <words relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">93</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="93"/>
         </direction>
       <direction placement="above">
         <direction-type>
-          <words default-y="19.00" relative-y="20.00" font-weight="bold" font-style="italic">90</words>
+          <words default-y="21.80" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">90</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="90"/>
@@ -28232,7 +28232,7 @@
     <measure number="67" width="458.15">
       <direction placement="above">
         <direction-type>
-          <words relative-y="20.00" font-weight="bold" font-style="italic">87</words>
+          <words relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">87</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="87"/>
@@ -28256,7 +28256,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words default-y="2.42" relative-y="20.00" font-weight="bold" font-style="italic">84</words>
+          <words default-y="4.48" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">84</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="84"/>
@@ -28280,7 +28280,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words default-y="7.89" relative-y="20.00" font-weight="bold" font-style="italic">81</words>
+          <words default-y="7.89" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">81</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="81"/>
@@ -28602,7 +28602,7 @@
         </print>
       <direction placement="above">
         <direction-type>
-          <words relative-y="20.00" font-weight="bold" font-style="italic">78</words>
+          <words relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">78</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="78"/>
@@ -28970,14 +28970,14 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words relative-y="20.00" font-weight="bold" font-style="italic">75</words>
+          <words relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">75</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="75"/>
         </direction>
       <direction placement="above">
         <direction-type>
-          <words default-y="18.20" relative-y="20.00" font-weight="bold" font-style="italic">72</words>
+          <words default-y="21.00" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">72</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="72"/>
@@ -28986,7 +28986,7 @@
     <measure number="69" width="451.21">
       <direction placement="above">
         <direction-type>
-          <words relative-y="20.00" font-weight="bold" font-style="italic">69</words>
+          <words relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">69</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="69"/>
@@ -29013,7 +29013,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words default-y="28.55" relative-y="20.00" font-weight="bold" font-style="italic">66</words>
+          <words default-y="31.99" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">66</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="66"/>
@@ -29037,7 +29037,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words default-y="36.45" relative-y="20.00" font-weight="bold" font-style="italic">63</words>
+          <words default-y="36.45" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">63</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="63"/>
@@ -29349,7 +29349,7 @@
             <left-margin>21.00</left-margin>
             <right-margin>0.00</right-margin>
             </system-margins>
-          <system-distance>187.97</system-distance>
+          <system-distance>190.77</system-distance>
           </system-layout>
         <staff-layout number="2">
           <staff-distance>106.73</staff-distance>
@@ -29357,7 +29357,7 @@
         </print>
       <direction placement="above">
         <direction-type>
-          <words default-y="28.55" relative-y="20.00" font-weight="bold" font-style="italic">60</words>
+          <words default-y="30.79" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">60</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="60"/>
@@ -29381,7 +29381,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words default-y="55.86" relative-y="20.00" font-weight="bold" font-style="italic">57</words>
+          <words default-y="55.86" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">57</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="57"/>
@@ -29401,7 +29401,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words default-y="44.92" relative-y="20.00" font-weight="bold" font-style="italic">54</words>
+          <words default-y="44.92" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">54</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="54"/>
@@ -29609,7 +29609,7 @@
     <measure number="71" width="358.13">
       <direction placement="above">
         <direction-type>
-          <words default-y="36.99" relative-y="20.00" font-weight="bold" font-style="italic">51</words>
+          <words default-y="36.99" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">51</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="51"/>
@@ -29651,14 +29651,14 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words default-y="35.82" relative-y="20.00" font-weight="bold" font-style="italic">45</words>
+          <words default-y="35.82" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">45</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="45"/>
         </direction>
       <direction placement="above">
         <direction-type>
-          <words default-y="54.82" relative-y="20.00" font-weight="bold" font-style="italic">48</words>
+          <words default-y="57.62" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">48</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="48"/>
@@ -29925,7 +29925,7 @@
         </direction>
       <direction placement="above">
         <direction-type>
-          <words default-y="35.45" relative-y="20.00" font-weight="bold" font-style="italic">42</words>
+          <words default-y="35.45" relative-y="20.00" font-weight="bold" font-style="italic" font-size="12">42</words>
           </direction-type>
         <staff>1</staff>
         <sound tempo="42"/>
