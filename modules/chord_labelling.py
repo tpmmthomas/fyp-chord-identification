@@ -4,6 +4,8 @@ import os
 import glob
 import re
 import numpy as np
+from noteToChordWeighted import NoteToChord
+import json
 
 chord_sequence = {}
 i = 0
@@ -56,7 +58,7 @@ def importance_score(notelist, noteduration, noteoctave):
     return returnnote
 
 
-for piece in glob.glob("../musicxml(notated)/*.mxl"):
+for piece in glob.glob("../musicxml(not_notated)/*.musicxml"):
     #     if i == 0:
     #         i += 1
     #         continue
@@ -85,7 +87,7 @@ for piece in glob.glob("../musicxml(notated)/*.mxl"):
             newnoteduration = []
             newnoteoctave = []
             if current_key != "" and current_chord != "" and len(notelist) != 0:
-                chords.append(current_chord.replace(u"\u266d", "b"))
+                chords.append(current_chord.replace("\u266d", "b"))
                 toremove = []
                 for i, offset in enumerate(noteoffset):
                     if offset == note.offset:
@@ -114,17 +116,40 @@ for piece in glob.glob("../musicxml(notated)/*.mxl"):
         allnotes = list(note.pitches)
         duration = note.duration
         for note1 in allnotes:
-            notelist.append(note1.name.replace(u"\u266d", "b"))
+            notelist.append(note1.name.replace("\u266d", "b"))
             noteoffset.append(note.offset)
             noteduration.append(duration.quarterLength)
             noteoctave.append(int(note1.nameWithOctave[-1]))
     if current_key != "" and current_chord != "" and len(notelist) != 0:
-        chords.append(current_chord.replace(u"\u266d", "b"))
+        chords.append(current_chord.replace("\u266d", "b"))
         append_list = importance_score(notelist, noteduration, noteoctave)
         notes.append(append_list)
-    piecekey = re.sub(r"[^a-zA-Z0-9_.]", "", piece[21:])
+    piecekey = re.sub(r"[^a-zA-Z0-9_.]", "", piece[23:])
     chord_sequence[piecekey] = {"chord_seq": chords, "note_seq": notes}
 
 # Then call note to chord
 # Then yub
+print(chord_sequence)
+
+predictions = {}
+
+for piecekey in chord_sequence:
+    predictions[piecekey] = []
+    currentpiece = chord_sequence[piecekey]
+    piecechord = currentpiece["chord_seq"]
+    piecenote = currentpiece["note_seq"]
+    for i in range(len(piecechord)):
+        idx = piecechord[i].find("_")
+        key = piecechord[i][:idx]
+        key = key[:-1] + "Major" if key[-1] == "M" else key[:-1] + "Minor"
+        result = NoteToChord(piecenote[i], key, numOut=1)
+        if not result is None:
+            result = result[0]["Chord"]
+        else:
+            result = "None"
+        predictions[piecekey].append(result)
+
+print(predictions)
+with open("../results/chordlabel.json", "w") as f:
+    json.dump(predictions, f)
 
