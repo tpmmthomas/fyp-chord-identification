@@ -149,7 +149,25 @@ for piecekey in chord_sequence:
             result = "None"
         predictions[piecekey].append(result)
 
-print(predictions)
-with open("../results/chordlabel.json", "w") as f:
-    json.dump(predictions, f)
+for piece in glob.glob("../musicxml(not_notated)/*.musicxml"):
+    piecekey = re.sub(r"[^a-zA-Z0-9_.]", "", piece[23:])
+    predict = predictions[piecekey]
+    i = 0
+    c = converter.parse(piece)
+    for thisNote in c.recurse().notes:
+        if thisNote.lyric is not None:
+            if thisNote.lyric == "x":
+                j = predict[i].find("or")
+                thisNote.addLyric(predict[i][j + 2 :])
+            else:
+                q = thisNote.lyric.find("(")
+                j = predict[i].find("or")
+                toadd = thisNote.lyric[:q] + "(" + predict[i][j + 2 :] + ")"
+                thisNote.addLyric(toadd)
+    GEX = musicxml.m21ToXml.GeneralObjectExporter(c)
+    out = GEX.parse()
+    # outstr = out.decode("utf-8")
+    # print(outstr.strip())
+    with open(piece[:-9] + "_n2c.musicxml", "wb") as f:
+        f.write(out)
 
