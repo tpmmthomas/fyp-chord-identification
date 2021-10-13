@@ -3,6 +3,7 @@ import pandas as pd
 import argparse
 import time
 import itertools
+from chordToNote import ChordToNote
 import pickle
 
 with open("../modules/json_files/keychorddict.json") as f:
@@ -85,7 +86,7 @@ def ScoringModule(
     return score
 
 
-def MatchAnalysis(input_idx, input_name, chord_idx, chord_name, chord):
+def MatchAnalysis(input_idx, input_name, chord_idx, chord_name, chord, key):
     idxMatch = intersection(input_idx, chord_idx)
     nameMatch = intersection(input_name, chord_name)
     if chord_name[0] in input_name:
@@ -97,7 +98,10 @@ def MatchAnalysis(input_idx, input_name, chord_idx, chord_name, chord):
         length_match = False
     else:
         length_match = True
-    return len(idxMatch), len(nameMatch), root_match, ed, length_match
+    seventhNote = ChordToNote(key, chord + "7")[-1]
+    hasSeventh = seventhNote in input_name
+    # print(key, chord, seventhNote, input_name, hasSeventh)
+    return len(idxMatch), len(nameMatch), root_match, ed, length_match, hasSeventh
 
 
 # ["a", "e", "b", "f#", "c#", "g#", "d", "g", "c", "f", "bb", "eb"]
@@ -216,6 +220,7 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
     rrootMatch = []
     reditdist = []
     rlengthMatch = []
+    hasSeventh = []
     numOk = 0
     if not key is None and key.upper() in changekey:
         key = changekey[key.upper()]
@@ -228,8 +233,20 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
                 ismajor = True
             else:
                 ismajor = False
-            (idxMatch, nameMatch, rootMatch, ed, length_match,) = MatchAnalysis(
-                keys_idx, keys_name, entry["idx"], entry["naming"], entry["chord"]
+            (
+                idxMatch,
+                nameMatch,
+                rootMatch,
+                ed,
+                length_match,
+                isseventh,
+            ) = MatchAnalysis(
+                keys_idx,
+                keys_name,
+                entry["idx"],
+                entry["naming"],
+                entry["chord"],
+                entry["key"],
             )
             score = ScoringModule(
                 keys_idx,
@@ -249,10 +266,20 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
             rrootMatch.append(rootMatch)
             reditdist.append(ed)
             rlengthMatch.append(length_match)
+            hasSeventh.append(isseventh)
             numOk += 1
     if len(rscore) == 0:
         return None
-    rscore, rchord, ridxMatch, rnameMatch, rrootMatch, reditdist, rlengthMatch = zip(
+    (
+        rscore,
+        rchord,
+        ridxMatch,
+        rnameMatch,
+        rrootMatch,
+        reditdist,
+        rlengthMatch,
+        hasSeventh,
+    ) = zip(
         *sorted(
             zip(
                 rscore,
@@ -262,6 +289,7 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
                 rrootMatch,
                 reditdist,
                 rlengthMatch,
+                hasSeventh,
             ),
             reverse=True,
         )[: min(numOk, numOut)]
@@ -278,6 +306,7 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
                 "root present": rrootMatch[idx],
                 "edit distance": reditdist[idx],
                 "length match": rlengthMatch[idx],
+                "hasSeventh": hasSeventh[idx],
             }
         )
     return result
@@ -285,7 +314,7 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
 
 if __name__ == "__main__":
     start = time.time()
-    result = NoteToChord({"B": 0.333, "A#": 0.111, "B#": 0.556}, "F#Major")
+    result = NoteToChord({"E": 0.333, "A": 0.111, "C#": 0.556, "F#": 0.6}, "Emajor")
     end = time.time()
     print("Time taken:", end - start, "\n", result)
 

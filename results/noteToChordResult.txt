@@ -120,3 +120,63 @@ For the notes ['Ab', 'C', 'Eb', 'Gb'], with input key None, the results are:
 3. GbMajorII7, score: 3815, number of name match: 3, number of pitch match: 3, root present: True
 4. bbMinorII7, score: 3803, number of name match: 3, number of pitch match: 3, root present: True
 
+For the notes ['C', 'E', 'G'], with input key CMajor, the results are:
+0. CMajorI, score: 3875.0, number of name match: 3, number of pitch match: 3, root present: True
+1. CMajorIII, score: 2705.0, number of name match: 2, number of pitch match: 2, root present: True
+2. CMajorVI, score: 2207.529411764706, number of name match: 2, number of pitch match: 2, root present: False
+
+For the notes ['Ab', 'C', 'Eb', 'F#'], with input key CMajor, the results are:
+0. CMajorGerVI, score: 4970.0, number of name match: 4, number of pitch match: 4, root present: True
+1. CMajorbVI, score: 3870.0, number of name match: 3, number of pitch match: 3, root present: True
+2. CMajorFreVI, score: 3840.0, number of name match: 3, number of pitch match: 3, root present: True
+3. CMajorItaVI, score: 3825.0, number of name match: 3, number of pitch match: 3, root present: True
+
+For the notes ['C', 'D', 'G'], with input key CMajor, the results are:
+0. CMajorI, score: 2735.0, number of name match: 2, number of pitch match: 2, root present: True
+1. CMajorII7, score: 2706.5, number of name match: 2, number of pitch match: 2, root present: True
+2. CMajorV, score: 2704.7272727272725, number of name match: 2, number of pitch match: 2, root present: True
+3. CMajorV7, score: 2701.7272727272725, number of name match: 2, number of pitch match: 2, root present: True
+4. CMajorFreVI, score: 2203.75, number of name match: 2, number of pitch match: 2, root present: False
+
+For the notes ['Ab', 'C', 'Eb'], with input key None, the results are:
+0. AbMajorI, score: 3875.0, number of name match: 3, number of pitch match: 3, root present: True
+1. cMinorVI, score: 3874.0, number of name match: 3, number of pitch match: 3, root present: True
+2. EbMajorIV, score: 3873.0, number of name match: 3, number of pitch match: 3, root present: True
+3. bbMinorVII, score: 3872.0, number of name match: 3, number of pitch match: 3, root present: True
+4. DbMajorV, score: 3872.0, number of name match: 3, number of pitch match: 3, root present: True
+
+For the notes ['C', 'D', 'E'], with input key None, the results are:
+0. CMajorI, score: 2725.0, number of name match: 2, number of pitch match: 2, root present: True
+1. eMinorVI, score: 2724.0, number of name match: 2, number of pitch match: 2, root present: True
+2. GMajorIV, score: 2723.0, number of name match: 2, number of pitch match: 2, root present: True
+3. eMinorFreVI, score: 2722.0, number of name match: 2, number of pitch match: 2, root present: True
+4. dMinorVII, score: 2722.0, number of name match: 2, number of pitch match: 2, root present: True
+
+For the notes ['A', 'C', 'E'], with input key Aminor, the results are:
+0. aMinorI, score: 3874.0, number of name match: 3, number of pitch match: 3, root present: True
+1. aMinorI+, score: 2740.0, number of name match: 2, number of pitch match: 2, root present: True
+2. aMinorIII, score: 2703.529411764706, number of name match: 2, number of pitch match: 2, root present: True
+3. aMinorVI, score: 2207.3333333333335, number of name match: 2, number of pitch match: 2, root present: False
+4. aMinorGerVI, score: 2203.3333333333335, number of name match: 2, number of pitch match: 2, root present: False
+
+For the notes ['A', 'C', 'E', 'F', 'G', 'B'], with input key Aminor, the results are:
+0. aMinorI, score: 3814.06, number of name match: 3, number of pitch match: 3, root present: True
+1. aMinorVI, score: 3804.06, number of name match: 3, number of pitch match: 3, root present: True
+2. aMinorV, score: 3802.06, number of name match: 3, number of pitch match: 3, root present: True
+3. aMinorIII, score: 3800.06, number of name match: 3, number of pitch match: 3, root present: True
+4. aMinorGerVI, score: 3800.06, number of name match: 3, number of pitch match: 3, root present: True
+
+For the notes ['A', 'C', 'E', 'F', 'G', 'B'], with input key None, the results are:
+0. GMajorII7, score: 4909.06, number of name match: 4, number of pitch match: 4, root present: True
+1. aMinorI, score: 3814.06, number of name match: 3, number of pitch match: 3, root present: True
+2. CMajorVI, score: 3814.06, number of name match: 3, number of pitch match: 3, root present: True
+3. eMinorIV, score: 3813.06, number of name match: 3, number of pitch match: 3, root present: True
+4. GMajorII, score: 3813.06, number of name match: 3, number of pitch match: 3, root present: True
+
+For the notes ['Ab', 'C', 'Eb', 'Gb'], with input key None, the results are:
+0. DbMajorV7, score: 4969.0, number of name match: 4, number of pitch match: 4, root present: True
+1. cMinorGerVI, score: 3970.0, number of name match: 3, number of pitch match: 4, root present: True
+2. CMajorGerVI, score: 3970.0, number of name match: 3, number of pitch match: 4, root present: True
+3. AbMajorI, score: 3875.0, number of name match: 3, number of pitch match: 3, root present: True
+4. cMinorVI, score: 3874.0, number of name match: 3, number of pitch match: 3, root present: True
+
