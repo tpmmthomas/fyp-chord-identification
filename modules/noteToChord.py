@@ -4,6 +4,7 @@ import argparse
 import time
 import itertools
 import pickle
+from chordToNote import ChordToNote
 
 with open("../modules/json_files/keychorddict.json") as f:
     data = json.load(f)
@@ -67,7 +68,7 @@ def ScoringModule(
     return score
 
 
-def MatchAnalysis(input_idx, input_name, chord_idx, chord_name, chord):
+def MatchAnalysis(input_idx, input_name, chord_idx, chord_name, chord, key):
     idxMatch = intersection(input_idx, chord_idx)
     nameMatch = intersection(input_name, chord_name)
     if chord_name[0] in input_name:
@@ -83,7 +84,17 @@ def MatchAnalysis(input_idx, input_name, chord_idx, chord_name, chord):
         length_match = False
     else:
         length_match = True
-    return len(idxMatch), len(nameMatch), root_match, ed, length_match, root_first
+    seventhNote = ChordToNote(key, chord + "7")[-1]
+    hasSeventh = seventhNote in input_name
+    return (
+        len(idxMatch),
+        len(nameMatch),
+        root_match,
+        ed,
+        length_match,
+        root_first,
+        hasSeventh,
+    )
 
 
 key_mapping = {"C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "A": 9, "B": 11}
@@ -137,6 +148,7 @@ def NoteToChord(keys_name, key=None, numOut=10, threshold=2):
     rrootMatch = []
     reditdist = []
     rlengthMatch = []
+    hasSeventh = []
     numOk = 0
     for idx, chord in enumerate(chords):
         entry = data[chord]
@@ -154,8 +166,14 @@ def NoteToChord(keys_name, key=None, numOut=10, threshold=2):
                 ed,
                 length_match,
                 root_first,
+                isSeventh,
             ) = MatchAnalysis(
-                keys_idx, keys_name, entry["idx"], entry["naming"], entry["chord"]
+                keys_idx,
+                keys_name,
+                entry["idx"],
+                entry["naming"],
+                entry["chord"],
+                entry["key"],
             )
             score = ScoringModule(
                 idxMatch,
@@ -174,9 +192,19 @@ def NoteToChord(keys_name, key=None, numOut=10, threshold=2):
             rrootMatch.append(rootMatch)
             reditdist.append(ed)
             rlengthMatch.append(length_match)
+            hasSeventh.append(isSeventh)
             numOk += 1
 
-    rscore, rchord, ridxMatch, rnameMatch, rrootMatch, reditdist, rlengthMatch = zip(
+    (
+        rscore,
+        rchord,
+        ridxMatch,
+        rnameMatch,
+        rrootMatch,
+        reditdist,
+        rlengthMatch,
+        hasSeventh,
+    ) = zip(
         *sorted(
             zip(
                 rscore,
@@ -186,6 +214,7 @@ def NoteToChord(keys_name, key=None, numOut=10, threshold=2):
                 rrootMatch,
                 reditdist,
                 rlengthMatch,
+                hasSeventh,
             ),
             reverse=True,
         )[: min(numOk, numOut)]
@@ -209,6 +238,7 @@ def NoteToChord(keys_name, key=None, numOut=10, threshold=2):
                 "root present": rrootMatch[idx],
                 "edit distance": reditdist[idx],
                 "length match": rlengthMatch[idx],
+                "hasSeventh": hasSeventh[idx],
             }
         )
     return result
