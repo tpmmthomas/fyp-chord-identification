@@ -52,14 +52,14 @@ def ScoringModule(
             score += 4
         elif chord in ["IV", "II"]:  # Predominant function chords
             score += 3
-        elif chord in ["V", "VII"]:  # Dominant function chords
+        elif chord in ["V", "VII", "DimVII"]:  # Dominant function chords
             score += 2
     else:
         if chord in ["I", "VI"]:
             score += 4
         elif chord in ["IV", "II"]:  # Predominant function chords
             score += 3
-        elif chord in ["V", "VII"]:  # Dominant function chords
+        elif chord in ["V", "VII", "DimVII"]:  # Dominant function chords
             score += 2
     # if not lengthMatch:
     #     score -= 100
