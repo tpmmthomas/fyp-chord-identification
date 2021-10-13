@@ -59,7 +59,6 @@ def importance_score(notelist, noteduration, noteoctave):
 
 
 for piece in glob.glob("../musicxml(not_notated)/*.musicxml"):
-    if piece.find("Arab") != 
     #     if i == 0:
     #         i += 1
     #         continue
