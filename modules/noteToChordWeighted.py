@@ -44,22 +44,28 @@ def ScoringModule(
     length_match,
     chord,
     ismajor,
+    hasSeventh,
 ):
+    # print(chord, input_name, chord_name)
     score = 0
     for i, idx in enumerate(input_idx):
         if idx in chord_idx:
+            score += 100
             score += 100 * input_dict[input_name[i]]
     for i, name in enumerate(input_name):
         if name in chord_name:
+            score += 1000
             score += 1000 * input_dict[input_name[i]]
+    # print(chord, score)
     if chord_name[0] in input_name:  # root is contained
+        score += 500
         score += 100 * input_dict[chord_name[0]]
         if input_dict[chord_name[0]] == input_dict[min(input_dict, key=input_dict.get)]:
             score -= 50
     else:
         score -= 100
-    if chord_name[0] == input_name[0]:  # root is first
-        score += 100 * input_dict[chord_name[0]]
+    # if chord_name[0] == input_name[0]:  # root is first
+    #     score += 100 * input_dict[chord_name[0]]
     # score += 60 / (ed + 1)
     # if not length_match: #length match is not reliable when there are so many passing notes
     #     score -= 100
@@ -70,19 +76,18 @@ def ScoringModule(
             score += 4
         elif chord in ["IV", "II"]:  # Predominant function chords
             score += 3
-        elif chord in ["V", "VII"]:  # Dominant function chords
+        elif chord in ["V", "VII", "DimVII"]:  # Dominant function chords
             score += 2
     else:
         if chord in ["I", "VI"]:
             score += 4
         elif chord in ["IV", "II"]:  # Predominant function chords
             score += 3
-        elif chord in ["V", "VII"]:  # Dominant function chords
+        elif chord in ["V", "VII", "DimVII"]:  # Dominant function chords
             score += 2
-    if (
-        chord[-1] == "7"
-    ):  # in case normal and 7 get the same points, definitely get the nomral version first.
-        score -= 1
+    if hasSeventh:
+        score += 1
+    print(chord, score)
     return score
 
 
@@ -258,6 +263,7 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
                 length_match,
                 entry["chord"],
                 ismajor,
+                isseventh,
             )
             rscore.append(score)
             rchord.append(chord)
@@ -314,7 +320,7 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
 
 if __name__ == "__main__":
     start = time.time()
-    result = NoteToChord({"E": 0.333, "A": 0.111, "C#": 0.556, "F#": 0.6}, "Emajor")
+    result = NoteToChord({"C#": 0.194, "A": 0.194, "D#": 0.181, "F#": 0.01}, "Emajor")
     end = time.time()
     print("Time taken:", end - start, "\n", result)
 

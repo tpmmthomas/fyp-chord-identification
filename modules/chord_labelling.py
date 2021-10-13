@@ -59,6 +59,8 @@ def importance_score(notelist, noteduration, noteoctave):
 
 
 for piece in glob.glob("../musicxml(not_notated)/*.musicxml"):
+    if piece.find("Arab") == -1:
+        continue
     #     if i == 0:
     #         i += 1
     #         continue
@@ -144,12 +146,32 @@ for piecekey in chord_sequence:
         key = key[:-1] + "Major" if key[-1] == "M" else key[:-1] + "Minor"
         result = NoteToChord(piecenote[i], key, numOut=1)
         if not result is None:
+            hasSeventh = result[0]["hasSeventh"]
             result = result[0]["Chord"]
+            if hasSeventh:
+                chordidx = result.find("or")
+                chordx = result[chordidx + 2 :]
+                if result.find("Major") != -1 and chordx in [
+                    "II",
+                    "V",
+                    "VII",
+                    "DimVII",
+                ]:
+                    result += "7"
+                elif result.find("Minor") != -1 and chordx in [
+                    "II",
+                    "V",
+                    "V+",
+                    "DimVII",
+                ]:
+                    result += "7"
         else:
             result = "None"
         predictions[piecekey].append(result)
 
 for piece in glob.glob("../musicxml(not_notated)/*.musicxml"):
+    if piece.find("Arab") == -1:
+        continue
     piecekey = re.sub(r"[^a-zA-Z0-9_.]", "", piece[23:])
     print(piecekey)
     predict = predictions[piecekey]
@@ -172,6 +194,6 @@ for piece in glob.glob("../musicxml(not_notated)/*.musicxml"):
     out = GEX.parse()
     # outstr = out.decode("utf-8")
     # print(outstr.strip())
-    with open(piece[:-9] + "_n2c.musicxml", "wb") as f:
+    with open(piece[:-9] + "_n2caddit.musicxml", "wb") as f:
         f.write(out)
 
