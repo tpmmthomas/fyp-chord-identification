@@ -350,7 +350,7 @@ def ChordToNote(key, chord):
                 notes.append(start + augmented_offset[i])
     notes = [x % 12 for x in notes]
     x = noteNaming(notes, key, chord, ctype)
-    print(f"The notes in {key}, {chord} chord are: {x}.")
+    # print(f"The notes in {key}, {chord} chord are: {x}.")
     return x  # change to return notes,x when it using Checker.
 
 
