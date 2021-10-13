@@ -53,6 +53,10 @@ def ScoringModule(
             score += 1000 * input_dict[input_name[i]]
     if chord_name[0] in input_name:  # root is contained
         score += 100 * input_dict[chord_name[0]]
+        if input_dict[chord_name[0]] == input_dict[min(input_dict, key=input_dict.get)]:
+            score -= 50
+    else:
+        score -= 100
     if chord_name[0] == input_name[0]:  # root is first
         score += 100 * input_dict[chord_name[0]]
     # score += 60 / (ed + 1)
