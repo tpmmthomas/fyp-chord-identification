@@ -320,7 +320,10 @@ def NoteToChord(keys_dict, key=None, numOut=10, threshold=2):
 
 if __name__ == "__main__":
     start = time.time()
-    result = NoteToChord({"C#": 0.194, "A": 0.194, "D#": 0.181, "F#": 0.01}, "Emajor")
+    result = NoteToChord(
+        {"B": 0.051, "F#": 0.192, "A": 0.061, "C#": 0.379, "E": 0.303, "D#": 0.015},
+        "Emajor",
+    )
     end = time.time()
     print("Time taken:", end - start, "\n", result)
 

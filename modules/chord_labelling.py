@@ -59,8 +59,6 @@ def importance_score(notelist, noteduration, noteoctave):
 
 
 for piece in glob.glob("../musicxml(not_notated)/*.musicxml"):
-    if piece.find("Arab") == -1:
-        continue
     #     if i == 0:
     #         i += 1
     #         continue
@@ -170,14 +168,13 @@ for piecekey in chord_sequence:
         predictions[piecekey].append(result)
 
 for piece in glob.glob("../musicxml(not_notated)/*.musicxml"):
-    if piece.find("Arab") == -1:
-        continue
     piecekey = re.sub(r"[^a-zA-Z0-9_.]", "", piece[23:])
     print(piecekey)
     predict = predictions[piecekey]
     i = 0
     c = converter.parse(piece)
-    for thisNote in c.recurse().notes:
+    post = c.flattenParts().flat
+    for thisNote in post.notes:
         if thisNote.lyric is not None:
             if thisNote.lyric == "x":
                 j = predict[i].find("or")
@@ -190,7 +187,7 @@ for piece in glob.glob("../musicxml(not_notated)/*.musicxml"):
                 thisNote.addLyric(toadd)
             print(toadd)
             i += 1
-    GEX = musicxml.m21ToXml.GeneralObjectExporter(c)
+    GEX = musicxml.m21ToXml.GeneralObjectExporter(post)
     out = GEX.parse()
     # outstr = out.decode("utf-8")
     # print(outstr.strip())
