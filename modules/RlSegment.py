@@ -346,6 +346,7 @@ class DQNSolver:
         self.memory.append((state, action, reward, next_state, done))
 
     def choose_action(self, state, epsilon):
+        state = state.reshape((1, 12, 7))
         return (
             self.env.action_space.sample()
             if (np.random.random() <= epsilon)
@@ -362,13 +363,15 @@ class DQNSolver:
         x_batch, y_batch = [], []
         minibatch = random.sample(self.memory, min(len(self.memory), batch_size))
         for state, action, reward, next_state, done in minibatch:
+            state = state.reshape((1, 12, 7))
+            next_state = next_state.reshape((1, 12, 7))
             y_target = self.model.predict(state)
             y_target[0][action] = (
                 reward
                 if done
                 else reward + self.gamma * np.max(self.model.predict(next_state)[0])
             )
-            x_batch.append(state)
+            x_batch.append(state[0])
             y_batch.append(y_target[0])
 
         self.model.fit(
@@ -396,6 +399,7 @@ agent.run()
 env = SegmentationEnv(testing_pieces)
 obs = env.reset()
 while True:
+    obs = obs.reshape((1, 12, 7))
     action = np.argmax(agent.model.predict(obs))
     obs, reward, done, info = env.step(action)
     env.render()
