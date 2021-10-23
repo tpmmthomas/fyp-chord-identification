@@ -87,7 +87,7 @@ def ScoringModule(
             score += 2
     if hasSeventh:
         score += 1
-    print(chord, score)
+    #print(chord, score)
     return score
 
 
