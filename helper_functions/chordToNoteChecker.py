@@ -10,43 +10,37 @@ import pandas as pd
 major_keys = ["C", "G", "D", "A", "E", "B", "F", "Bb", "Eb", "Ab", "Db", "Gb"]
 minor_keys = ["a", "e", "b", "f#", "c#", "g#", "d", "g", "c", "f", "bb", "eb"]
 
-major_chords = [
+major_chords = [  # II, V, VII and DimVII seventh cancelled for now
     "I",
     "bII",
     "II",
-    "II7",
     "III",
     "IV",
     "V",
-    "V7",
     "bVI",
     "GerVI",
     "FreVI",
     "ItaVI",
     "VI",
     "VII",
-    "VII7",
-    "DimVII7",
+    "DimVII",
 ]
-minor_chords = [
+minor_chords = [  # II V DimVII 7 cancel
     "I",
     "I+",
     "bII",
     "II",
-    "II7",
     "III",
     "IV",
     "IV+",
     "V",
     "V+",
-    "V+7",
     "VI",
     "GerVI",
     "FreVI",
     "ItaVI",
     "VII",
     "DimVII",
-    "DimVII7",
 ]
 
 pKey = []
