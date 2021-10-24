@@ -24,7 +24,6 @@ major_chords = [
     "ItaVI",
     "VI",
     "VII",
-    "DimVII",
 ]
 minor_chords = [
     "I",
