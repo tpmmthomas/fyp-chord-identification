@@ -351,7 +351,7 @@ def ChordToNote(key, chord):
     notes = [x % 12 for x in notes]
     x = noteNaming(notes, key, chord, ctype)
     # print(f"The notes in {key}, {chord} chord are: {x}.")
-    return x  # change to return notes,x when it using Checker.
+    return notes, x  # change to return notes,x when it using Checker.
 
 
 if __name__ == "__main__":
