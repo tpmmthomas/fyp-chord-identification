@@ -23,7 +23,6 @@ major_chords = [  # II, V, VII and DimVII seventh cancelled for now
     "ItaVI",
     "VI",
     "VII",
-    "DimVII",
 ]
 minor_chords = [  # II V DimVII 7 cancel
     "I",
