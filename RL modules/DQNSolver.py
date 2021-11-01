@@ -12,15 +12,17 @@ import math
 from itertools import combinations
 from datetime import datetime
 
+
 def huber_loss(a, b, in_keras=True):
     error = a - b
-    quadratic_term = error*error / 2
-    linear_term = abs(error) - 1/2
-    use_linear_term = (abs(error) > 1.0)
+    quadratic_term = error * error / 2
+    linear_term = abs(error) - 1 / 2
+    use_linear_term = abs(error) > 1.0
     if in_keras:
         # Keras won't let us multiply floats by booleans, so we explicitly cast the booleans to floats
-        use_linear_term = K.cast(use_linear_term, 'float32')
-    return use_linear_term * linear_term + (1-use_linear_term) * quadratic_term
+        use_linear_term = K.cast(use_linear_term, "float32")
+    return use_linear_term * linear_term + (1 - use_linear_term) * quadratic_term
+
 
 class DQNSolver:
     def __init__(
@@ -56,16 +58,16 @@ class DQNSolver:
 
         # Init model
         state_input = Input(shape=self.env.observation_space.shape)
-        h2 = Dense(168, activation="ReLU")(state_input)
-        h3 = Dense(64, activation="ReLU")(h2)
+        h2 = Dense(48, activation="ReLU")(state_input)
+        h3 = Dense(24, activation="ReLU")(h2)
         output = Dense(2, activation="linear")(h3)
         self.model = Model(inputs=state_input, outputs=output)
         adam = Adam(learning_rate=self.alpha)
         self.model.compile(loss=huber_loss, optimizer=adam)
-        #Target model (Basically the same thing)
+        # Target model (Basically the same thing)
         state_input2 = Input(shape=self.env.observation_space.shape)
-        h22 = Dense(168, activation="ReLU")(state_input2)
-        h32 = Dense(64, activation="ReLU")(h22)
+        h22 = Dense(48, activation="ReLU")(state_input2)
+        h32 = Dense(24, activation="ReLU")(h22)
         output2 = Dense(2, activation="linear")(h32)
         self.target_model = Model(inputs=state_input2, outputs=output2)
         adam2 = Adam(learning_rate=self.alpha)
@@ -82,7 +84,7 @@ class DQNSolver:
             self.memory3.append((state, action, reward, next_state, done))
 
     def choose_action(self, state, epsilon):
-        state = state.reshape((1, 12*7+1))
+        state = state.reshape((1, 12 * 2 + 1))
         return (
             self.env.action_space.sample()
             if (np.random.random() <= epsilon)
@@ -97,51 +99,63 @@ class DQNSolver:
 
     def replay(self, batch_size):
         x_batch, y_batch = [], []
-        minibatch = random.sample(self.memory, min(len(self.memory), int(batch_size*0.25)))
+        minibatch = random.sample(
+            self.memory, min(len(self.memory), int(batch_size * 0.25))
+        )
         for state, action, reward, next_state, done in minibatch:
-            state = state.reshape((1, 12*7+1))
-            next_state = next_state.reshape((1, 12*7+1))
+            state = state.reshape((1, 12 * 2 + 1))
+            next_state = next_state.reshape((1, 12 * 2 + 1))
             y_target = self.target_model.predict(state)
             y_target[0][action] = (
                 reward
                 if done
-                else reward + self.gamma * np.max(self.target_model.predict(next_state)[0])
+                else reward
+                + self.gamma * np.max(self.target_model.predict(next_state)[0])
             )
             x_batch.append(state[0])
             y_batch.append(y_target[0])
-        minibatch2 = random.sample(self.memory1,min(len(self.memory1),int(batch_size*0.25)))
+        minibatch2 = random.sample(
+            self.memory1, min(len(self.memory1), int(batch_size * 0.25))
+        )
         for state, action, reward, next_state, done in minibatch2:
-            state = state.reshape((1, 12* 7+1))
-            next_state = next_state.reshape((1, 12* 7+1))
+            state = state.reshape((1, 12 * 2 + 1))
+            next_state = next_state.reshape((1, 12 * 2 + 1))
             y_target = self.target_model.predict(state)
             y_target[0][action] = (
                 reward
                 if done
-                else reward + self.gamma * np.max(self.target_model.predict(next_state)[0])
+                else reward
+                + self.gamma * np.max(self.target_model.predict(next_state)[0])
             )
             x_batch.append(state[0])
             y_batch.append(y_target[0])
-        minibatch3 = random.sample(self.memory2,min(len(self.memory2),int(batch_size*0.25)))
+        minibatch3 = random.sample(
+            self.memory2, min(len(self.memory2), int(batch_size * 0.25))
+        )
         for state, action, reward, next_state, done in minibatch3:
-            state = state.reshape((1, 12*7+1))
-            next_state = next_state.reshape((1, 12*7+1))
+            state = state.reshape((1, 12 * 2 + 1))
+            next_state = next_state.reshape((1, 12 * 2 + 1))
             y_target = self.target_model.predict(state)
             y_target[0][action] = (
                 reward
                 if done
-                else reward + self.gamma * np.max(self.target_model.predict(next_state)[0])
+                else reward
+                + self.gamma * np.max(self.target_model.predict(next_state)[0])
             )
             x_batch.append(state[0])
             y_batch.append(y_target[0])
-        minibatch4 = random.sample(self.memory3,min(len(self.memory3),int(batch_size*0.25)))
+        minibatch4 = random.sample(
+            self.memory3, min(len(self.memory3), int(batch_size * 0.25))
+        )
         for state, action, reward, next_state, done in minibatch4:
-            state = state.reshape((1, 12*7+1))
-            next_state = next_state.reshape((1, 12*7+1))
+            state = state.reshape((1, 12 * 2 + 1))
+            next_state = next_state.reshape((1, 12 * 2 + 1))
             y_target = self.target_model.predict(state)
             y_target[0][action] = (
                 reward
                 if done
-                else reward + self.gamma * np.max(self.target_model.predict(next_state)[0])
+                else reward
+                + self.gamma * np.max(self.target_model.predict(next_state)[0])
             )
             x_batch.append(state[0])
             y_batch.append(y_target[0])
@@ -151,12 +165,12 @@ class DQNSolver:
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay
         if random.random() < self.tau:
-            self.target_model.set_weights(self.model.get_weights()) 
+            self.target_model.set_weights(self.model.get_weights())
 
     def run(self):
         for e in tqdm.tqdm(range(self.n_episodes)):
             done = False
-            state = self.env.reset(random.randint(0,len(self.env.notes)-1))
+            state = self.env.reset(random.randint(0, len(self.env.notes) - 1))
             while not done:
                 action = self.choose_action(state, self.get_epsilon(e))
                 next_state, reward, done, _ = self.env.step(action)
