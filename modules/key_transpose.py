@@ -194,6 +194,11 @@ def key_transpose(piece, output):
 import glob
 
 for piece in glob.glob("../musicxml(ok)/*.mxl"):
-    piecename = piece.split("(ok)/")[-1]
-    key_transpose(piece, "../musicxml(transposed)/" + piecename)
+    piecename = piece.split("(ok)\\")[-1]
+    print(piecename)
+    print("../musicxml(transposed)/" + piecename)
+    try:
+        key_transpose(piece, "../musicxml(transposed)/trans_" + piecename)
+    except:
+        print("Error in ", piece)
 print("Done!")
