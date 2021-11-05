@@ -159,16 +159,20 @@ class DQNSolver:
             )
             x_batch.append(state[0])
             y_batch.append(y_target[0])
-        self.model.fit(
+        history = self.model.fit(
             np.array(x_batch), np.array(y_batch), batch_size=len(x_batch), verbose=0
         )
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay
         if random.random() < self.tau:
             self.target_model.set_weights(self.model.get_weights())
+        return history.history['loss']
 
     def run(self):
-        for e in tqdm.tqdm(range(self.n_episodes)):
+        pbar = tqdm.tqdm(range(self.n_episodes))
+        loss = []
+        for e in pbar:
+            pbar.set_description(f"previous loss = {loss[-1] if len(loss)>0 else 0}")
             done = False
             state = self.env.reset(random.randint(0, len(self.env.notes) - 1))
             while not done:
@@ -176,7 +180,8 @@ class DQNSolver:
                 next_state, reward, done, _ = self.env.step(action)
                 self.remember(state, action, reward, next_state, done)
                 state = next_state
-            self.replay(self.batch_size)
+            replayloss = self.replay(self.batch_size)
+            loss.append(replayloss[0])
             if e % 100 == 0:
                 self.model.save("checkpoint")
-        return e
+        return loss
