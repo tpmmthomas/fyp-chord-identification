@@ -5,7 +5,8 @@ import math
 from itertools import combinations
 from datetime import datetime
 from music21 import *
-from stable_baselines3 import DQN
+
+# from stable_baselines3 import DQN
 from collections import deque
 from tensorflow.keras.models import Sequential, Model
 from tensorflow.keras.layers import Dense, Input, Flatten
@@ -25,7 +26,7 @@ def round_offset(offset):
 import glob
 
 training_pieces = []
-for piece in glob.glob("./training/*"):
+for piece in glob.glob("./normal/training/*"):
     training_pieces.append(piece)
 # testing_pieces = []
 # for piece in glob.glob('./testing/*'):
