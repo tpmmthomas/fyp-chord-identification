@@ -12,16 +12,20 @@ from tensorflow.keras.layers import Dense, Input, Flatten
 from tensorflow.keras.optimizers import Adam
 import random
 import tqdm
-from env import SegmentationEnv
+from env_noOctave import SegmentationEnv
 from DQNSolver import DQNSolver
 from DQNLSTMSolver import DQNLSTMSolver
 import pandas as pd
+
+
 def round_offset(offset):
-  return ((offset*2)//1)/2
+    return ((offset * 2) // 1) / 2
+
 
 import glob
+
 training_pieces = []
-for piece in glob.glob('./training/*'):
+for piece in glob.glob("./training/*"):
     training_pieces.append(piece)
 # testing_pieces = []
 # for piece in glob.glob('./testing/*'):
@@ -29,12 +33,12 @@ for piece in glob.glob('./training/*'):
 
 
 env = SegmentationEnv(training_pieces)
-agent = DQNLSTMSolver(env,n_episodes=10000,batch_size=64)
+agent = DQNLSTMSolver(env, n_episodes=10000, batch_size=64)
 loss = agent.run()
 
-agent.model.save("sdf_4")
-df = pd.DataFrame({'loss':loss})
-df.to_csv("loss.csv")
+agent.model.save("sdf_5")
+df = pd.DataFrame({"loss": loss})
+df.to_csv("loss2.csv")
 
 print("Training done!")
 # env = SegmentationEnv(testing_pieces)
@@ -52,8 +56,9 @@ print("Training done!")
 #             break
 #     print(f"Piece {testing_pieces[i]}, total reward = {total_reward}")
 
-#Changes:
-#1. Use huber loss
-#2. add observation with roughness
-#3. averaging the different cases
-#4, 
+# Changes:
+# 1. Use huber loss
+# 2. add observation with roughness
+# 3. averaging the different cases
+# 4,
+
