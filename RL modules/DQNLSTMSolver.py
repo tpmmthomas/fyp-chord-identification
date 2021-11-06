@@ -12,15 +12,17 @@ import math
 from itertools import combinations
 from datetime import datetime
 
+
 def huber_loss(a, b, in_keras=True):
     error = a - b
-    quadratic_term = error*error / 2
-    linear_term = abs(error) - 1/2
-    use_linear_term = (abs(error) > 1.0)
+    quadratic_term = error * error / 2
+    linear_term = abs(error) - 1 / 2
+    use_linear_term = abs(error) > 1.0
     if in_keras:
         # Keras won't let us multiply floats by booleans, so we explicitly cast the booleans to floats
-        use_linear_term = K.cast(use_linear_term, 'float32')
-    return use_linear_term * linear_term + (1-use_linear_term) * quadratic_term
+        use_linear_term = K.cast(use_linear_term, "float32")
+    return use_linear_term * linear_term + (1 - use_linear_term) * quadratic_term
+
 
 class DQNLSTMSolver:
     def __init__(
@@ -36,7 +38,7 @@ class DQNLSTMSolver:
         tau=0.125,
         alpha_decay=0.005,
         batch_size=64,
-        timesteps=10
+        timesteps=10,
     ):
         self.env = env
         self.memory = deque(maxlen=5000)
@@ -53,7 +55,7 @@ class DQNLSTMSolver:
         if max_env_steps is not None:
             self.env._max_episode_steps = max_env_steps
         input_shape = list(self.env.observation_space.shape)
-        input_shape.insert(0,self.timesteps)
+        input_shape.insert(0, self.timesteps)
         input_shape = tuple(input_shape)
         # Init model (LSTM treat as many to 1)
         state_input = Input(shape=input_shape)
@@ -63,7 +65,7 @@ class DQNLSTMSolver:
         self.model = Model(inputs=state_input, outputs=output)
         adam = Adam(learning_rate=self.alpha)
         self.model.compile(loss=huber_loss, optimizer=adam)
-        #Target model (Basically the same thing)
+        # Target model (Basically the same thing)
         state_input2 = Input(shape=input_shape)
         h22 = LSTM(128)(state_input2)
         h32 = Dense(64, activation="ReLU")(h22)
@@ -73,11 +75,11 @@ class DQNLSTMSolver:
         self.target_model.compile(loss=huber_loss, optimizer=adam2)
 
     def remember(self, episode):
-       self.memory.append(episode)
+        self.memory.append(episode)
 
     def choose_action(self, state, epsilon):
         state = np.array(state)
-        state = state.reshape((1,self.timesteps,85))
+        state = state.reshape((1, self.timesteps, 2 * 12 + 1))
         return (
             self.env.action_space.sample()
             if (np.random.random() <= epsilon)
@@ -93,31 +95,32 @@ class DQNLSTMSolver:
     def replay(self, batch_size):
         x_batch, y_batch = [], []
         while len(x_batch) < batch_size:
-            minibatch = random.sample(self.memory,1)[0]
-            ending_index = random.randint(1,len(minibatch))
+            minibatch = random.sample(self.memory, 1)[0]
+            ending_index = random.randint(1, len(minibatch))
             if ending_index <= self.timesteps:
                 data = minibatch[:ending_index]
             else:
-                data = minibatch[ending_index-self.timesteps:ending_index]
+                data = minibatch[ending_index - self.timesteps : ending_index]
             traindata = []
-            for state,action,reward,next_state,done in data:
+            for state, action, reward, next_state, done in data:
                 traindata.append(state)
             while len(traindata) < self.timesteps:
-                traindata.insert(0,[0 for i in range(12*7+1)])
-            state,action,reward,next_state,done = data[-1]
+                traindata.insert(0, [0 for i in range(12 * 2 + 1)])
+            state, action, reward, next_state, done = data[-1]
             traindatanp = np.array(traindata)
-            traindatanp = traindatanp.reshape((1,self.timesteps,85))
+            traindatanp = traindatanp.reshape((1, self.timesteps, 25))
             y_target = self.target_model.predict(traindatanp)
             if not done:
                 tempdata = traindata.copy()
                 del tempdata[0]
                 tempdata.append(next_state)
                 tempdatanp = np.array(tempdata)
-                tempdatanp = tempdatanp.reshape((1,self.timesteps,85))
+                tempdatanp = tempdatanp.reshape((1, self.timesteps, 25))
             y_target[0][action] = (
                 reward
                 if done
-                else reward + self.gamma * np.max(self.target_model.predict(tempdatanp)[0])
+                else reward
+                + self.gamma * np.max(self.target_model.predict(tempdatanp)[0])
             )
             x_batch.append(traindata)
             y_batch.append(y_target[0])
@@ -128,8 +131,8 @@ class DQNLSTMSolver:
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay
         if random.random() < self.tau:
-            self.target_model.set_weights(self.model.get_weights()) 
-        return history.history['loss']
+            self.target_model.set_weights(self.model.get_weights())
+        return history.history["loss"]
 
     def run(self):
         pbar = tqdm.tqdm(range(self.n_episodes))
@@ -137,11 +140,11 @@ class DQNLSTMSolver:
         for e in pbar:
             pbar.set_description(f"previous loss = {loss[-1] if len(loss)>0 else 0}")
             done = False
-            state = self.env.reset(random.randint(0,len(self.env.notes)-1))
+            state = self.env.reset(random.randint(0, len(self.env.notes) - 1))
             episode_data = []
             state_data = []
-            for i in range(self.timesteps-1):
-                state_data.append(np.zeros((12*7+1,)))
+            for i in range(self.timesteps - 1):
+                state_data.append(np.zeros((12 * 2 + 1,)))
             state_data.append(state)
             while not done:
                 action = self.choose_action(state_data, self.get_epsilon(e))
@@ -153,5 +156,6 @@ class DQNLSTMSolver:
             replayloss = self.replay(self.batch_size)
             loss.append(replayloss[0])
             if e % 100 == 0:
+                np.save("loss.npy", np.array(loss))
                 self.model.save("checkpoint")
         return loss

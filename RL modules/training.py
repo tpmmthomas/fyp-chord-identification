@@ -36,9 +36,9 @@ env = SegmentationEnv(training_pieces)
 agent = DQNLSTMSolver(env, n_episodes=5000, batch_size=64)
 loss = agent.run()
 
-agent.model.save("sdf_4")
+agent.model.save("sdf_5")
 df = pd.DataFrame({"loss": loss})
-df.to_csv("loss.csv")
+df.to_csv("loss2.csv")
 
 print("Training done!")
 # env = SegmentationEnv(testing_pieces)
@@ -61,4 +61,3 @@ print("Training done!")
 # 2. add observation with roughness
 # 3. averaging the different cases
 # 4,
-
