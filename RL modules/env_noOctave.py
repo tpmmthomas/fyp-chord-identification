@@ -18,43 +18,49 @@ class SegmentationEnv(Env):
         self.is_segment = []
         #         self.beatchanges = []
         for piece in pieces:
-            xnotes = []
-            xoffset = []
-            xbeat = []
-            xduration = []
-            xoctave = []
-            xcoroffset = []
-            xissegment = []
-            firstlyric = True
-            print(piece)
-            c = converter.parse(piece)
-            post = c.flattenParts().flat
-            for note in post.notes:
-                duration = note.duration.quarterLength
-                offset = note.offset
-                beat = float(note.beat)
-                if note.lyric is not None:
-                    if firstlyric:
-                        xsegment = False
-                        firstlyric = False
+            nodo = False
+            try:
+                xnotes = []
+                xoffset = []
+                xbeat = []
+                xduration = []
+                xoctave = []
+                xcoroffset = []
+                xissegment = []
+                firstlyric = True
+                print(piece)
+                c = converter.parse(piece)
+                post = c.flattenParts().flat
+                for note in post.notes:
+                    duration = note.duration.quarterLength
+                    offset = note.offset
+                    beat = float(note.beat)
+                    if note.lyric is not None:
+                        if firstlyric:
+                            xsegment = False
+                            firstlyric = False
+                        else:
+                            xsegment = True
                     else:
-                        xsegment = True
-                else:
-                    xsegment = False
-                allnotes = list(note.pitches)
-                for note1 in allnotes:
-                    xnotes.append(note1.name)
-                    xoffset.append(offset)
-                    xbeat.append(beat)
-                    xduration.append(duration)
-                    xoctave.append(note1.octave)
-                    xissegment.append(xsegment)
-            self.notes.append(xnotes)
-            self.offset.append(xoffset)
-            self.beat.append(xbeat)
-            self.duration.append(xduration)
-            self.octave.append(xoctave)
-            self.is_segment.append(xissegment)
+                        xsegment = False
+                    allnotes = list(note.pitches)
+                    for note1 in allnotes:
+                        xnotes.append(note1.name)
+                        xoffset.append(offset)
+                        xbeat.append(beat)
+                        xduration.append(duration)
+                        xoctave.append(note1.octave)
+                        xissegment.append(xsegment)
+            except Exception as e:
+                print("Error in piece", piece, str(e))
+                nodo = True
+            if not nodo:
+                self.notes.append(xnotes)
+                self.offset.append(xoffset)
+                self.beat.append(xbeat)
+                self.duration.append(xduration)
+                self.octave.append(xoctave)
+                self.is_segment.append(xissegment)
             #             xbeatchange = {}
             #             for ts in post.recurse().getElementsByClass(meter.TimeSignature):
             #                 assert ts.denominator in [2,4,8]

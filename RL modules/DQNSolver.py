@@ -1,4 +1,8 @@
 from collections import deque
+import tensorflow as tf
+
+physical_devices = tf.config.list_physical_devices("GPU")
+tf.config.experimental.set_memory_growth(physical_devices[0], enable=True)
 from tensorflow.keras.models import Sequential, Model
 from tensorflow.keras.layers import Dense, Input, Flatten
 from tensorflow.keras.optimizers import Adam
@@ -166,13 +170,13 @@ class DQNSolver:
             self.epsilon *= self.epsilon_decay
         if random.random() < self.tau:
             self.target_model.set_weights(self.model.get_weights())
-        return history.history['loss']
+        return history.history["loss"]
 
     def run(self):
-        pbar = tqdm.tqdm(range(self.n_episodes))
+        # pbar = tqdm.tqdm(range(self.n_episodes))
         loss = []
-        for e in pbar:
-            pbar.set_description(f"previous loss = {loss[-1] if len(loss)>0 else 0}")
+        for e in range(self.n_episodes):
+            # pbar.set_description(f"previous loss = {loss[-1] if len(loss)>0 else 0}")
             done = False
             state = self.env.reset(random.randint(0, len(self.env.notes) - 1))
             while not done:
@@ -183,5 +187,7 @@ class DQNSolver:
             replayloss = self.replay(self.batch_size)
             loss.append(replayloss[0])
             if e % 100 == 0:
-                self.model.save("checkpoint")
+                print(e)
+                np.save("loss2.npy", np.array(loss))
+                self.model.save("checkpoint2")
         return loss
