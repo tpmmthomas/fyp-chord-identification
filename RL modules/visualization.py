@@ -17,17 +17,16 @@ import glob
 from DQNSolver import DQNSolver
 
 testing_pieces = []
-for piece in glob.glob("./training/*"):
+
+for piece in glob.glob("../data/testing/*"):
     testing_pieces.append(piece)
 
-for piece in glob.glob("./testing/*"):
-    testing_pieces.append(piece)
-
-model = load_model("sdf_3")
+model = load_model("../results/DQN-normal")
 print(model.summary())
 env = SegmentationEnv(testing_pieces)
 for i in range(len(testing_pieces)):
     obs = env.reset(i)
+    # current_piece =
     total_reward = 0
     max_reward = 0
     num_correct_segment = 0

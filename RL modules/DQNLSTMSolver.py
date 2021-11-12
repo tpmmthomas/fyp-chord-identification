@@ -1,8 +1,9 @@
 from collections import deque
 import tensorflow as tf
 
-physical_devices = tf.config.list_physical_devices("GPU")
-tf.config.experimental.set_memory_growth(physical_devices[0], enable=True)
+gpus = tf.config.experimental.list_physical_devices(device_type="GPU")
+for gpu in gpus:
+    tf.config.experimental.set_memory_growth(gpu, True)
 from tensorflow.keras.models import Sequential, Model
 from tensorflow.keras.layers import Dense, Input, Flatten, LSTM
 from tensorflow.keras.optimizers import Adam
@@ -38,7 +39,9 @@ class DQNLSTMSolver:
         epsilon=1.0,
         epsilon_min=0.01,
         epsilon_log_decay=0.999,
-        alpha=0.01,
+        base_lr=0.001,
+        max_lr=0.1,
+        step_size=8,
         tau=0.125,
         alpha_decay=0.005,
         batch_size=64,
@@ -50,12 +53,15 @@ class DQNLSTMSolver:
         self.epsilon = epsilon
         self.epsilon_min = epsilon_min
         self.epsilon_decay = epsilon_log_decay
-        self.alpha = alpha
+        self.base_lr = base_lr
+        self.max_lr = max_lr
+        self.step_size = step_size
         self.tau = tau
         self.alpha_decay = alpha_decay
         self.n_episodes = n_episodes
         self.batch_size = batch_size
         self.timesteps = timesteps
+        self.epoch = 0
         if max_env_steps is not None:
             self.env._max_episode_steps = max_env_steps
         input_shape = list(self.env.observation_space.shape)
@@ -67,7 +73,7 @@ class DQNLSTMSolver:
         h3 = Dense(64, activation="ReLU")(h2)
         output = Dense(2, activation="linear")(h3)
         self.model = Model(inputs=state_input, outputs=output)
-        adam = Adam(learning_rate=self.alpha)
+        adam = Adam()
         self.model.compile(loss=huber_loss, optimizer=adam)
         # Target model (Basically the same thing)
         state_input2 = Input(shape=input_shape)
@@ -75,8 +81,19 @@ class DQNLSTMSolver:
         h32 = Dense(64, activation="ReLU")(h22)
         output2 = Dense(2, activation="linear")(h32)
         self.target_model = Model(inputs=state_input2, outputs=output2)
-        adam2 = Adam(learning_rate=self.alpha)
+        adam2 = Adam()
         self.target_model.compile(loss=huber_loss, optimizer=adam2)
+
+    def masterScheduler(self, epoch):
+        def scheduler(a, b):  # a,b, dummy here
+            period = 2 * self.step_size
+            cycle = math.floor(1 + epoch / period)
+            x = abs(epoch / self.step_size - 2 * cycle + 1)
+            delta = (self.max_lr - self.base_lr) * max(0, (1 - x))
+            delta /= float(2 ** (cycle - 1))
+            return self.base_lr + delta
+
+        return scheduler
 
     def remember(self, episode):
         self.memory.append(episode)
@@ -128,9 +145,11 @@ class DQNLSTMSolver:
             )
             x_batch.append(traindata)
             y_batch.append(y_target[0])
-
+        callback = tf.keras.callbacks.LearningRateScheduler(
+            self.masterScheduler(self.epoch)
+        )
         history = self.model.fit(
-            np.array(x_batch), np.array(y_batch), batch_size=len(x_batch), verbose=0
+            np.array(x_batch), np.array(y_batch), batch_size=len(x_batch), verbose=0,callbacks=[callback]
         )
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay
@@ -142,6 +161,7 @@ class DQNLSTMSolver:
         # pbar = tqdm.tqdm(range(self.n_episodes))
         loss = []
         for e in range(self.n_episodes):
+            self.epoch = e
             # pbar.set_description(f"previous loss = {loss[-1] if len(loss)>0 else 0}")
             done = False
             state = self.env.reset(random.randint(0, len(self.env.notes) - 1))

@@ -16,6 +16,7 @@ class SegmentationEnv(Env):
         self.duration = []
         self.octave = []
         self.is_segment = []
+        self.piecelist = []
         #         self.beatchanges = []
         for piece in pieces:
             nodo = False
@@ -55,6 +56,7 @@ class SegmentationEnv(Env):
                 print("Error in piece", piece, str(e))
                 nodo = True
             if not nodo:
+                self.piecelist.append(piece)
                 self.notes.append(xnotes)
                 self.offset.append(xoffset)
                 self.beat.append(xbeat)

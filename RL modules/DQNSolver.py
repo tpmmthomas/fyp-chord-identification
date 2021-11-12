@@ -1,8 +1,9 @@
 from collections import deque
 import tensorflow as tf
 
-physical_devices = tf.config.list_physical_devices("GPU")
-tf.config.experimental.set_memory_growth(physical_devices[0], enable=True)
+physical_devices = tf.config.experimental.list_physical_devices("GPU")
+for i in range(len(physical_devices)):
+    tf.config.experimental.set_memory_growth(physical_devices[i], enable=True)
 from tensorflow.keras.models import Sequential, Model
 from tensorflow.keras.layers import Dense, Input, Flatten
 from tensorflow.keras.optimizers import Adam
@@ -38,7 +39,9 @@ class DQNSolver:
         epsilon=1.0,
         epsilon_min=0.01,
         epsilon_log_decay=0.999,
-        alpha=0.01,
+        base_lr=0.001,
+        max_lr=0.1,
+        step_size=8,
         tau=0.125,
         alpha_decay=0.005,
         batch_size=64,
@@ -48,11 +51,14 @@ class DQNSolver:
         self.memory1 = deque(maxlen=10000)
         self.memory2 = deque(maxlen=10000)
         self.memory3 = deque(maxlen=10000)
+        self.epoch = 0
         self.gamma = gamma
         self.epsilon = epsilon
         self.epsilon_min = epsilon_min
         self.epsilon_decay = epsilon_log_decay
-        self.alpha = alpha
+        self.base_lr = base_lr
+        self.max_lr = max_lr
+        self.step_size = step_size
         self.tau = tau
         self.alpha_decay = alpha_decay
         self.n_episodes = n_episodes
@@ -76,6 +82,17 @@ class DQNSolver:
         self.target_model = Model(inputs=state_input2, outputs=output2)
         adam2 = Adam(learning_rate=self.alpha)
         self.target_model.compile(loss=huber_loss, optimizer=adam2)
+
+    def masterScheduler(self, epoch):
+        def scheduler(a, b):  # a,b, dummy here
+            period = 2 * self.step_size
+            cycle = math.floor(1 + epoch / period)
+            x = abs(epoch / self.step_size - 2 * cycle + 1)
+            delta = (self.max_lr - self.base_lr) * max(0, (1 - x))
+            delta /= float(2 ** (cycle - 1))
+            return self.base_lr + delta
+
+        return scheduler
 
     def remember(self, state, action, reward, next_state, done):
         if reward == 1 and action == 1:
@@ -163,8 +180,15 @@ class DQNSolver:
             )
             x_batch.append(state[0])
             y_batch.append(y_target[0])
+        callback = tf.keras.callbacks.LearningRateScheduler(
+            self.masterScheduler(self.epoch)
+        )
         history = self.model.fit(
-            np.array(x_batch), np.array(y_batch), batch_size=len(x_batch), verbose=0
+            np.array(x_batch),
+            np.array(y_batch),
+            batch_size=len(x_batch),
+            verbose=0,
+            callbacks=[callback],
         )
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay
@@ -176,6 +200,7 @@ class DQNSolver:
         # pbar = tqdm.tqdm(range(self.n_episodes))
         loss = []
         for e in range(self.n_episodes):
+            self.epoch = e
             # pbar.set_description(f"previous loss = {loss[-1] if len(loss)>0 else 0}")
             done = False
             state = self.env.reset(random.randint(0, len(self.env.notes) - 1))
