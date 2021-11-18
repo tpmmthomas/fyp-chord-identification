@@ -26,7 +26,7 @@ def round_offset(offset):
 import glob
 
 training_pieces = []
-for piece in glob.glob("./C_normalized/training/*"):
+for piece in glob.glob("./normal/training/*"):
     training_pieces.append(piece)
 # testing_pieces = []
 # for piece in glob.glob('./testing/*'):
@@ -37,9 +37,9 @@ env = SegmentationEnv(training_pieces)
 agent = DQNSolver(env, n_episodes=5000, batch_size=64)
 loss = agent.run()
 
-agent.model.save("dqn_normalized")
+agent.model.save("dqn_normalized_2")
 df = pd.DataFrame({"loss": loss})
-df.to_csv("loss_dqn_normalized.csv")
+df.to_csv("loss_dqn_norm2.csv")
 
 print("Training done!")
 # env = SegmentationEnv(testing_pieces)

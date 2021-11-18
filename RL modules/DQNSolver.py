@@ -213,6 +213,6 @@ class DQNSolver:
             loss.append(replayloss[0])
             if e % 100 == 0:
                 print(e)
-                np.save("loss2.npy", np.array(loss))
+                np.save("dqn.npy", np.array(loss))
                 self.model.save("checkpoint2")
         return loss
