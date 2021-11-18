@@ -47,10 +47,10 @@ class DQNSolver:
         batch_size=64,
     ):
         self.env = env
-        self.memory = deque(maxlen=10000)
-        self.memory1 = deque(maxlen=10000)
-        self.memory2 = deque(maxlen=10000)
-        self.memory3 = deque(maxlen=10000)
+        self.memory = deque(maxlen=500)
+        self.memory1 = deque(maxlen=500)
+        self.memory2 = deque(maxlen=500)
+        self.memory3 = deque(maxlen=500)
         self.epoch = 0
         self.gamma = gamma
         self.epsilon = epsilon
@@ -213,6 +213,6 @@ class DQNSolver:
             loss.append(replayloss[0])
             if e % 100 == 0:
                 print(e)
-                np.save("dqn.npy", np.array(loss))
+                np.save("loss_dqn.npy", np.array(loss))
                 self.model.save("checkpoint2")
         return loss

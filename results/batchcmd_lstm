@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH --job-name=rllstm
+#SBATCH --mail-user=wkwong@cse.cuhk.edu.hk
+#SBATCH --mail-type=ALL
+#SBATCH --output=/research/dept8/fyp21/ky2104/output1.txt ##Do not use "~" point to your home!
+#SBATCH --gres=gpu:2
+#SBATCH -c 20
+#SBATCH -C highcpucount
+#SBATCH -p batch_72h
+
+## Below is the commands to run , for this example,
+## Create a sample helloworld.py and Run the sample python file
+## Result are stored at your defined --output location
+
+cd /research/dept8/fyp21/ky2104
+python3 training.py
