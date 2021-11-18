@@ -48,7 +48,7 @@ class DQNLSTMSolver:
         timesteps=10,
     ):
         self.env = env
-        self.memory = deque(maxlen=5000)
+        self.memory = deque(maxlen=500)
         self.gamma = gamma
         self.epsilon = epsilon
         self.epsilon_min = epsilon_min
@@ -66,7 +66,9 @@ class DQNLSTMSolver:
             self.env._max_episode_steps = max_env_steps
         input_shape = list(self.env.observation_space.shape)
         input_shape.insert(0, self.timesteps)
+        input_shape[-1] += 1
         input_shape = tuple(input_shape)
+        assert input_shape == (self.timesteps, 26)
         # Init model (LSTM treat as many to 1)
         state_input = Input(shape=input_shape)
         h2 = LSTM(128)(state_input)
@@ -100,7 +102,8 @@ class DQNLSTMSolver:
 
     def choose_action(self, state, epsilon):
         state = np.array(state)
-        state = state.reshape((1, self.timesteps, 2 * 12 + 1))
+        # past obs, future look-ahead, change in roughness, action
+        state = state.reshape((1, self.timesteps, 2 * 12 + 1 + 1))
         return (
             self.env.action_space.sample()
             if (np.random.random() <= epsilon)
@@ -124,19 +127,24 @@ class DQNLSTMSolver:
                 data = minibatch[ending_index - self.timesteps : ending_index]
             traindata = []
             for state, action, reward, next_state, done in data:
+                state = np.append(state, action)
                 traindata.append(state)
             while len(traindata) < self.timesteps:
-                traindata.insert(0, [0 for i in range(12 * 2 + 1)])
+                x = np.array([0 for i in range(12 * 2 + 1)])
+                x = np.append(x, -1)
+                traindata.insert(0, x)
+            traindata[-1][-1] = -1
             state, action, reward, next_state, done = data[-1]
             traindatanp = np.array(traindata)
-            traindatanp = traindatanp.reshape((1, self.timesteps, 25))
+            traindatanp = traindatanp.reshape((1, self.timesteps, 26))
             y_target = self.target_model.predict(traindatanp)
             if not done:
                 tempdata = traindata.copy()
                 del tempdata[0]
-                tempdata.append(next_state)
+                tempdata[-1][-1] = action
+                tempdata.append(np.append(next_state, -1))
                 tempdatanp = np.array(tempdata)
-                tempdatanp = tempdatanp.reshape((1, self.timesteps, 25))
+                tempdatanp = tempdatanp.reshape((1, self.timesteps, 26))
             y_target[0][action] = (
                 reward
                 if done
@@ -149,7 +157,11 @@ class DQNLSTMSolver:
             self.masterScheduler(self.epoch)
         )
         history = self.model.fit(
-            np.array(x_batch), np.array(y_batch), batch_size=len(x_batch), verbose=0,callbacks=[callback]
+            np.array(x_batch),
+            np.array(y_batch),
+            batch_size=len(x_batch),
+            verbose=0,
+            callbacks=[callback],
         )
         if self.epsilon > self.epsilon_min:
             self.epsilon *= self.epsilon_decay
@@ -168,19 +180,28 @@ class DQNLSTMSolver:
             episode_data = []
             state_data = []
             for i in range(self.timesteps - 1):
-                state_data.append(np.zeros((12 * 2 + 1,)))
-            state_data.append(state)
+                state_data.append(np.append(np.zeros((12 * 2 + 1,)), -1))
+            state_data.append(np.append(state, -1))
+            assert len(state_data) == 10
+            assert len(state_data[-1]) == 26
             while not done:
                 action = self.choose_action(state_data, self.get_epsilon(e))
                 next_state, reward, done, _ = self.env.step(action)
-                episode_data.append((state, action, reward, next_state, done))
+                episode_data.append(
+                    (state_data[-1][:-1], action, reward, next_state, done)
+                )
                 del state_data[0]
-                state_data.append(next_state)
+                assert state_data[-1][-1] == -1
+                state_data[-1][-1] = action
+                state_data.append(np.append(next_state, -1))
+                assert state_data[-2][-1] != -1
+                assert len(state_data) == 10
+                assert len(state_data[-1]) == 26
             self.remember(episode_data)
             replayloss = self.replay(self.batch_size)
             loss.append(replayloss[0])
             if e % 100 == 0:
                 print(e)
-                np.save("loss.npy", np.array(loss))
+                np.save("loss_dqnlstm.npy", np.array(loss))
                 self.model.save("checkpoint")
         return loss
