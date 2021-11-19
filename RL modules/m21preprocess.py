@@ -183,8 +183,8 @@ def key_transpose(piece):
 
 
 def preprocessing(piece):
-    c = key_transpose(piece)
     try:
+        c = key_transpose(piece)
         xnotes = []
         xoffset = []
         xbeat = []

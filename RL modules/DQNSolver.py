@@ -72,7 +72,7 @@ class DQNSolver:
         h3 = Dense(24, activation="ReLU")(h2)
         output = Dense(2, activation="linear")(h3)
         self.model = Model(inputs=state_input, outputs=output)
-        adam = Adam(learning_rate=self.alpha)
+        adam = Adam()
         self.model.compile(loss=huber_loss, optimizer=adam)
         # Target model (Basically the same thing)
         state_input2 = Input(shape=self.env.observation_space.shape)
@@ -80,7 +80,7 @@ class DQNSolver:
         h32 = Dense(24, activation="ReLU")(h22)
         output2 = Dense(2, activation="linear")(h32)
         self.target_model = Model(inputs=state_input2, outputs=output2)
-        adam2 = Adam(learning_rate=self.alpha)
+        adam2 = Adam()
         self.target_model.compile(loss=huber_loss, optimizer=adam2)
 
     def masterScheduler(self, epoch):
