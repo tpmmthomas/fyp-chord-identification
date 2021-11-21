@@ -5,9 +5,10 @@ import math
 from itertools import combinations
 from datetime import datetime
 from music21 import *
-from stable_baselines3 import DQN
+
+# from stable_baselines3 import DQN
 from collections import deque
-from tensorflow.keras.models import Sequential, Model
+from tensorflow.keras.models import Sequential, Model, load_model
 from tensorflow.keras.layers import Dense, Input, Flatten
 from tensorflow.keras.optimizers import Adam
 import random
@@ -25,20 +26,19 @@ def round_offset(offset):
 import glob
 
 training_pieces = []
-for piece in glob.glob("./training/*"):
+for piece in glob.glob("./normal/training/*"):
     training_pieces.append(piece)
 # testing_pieces = []
 # for piece in glob.glob('./testing/*'):
 #     testing_pieces.append(piece)
 
-
 env = SegmentationEnv(training_pieces)
-agent = DQNLSTMSolver(env, n_episodes=10000, batch_size=64)
+agent = DQNLSTMSolver(env, n_episodes=5500, batch_size=64)
 loss = agent.run()
 
-agent.model.save("sdf_5")
+agent.model.save("dqn_lstm_normalized_2")
 df = pd.DataFrame({"loss": loss})
-df.to_csv("loss2.csv")
+df.to_csv("loss_dqnlstm_norm3.csv")
 
 print("Training done!")
 # env = SegmentationEnv(testing_pieces)
@@ -61,4 +61,3 @@ print("Training done!")
 # 2. add observation with roughness
 # 3. averaging the different cases
 # 4,
-
