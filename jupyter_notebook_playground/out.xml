@@ -8,7 +8,7 @@
   <identification>
     <creator type="composer">Music21</creator>
     <encoding>
-      <encoding-date>2021-11-19</encoding-date>
+      <encoding-date>2021-11-20</encoding-date>
       <software>music21 v.6.7.1</software>
       <software>MuseScore 3.6.2</software>
       <supports attribute="new-system" element="print" type="yes" value="yes" />
@@ -58,10 +58,10 @@
     </part-group>
     <score-part id="P1">
       <part-name>Piano</part-name>
-      <score-instrument id="I9c4d37c4a44f3c9b7bc6ee92c091b25b">
+      <score-instrument id="I78f4efcde0ddb22f4724ed06d9db7c07">
         <instrument-name>Piano</instrument-name>
       </score-instrument>
-      <midi-instrument id="I9c4d37c4a44f3c9b7bc6ee92c091b25b">
+      <midi-instrument id="I78f4efcde0ddb22f4724ed06d9db7c07">
         <midi-channel>1</midi-channel>
         <midi-program>1</midi-program>
       </midi-instrument>
@@ -17794,6 +17794,14 @@
         <notations>
           <slur number="1" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:261</text>
+        </lyric>
       </note>
       <note>
         <pitch>
@@ -17817,14 +17825,6 @@
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
           <text>AbM(V7)</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:261</text>
         </lyric>
       </note>
       <note>
@@ -17877,6 +17877,14 @@
         <notations>
           <slur number="2" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:263</text>
+        </lyric>
       </note>
       <note>
         <pitch>
@@ -17894,14 +17902,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:263</text>
-        </lyric>
       </note>
       <note>
         <chord />
@@ -18058,6 +18058,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:265</text>
+        </lyric>
       </note>
       <note>
         <pitch>
@@ -18075,14 +18083,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:265</text>
-        </lyric>
       </note>
       <note>
         <chord />
@@ -18729,6 +18729,14 @@
         <notations>
           <slur number="2" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:273</text>
+        </lyric>
       </note>
       <note>
         <pitch>
@@ -18752,14 +18760,6 @@
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
           <text>V7</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:273</text>
         </lyric>
       </note>
       <note>
@@ -18812,6 +18812,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:275</text>
+        </lyric>
       </note>
       <note>
         <pitch>
@@ -18829,14 +18837,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:275</text>
-        </lyric>
       </note>
       <note>
         <chord />
@@ -18992,6 +18992,14 @@
         <notations>
           <slur number="4" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:277</text>
+        </lyric>
       </note>
       <note>
         <pitch>
@@ -19009,14 +19017,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:277</text>
-        </lyric>
       </note>
       <note>
         <chord />
@@ -19717,6 +19717,14 @@
         <notations>
           <slur number="1" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:285</text>
+        </lyric>
       </note>
       <note>
         <pitch>
@@ -19740,14 +19748,6 @@
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
           <text>V7</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:285</text>
         </lyric>
       </note>
       <note>
@@ -19800,6 +19800,14 @@
         <notations>
           <slur number="2" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:287</text>
+        </lyric>
       </note>
       <note>
         <pitch>
@@ -19817,14 +19825,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:287</text>
-        </lyric>
       </note>
       <note>
         <chord />
@@ -19978,6 +19978,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:289</text>
+        </lyric>
       </note>
       <note>
         <pitch>
@@ -19995,14 +20003,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:289</text>
-        </lyric>
       </note>
       <note>
         <chord />
@@ -20658,6 +20658,14 @@
         <notations>
           <slur number="2" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:297</text>
+        </lyric>
       </note>
       <note>
         <pitch>
@@ -20681,14 +20689,6 @@
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
           <text>V7</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:297</text>
         </lyric>
       </note>
       <note>
@@ -20741,6 +20741,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:299</text>
+        </lyric>
       </note>
       <note>
         <pitch>
@@ -20758,14 +20766,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:299</text>
-        </lyric>
       </note>
       <note>
         <chord />
@@ -20933,6 +20933,14 @@
         <notations>
           <slur number="4" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:301</text>
+        </lyric>
       </note>
       <note>
         <pitch>
@@ -20950,14 +20958,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:301</text>
-        </lyric>
       </note>
       <note>
         <chord />
@@ -24760,6 +24760,14 @@
         <beam number="1">begin</beam>
         <beam number="2">begin</beam>
         <beam number="3">begin</beam>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:GbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:360</text>
+        </lyric>
       </note>
       <note default-x="129.98" default-y="-20">
         <grace slash="yes" />
@@ -24791,14 +24799,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:GbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:360</text>
-        </lyric>
       </note>
       <note>
         <chord />
@@ -26420,6 +26420,14 @@
         <beam number="1">begin</beam>
         <beam number="2">begin</beam>
         <beam number="3">begin</beam>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:GbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:384</text>
+        </lyric>
       </note>
       <note default-x="133.48" default-y="15">
         <grace slash="yes" />
@@ -26452,14 +26460,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:GbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:384</text>
-        </lyric>
       </note>
       <note>
         <chord />
@@ -27946,6 +27946,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:408</text>
+        </lyric>
       </note>
       <note default-x="63.84" default-y="5">
         <pitch>
@@ -27970,14 +27978,6 @@
           <syllabic>single</syllabic>
           <text>Bbm(I)</text>
         </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:408</text>
-        </lyric>
       </note>
       <note default-x="80.23" default-y="5">
         <grace slash="yes" />
@@ -27993,6 +27993,14 @@
         <notations>
           <slur number="4" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:409</text>
+        </lyric>
       </note>
       <note default-x="110.96" default-y="-5">
         <pitch>
@@ -28012,14 +28020,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:409</text>
-        </lyric>
       </note>
       <note default-x="132.74" default-y="-5">
         <grace slash="yes" />
@@ -28034,6 +28034,14 @@
         <notations>
           <slur number="5" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:410</text>
+        </lyric>
       </note>
       <note default-x="151.93" default-y="0">
         <pitch>
@@ -28051,14 +28059,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:410</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -28162,6 +28162,14 @@
         <notations>
           <slur number="6" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:411</text>
+        </lyric>
       </note>
       <note default-x="138.67" default-y="5">
         <pitch>
@@ -28185,14 +28193,6 @@
           <syllabic>single</syllabic>
           <text>V+</text>
         </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:411</text>
-        </lyric>
       </note>
       <note default-x="415.22" default-y="5">
         <grace slash="yes" />
@@ -28208,6 +28208,14 @@
         <notations>
           <slur number="1" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:412</text>
+        </lyric>
       </note>
       <note default-x="445.95" default-y="-5">
         <pitch>
@@ -28227,14 +28235,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:412</text>
-        </lyric>
       </note>
       <note default-x="734.03" default-y="-5">
         <grace slash="yes" />
@@ -28249,6 +28249,14 @@
         <notations>
           <slur number="2" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:413</text>
+        </lyric>
       </note>
       <note default-x="753.22" default-y="0">
         <pitch>
@@ -28266,14 +28274,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:413</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -28396,6 +28396,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:414</text>
+        </lyric>
       </note>
       <note default-x="138.67" default-y="25" dynamics="71.11">
         <pitch>
@@ -28419,14 +28427,6 @@
           <syllabic>single</syllabic>
           <text>I</text>
         </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:414</text>
-        </lyric>
       </note>
       <note default-x="164.22" default-y="25" dynamics="70.00">
         <grace slash="yes" />
@@ -28442,6 +28442,14 @@
         <notations>
           <slur number="4" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:415</text>
+        </lyric>
       </note>
       <note default-x="183.4" default-y="20" dynamics="68.89">
         <pitch>
@@ -28459,14 +28467,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:415</text>
-        </lyric>
       </note>
       <note default-x="205.4" default-y="20" dynamics="68.89">
         <grace slash="yes" />
@@ -28481,6 +28481,14 @@
         <notations>
           <slur number="5" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:416</text>
+        </lyric>
       </note>
       <note default-x="239.63" default-y="15" dynamics="67.78">
         <pitch>
@@ -28500,14 +28508,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:416</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -28624,6 +28624,14 @@
         <notations>
           <slur number="6" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:417</text>
+        </lyric>
       </note>
       <note default-x="56.54" default-y="15" dynamics="66.67">
         <pitch>
@@ -28647,14 +28655,6 @@
           <syllabic>single</syllabic>
           <text>II7</text>
         </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:417</text>
-        </lyric>
       </note>
       <note default-x="78.54" default-y="15" dynamics="65.56">
         <grace slash="yes" />
@@ -28670,6 +28670,14 @@
         <notations>
           <slur number="1" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:418</text>
+        </lyric>
       </note>
       <note default-x="112.77" default-y="10" dynamics="65.56">
         <pitch>
@@ -28689,14 +28697,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:418</text>
-        </lyric>
       </note>
       <note default-x="147" default-y="15" dynamics="64.44">
         <grace slash="yes" />
@@ -28713,6 +28713,14 @@
         <notations>
           <slur number="2" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:419</text>
+        </lyric>
       </note>
       <note default-x="182.51" default-y="10" dynamics="63.33">
         <pitch>
@@ -28732,14 +28740,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:419</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -28852,6 +28852,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:420</text>
+        </lyric>
       </note>
       <note default-x="40.73" default-y="5" dynamics="62.22">
         <pitch>
@@ -28875,14 +28883,6 @@
           <syllabic>single</syllabic>
           <text>I</text>
         </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:420</text>
-        </lyric>
       </note>
       <note default-x="74.96" default-y="10" dynamics="62.22">
         <grace slash="yes" />
@@ -28899,6 +28899,14 @@
         <notations>
           <slur number="4" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:421</text>
+        </lyric>
       </note>
       <note default-x="106.97" default-y="5" dynamics="61.11">
         <pitch>
@@ -28918,14 +28926,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:421</text>
-        </lyric>
       </note>
       <note default-x="130.05" default-y="5" dynamics="60.00">
         <grace slash="yes" />
@@ -28941,6 +28941,14 @@
         <notations>
           <slur number="5" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:422</text>
+        </lyric>
       </note>
       <note default-x="149.24" default-y="0" dynamics="60.00">
         <pitch>
@@ -28958,14 +28966,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:422</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -29076,6 +29076,14 @@
         <notations>
           <slur number="6" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:423</text>
+        </lyric>
       </note>
       <note default-x="38.63" default-y="-5" dynamics="58.89">
         <pitch>
@@ -29099,14 +29107,6 @@
           <syllabic>single</syllabic>
           <text>V+7</text>
         </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:423</text>
-        </lyric>
       </note>
       <note default-x="64.66" default-y="0" dynamics="57.78">
         <grace slash="yes" />
@@ -29123,6 +29123,14 @@
         <notations>
           <slur number="1" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:424</text>
+        </lyric>
       </note>
       <note default-x="96.67" default-y="-5" dynamics="56.67">
         <pitch>
@@ -29142,14 +29150,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:424</text>
-        </lyric>
       </note>
       <direction placement="below">
         <direction-type>
@@ -29171,6 +29171,14 @@
         <notations>
           <slur number="2" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:425</text>
+        </lyric>
       </note>
       <note default-x="138.32" default-y="-15" dynamics="55.56">
         <pitch>
@@ -29188,14 +29196,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:425</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -29315,6 +29315,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:426</text>
+        </lyric>
       </note>
       <note default-x="33.59" default-y="-10">
         <pitch>
@@ -29337,14 +29345,6 @@
           <syllabic>single</syllabic>
           <text>I</text>
         </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:426</text>
-        </lyric>
       </note>
       <note default-x="49.99" default-y="-10">
         <grace slash="yes" />
@@ -29360,6 +29360,14 @@
         <notations>
           <slur number="4" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:427</text>
+        </lyric>
       </note>
       <note default-x="80.71" default-y="-25">
         <pitch>
@@ -29379,14 +29387,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:427</text>
-        </lyric>
       </note>
       <note default-x="102.36" default-y="-25">
         <grace slash="yes" />
@@ -29401,6 +29401,14 @@
         <notations>
           <slur number="5" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:428</text>
+        </lyric>
       </note>
       <note default-x="121.55" default-y="-20">
         <pitch>
@@ -29419,14 +29427,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:428</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -29522,6 +29522,14 @@
         <notations>
           <slur number="6" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:429</text>
+        </lyric>
       </note>
       <note default-x="138.67" default-y="-10">
         <pitch>
@@ -29540,14 +29548,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:429</text>
-        </lyric>
       </note>
       <note default-x="426.76" default-y="-10" dynamics="57.78">
         <grace slash="yes" />
@@ -29563,6 +29563,14 @@
         <notations>
           <slur number="1" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:430</text>
+        </lyric>
       </note>
       <note default-x="445.95" default-y="-5" dynamics="60.00">
         <pitch>
@@ -29581,14 +29589,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:430</text>
-        </lyric>
       </note>
       <note default-x="722.5" default-y="-5" dynamics="62.22">
         <grace slash="yes" />
@@ -29604,6 +29604,14 @@
         <notations>
           <slur number="2" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:431</text>
+        </lyric>
       </note>
       <note default-x="753.22" default-y="-5" dynamics="63.33">
         <pitch>
@@ -29623,14 +29631,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:431</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -29730,6 +29730,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:432</text>
+        </lyric>
       </note>
       <note default-x="158.02" default-y="5" dynamics="66.67">
         <pitch>
@@ -29750,14 +29758,6 @@
             <strong-accent type="up" />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:432</text>
-        </lyric>
       </note>
       <note default-x="185.51" default-y="5" dynamics="68.89">
         <grace slash="yes" />
@@ -29773,6 +29773,14 @@
         <notations>
           <slur number="4" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:433</text>
+        </lyric>
       </note>
       <note default-x="204.69" default-y="-5" dynamics="71.11">
         <pitch>
@@ -29790,14 +29798,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:433</text>
-        </lyric>
       </note>
       <note default-x="232.18" default-y="-5" dynamics="72.22">
         <grace slash="yes" />
@@ -29812,6 +29812,14 @@
         <notations>
           <slur number="5" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:434</text>
+        </lyric>
       </note>
       <note default-x="251.37" default-y="0" dynamics="74.44">
         <pitch>
@@ -29829,14 +29837,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:434</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -29925,6 +29925,14 @@
         <notations>
           <slur number="6" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:435</text>
+        </lyric>
       </note>
       <note default-x="27.09" default-y="5" dynamics="77.78">
         <pitch>
@@ -29948,14 +29956,6 @@
           <syllabic>single</syllabic>
           <text>V+7</text>
         </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:435</text>
-        </lyric>
       </note>
       <note default-x="47.46" default-y="5" dynamics="80.00">
         <grace slash="yes" />
@@ -29971,6 +29971,14 @@
         <notations>
           <slur number="1" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:436</text>
+        </lyric>
       </note>
       <note default-x="78.18" default-y="-5" dynamics="81.11">
         <pitch>
@@ -29990,14 +29998,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:436</text>
-        </lyric>
       </note>
       <direction placement="below">
         <direction-type>
@@ -30018,6 +30018,14 @@
         <notations>
           <slur number="2" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:437</text>
+        </lyric>
       </note>
       <note default-x="129.28" default-y="0" dynamics="85.56">
         <pitch>
@@ -30035,14 +30043,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:437</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -30153,6 +30153,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:438</text>
+        </lyric>
       </note>
       <note default-x="33.59" default-y="35" dynamics="88.89">
         <pitch>
@@ -30175,14 +30183,6 @@
           <syllabic>single</syllabic>
           <text>I</text>
         </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:438</text>
-        </lyric>
       </note>
       <note default-x="65.37" default-y="35" dynamics="82.22">
         <grace slash="yes" />
@@ -30197,6 +30197,14 @@
         <notations>
           <slur number="5" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:439</text>
+        </lyric>
       </note>
       <note default-x="84.56" default-y="25" dynamics="80.00">
         <pitch>
@@ -30215,14 +30223,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:439</text>
-        </lyric>
       </note>
       <note default-x="116.33" default-y="25" dynamics="76.67">
         <grace slash="yes" />
@@ -30238,6 +30238,14 @@
         <notations>
           <slur number="6" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:440</text>
+        </lyric>
       </note>
       <note default-x="135.52" default-y="15" dynamics="73.33">
         <pitch>
@@ -30256,14 +30264,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:440</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -30376,6 +30376,14 @@
         <notations>
           <slur number="1" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:441</text>
+        </lyric>
       </note>
       <note default-x="35.69" default-y="5" dynamics="66.67">
         <pitch>
@@ -30398,14 +30406,6 @@
           <syllabic>single</syllabic>
           <text>II7</text>
         </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:441</text>
-        </lyric>
       </note>
       <note default-x="63.17" default-y="5" dynamics="63.33">
         <grace slash="yes" />
@@ -30421,6 +30421,14 @@
         <notations>
           <slur number="2" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:442</text>
+        </lyric>
       </note>
       <note default-x="82.36" default-y="-5" dynamics="61.11">
         <pitch>
@@ -30439,14 +30447,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:442</text>
-        </lyric>
       </note>
       <direction placement="below">
         <direction-type>
@@ -30468,6 +30468,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:443</text>
+        </lyric>
       </note>
       <note default-x="129.03" default-y="-15">
         <pitch>
@@ -30486,14 +30494,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:443</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -30615,6 +30615,14 @@
         <notations>
           <slur number="4" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:444</text>
+        </lyric>
       </note>
       <note default-x="33.59" default-y="0">
         <pitch>
@@ -30636,14 +30644,6 @@
           <syllabic>single</syllabic>
           <text>I</text>
         </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:444</text>
-        </lyric>
       </note>
       <note default-x="62.56" default-y="0">
         <grace slash="yes" />
@@ -30658,6 +30658,14 @@
         <notations>
           <slur number="5" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:445</text>
+        </lyric>
       </note>
       <note default-x="93.29" default-y="-5">
         <pitch>
@@ -30678,14 +30686,6 @@
             <strong-accent type="up" />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:445</text>
-        </lyric>
       </note>
       <note default-x="120.98" default-y="0">
         <grace slash="yes" />
@@ -30702,6 +30702,14 @@
         <notations>
           <slur number="6" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:446</text>
+        </lyric>
       </note>
       <note default-x="152.99" default-y="-5">
         <pitch>
@@ -30722,14 +30730,6 @@
             <strong-accent type="up" />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:446</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -30850,6 +30850,14 @@
         <notations>
           <slur number="1" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:447</text>
+        </lyric>
       </note>
       <note default-x="150.2" default-y="-10">
         <pitch>
@@ -30874,14 +30882,6 @@
           <syllabic>single</syllabic>
           <text>V+7</text>
         </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:447</text>
-        </lyric>
       </note>
       <note default-x="421.63" default-y="-5">
         <grace slash="yes" />
@@ -30898,6 +30898,14 @@
         <notations>
           <slur number="2" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:448</text>
+        </lyric>
       </note>
       <note default-x="453.64" default-y="-10">
         <pitch>
@@ -30918,14 +30926,6 @@
             <strong-accent type="up" />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:448</text>
-        </lyric>
       </note>
       <note default-x="737.88" default-y="-10">
         <grace slash="yes" />
@@ -30941,6 +30941,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:449</text>
+        </lyric>
       </note>
       <note default-x="757.07" default-y="-15">
         <pitch>
@@ -30959,14 +30967,6 @@
             <strong-accent type="up" />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:449</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -31089,6 +31089,14 @@
         <notations>
           <slur number="4" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:450</text>
+        </lyric>
       </note>
       <note default-x="151.49" default-y="-15" dynamics="62.22">
         <pitch>
@@ -31113,14 +31121,6 @@
           <syllabic>single</syllabic>
           <text>I</text>
         </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:450</text>
-        </lyric>
       </note>
       <note default-x="171.45" default-y="-15" dynamics="66.67">
         <grace slash="yes" />
@@ -31136,6 +31136,14 @@
         <notations>
           <slur number="5" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:451</text>
+        </lyric>
       </note>
       <note default-x="203.45" default-y="-20" dynamics="70.00">
         <pitch>
@@ -31156,14 +31164,6 @@
             <strong-accent type="up" />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:451</text>
-        </lyric>
       </note>
       <note default-x="224.69" default-y="-20" dynamics="74.44">
         <grace slash="yes" />
@@ -31179,6 +31179,14 @@
         <notations>
           <slur number="6" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:452</text>
+        </lyric>
       </note>
       <note default-x="255.42" default-y="-25" dynamics="78.89">
         <pitch>
@@ -31199,14 +31207,6 @@
             <strong-accent type="up" />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:452</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -31283,6 +31283,14 @@
         <notations>
           <slur number="1" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:453</text>
+        </lyric>
       </note>
       <note default-x="54.24" default-y="-25" dynamics="86.67">
         <pitch>
@@ -31303,14 +31311,6 @@
             <strong-accent type="up" />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:453</text>
-        </lyric>
       </note>
       <note default-x="78.34" default-y="-25" dynamics="91.11">
         <grace slash="yes" />
@@ -31326,6 +31326,14 @@
         <notations>
           <slur number="2" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:454</text>
+        </lyric>
       </note>
       <note default-x="109.07" default-y="-30" dynamics="94.44">
         <pitch>
@@ -31346,14 +31354,6 @@
             <strong-accent type="up" />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:454</text>
-        </lyric>
       </note>
       <note default-x="139.8" default-y="-25" dynamics="98.89">
         <grace slash="yes" />
@@ -31370,6 +31370,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:Bbm</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:455</text>
+        </lyric>
       </note>
       <note default-x="171.81" default-y="-30" dynamics="102.22">
         <pitch>
@@ -31390,14 +31398,6 @@
             <strong-accent type="up" />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:Bbm</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:455</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -31617,6 +31617,14 @@
         <beam number="1">begin</beam>
         <beam number="2">begin</beam>
         <beam number="3">begin</beam>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:GbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:459</text>
+        </lyric>
       </note>
       <note default-x="24.9" default-y="-20">
         <grace slash="yes" />
@@ -31648,14 +31656,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:GbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:459</text>
-        </lyric>
       </note>
       <note>
         <chord />
@@ -33289,6 +33289,14 @@
         <beam number="1">begin</beam>
         <beam number="2">begin</beam>
         <beam number="3">begin</beam>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:GbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:483</text>
+        </lyric>
       </note>
       <note default-x="27" default-y="15">
         <grace slash="yes" />
@@ -33321,14 +33329,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:GbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:483</text>
-        </lyric>
       </note>
       <note>
         <chord />
@@ -36632,6 +36632,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:GbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:534</text>
+        </lyric>
       </note>
       <note default-x="35.57" default-y="0">
         <pitch>
@@ -36649,14 +36657,6 @@
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
           <text>II</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:GbM</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:534</text>
         </lyric>
       </note>
       <note default-x="116.51" default-y="-5">
@@ -51231,6 +51231,14 @@
         <notations>
           <slur number="5" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:747</text>
+        </lyric>
       </note>
       <note default-x="130.2" default-y="-20" dynamics="56.67">
         <pitch>
@@ -51254,14 +51262,6 @@
           <syllabic>single</syllabic>
           <text>AbM(V7)</text>
         </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="3" number="3">
-          <syllabic>single</syllabic>
-          <text>beat:747</text>
-        </lyric>
       </note>
       <note default-x="161.21" default-y="-15" dynamics="56.67">
         <grace slash="yes" />
@@ -51278,6 +51278,14 @@
         <notations>
           <slur number="6" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:748</text>
+        </lyric>
       </note>
       <note default-x="193.22" default-y="-20" dynamics="57.78">
         <pitch>
@@ -51297,14 +51305,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:748</text>
-        </lyric>
       </note>
       <note default-x="225.51" default-y="-20" dynamics="58.89">
         <grace slash="yes" />
@@ -51320,6 +51320,14 @@
         <notations>
           <slur number="1" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:749</text>
+        </lyric>
       </note>
       <note default-x="256.24" default-y="-25" dynamics="60.00">
         <pitch>
@@ -51339,14 +51347,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:749</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -51459,6 +51459,14 @@
         <notations>
           <slur number="2" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:750</text>
+        </lyric>
       </note>
       <note default-x="54.24" default-y="-25" dynamics="61.11">
         <pitch>
@@ -51478,14 +51486,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:750</text>
-        </lyric>
       </note>
       <note default-x="85.04" default-y="-25" dynamics="62.22">
         <grace slash="yes" />
@@ -51501,6 +51501,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:751</text>
+        </lyric>
       </note>
       <note default-x="104.23" default-y="-30" dynamics="63.33">
         <pitch>
@@ -51518,14 +51526,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:751</text>
-        </lyric>
       </note>
       <direction placement="below">
         <direction-type>
@@ -51546,6 +51546,14 @@
         <notations>
           <slur number="4" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:752</text>
+        </lyric>
       </note>
       <note default-x="154.22" default-y="-35" dynamics="65.56">
         <pitch>
@@ -51563,14 +51571,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:752</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -52098,6 +52098,14 @@
         <notations>
           <slur number="6" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:759</text>
+        </lyric>
       </note>
       <note default-x="33.59" default-y="0" dynamics="75.56">
         <pitch>
@@ -52115,14 +52123,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:759</text>
-        </lyric>
       </note>
       <note default-x="65.88" default-y="0" dynamics="76.67">
         <grace slash="yes" />
@@ -52137,6 +52137,14 @@
         <notations>
           <slur number="1" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:760</text>
+        </lyric>
       </note>
       <note default-x="96.61" default-y="-5" dynamics="77.78">
         <pitch>
@@ -52156,14 +52164,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:760</text>
-        </lyric>
       </note>
       <note default-x="127.61" default-y="0" dynamics="78.89">
         <grace slash="yes" />
@@ -52180,6 +52180,14 @@
         <notations>
           <slur number="2" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:761</text>
+        </lyric>
       </note>
       <note default-x="159.62" default-y="-5" dynamics="78.89">
         <pitch>
@@ -52199,14 +52207,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:761</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -52323,6 +52323,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:762</text>
+        </lyric>
       </note>
       <note default-x="118.67" default-y="-10" dynamics="81.11">
         <pitch>
@@ -52340,14 +52348,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:762</text>
-        </lyric>
       </note>
       <note default-x="400.6" default-y="-5" dynamics="82.22">
         <grace slash="yes" />
@@ -52364,6 +52364,14 @@
         <notations>
           <slur number="4" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:763</text>
+        </lyric>
       </note>
       <note default-x="432.61" default-y="-10" dynamics="82.22">
         <pitch>
@@ -52383,14 +52391,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:763</text>
-        </lyric>
       </note>
       <direction placement="below">
         <direction-type>
@@ -52412,6 +52412,14 @@
         <notations>
           <slur number="5" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:AbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:764</text>
+        </lyric>
       </note>
       <note default-x="746.56" default-y="-15" dynamics="84.44">
         <pitch>
@@ -52429,14 +52437,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:AbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:764</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -53044,6 +53044,14 @@
         <notations>
           <slur number="1" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:771</text>
+        </lyric>
       </note>
       <note default-x="46.72" default-y="15" dynamics="95.56">
         <pitch>
@@ -53062,14 +53070,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:771</text>
-        </lyric>
       </note>
       <note default-x="68.72" default-y="15" dynamics="96.67">
         <grace slash="yes" />
@@ -53085,6 +53085,14 @@
         <notations>
           <slur number="2" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:772</text>
+        </lyric>
       </note>
       <note default-x="102.95" default-y="10" dynamics="97.78">
         <pitch>
@@ -53104,14 +53112,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:772</text>
-        </lyric>
       </note>
       <note default-x="137.18" default-y="15" dynamics="98.89">
         <grace slash="yes" />
@@ -53128,6 +53128,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:773</text>
+        </lyric>
       </note>
       <note default-x="172.69" default-y="10" dynamics="100.00">
         <pitch>
@@ -53147,14 +53155,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:773</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -53301,6 +53301,14 @@
         <notations>
           <slur number="4" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:774</text>
+        </lyric>
       </note>
       <note default-x="29.93" default-y="5" dynamics="101.11">
         <pitch>
@@ -53318,14 +53326,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:774</text>
-        </lyric>
       </note>
       <note default-x="64.17" default-y="10" dynamics="102.22">
         <grace slash="yes" />
@@ -53342,6 +53342,14 @@
         <notations>
           <slur number="5" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:775</text>
+        </lyric>
       </note>
       <note default-x="96.18" default-y="5" dynamics="103.33">
         <pitch>
@@ -53361,14 +53369,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:775</text>
-        </lyric>
       </note>
       <note default-x="119.51" default-y="5" dynamics="104.44">
         <grace slash="yes" />
@@ -53384,6 +53384,14 @@
         <notations>
           <slur number="6" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:776</text>
+        </lyric>
       </note>
       <note default-x="138.7" default-y="0" dynamics="104.44">
         <pitch>
@@ -53401,14 +53409,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:776</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -53587,6 +53587,14 @@
         <notations>
           <slur number="1" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:777</text>
+        </lyric>
       </note>
       <note default-x="42.13" default-y="40">
         <pitch>
@@ -53606,14 +53614,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:777</text>
-        </lyric>
       </note>
       <note default-x="67.93" default-y="40">
         <grace slash="yes" />
@@ -53628,6 +53628,14 @@
         <notations>
           <slur number="2" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:778</text>
+        </lyric>
       </note>
       <note default-x="87.12" default-y="35">
         <pitch>
@@ -53645,14 +53653,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:778</text>
-        </lyric>
       </note>
       <note default-x="109.12" default-y="35">
         <grace slash="yes" />
@@ -53667,6 +53667,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:779</text>
+        </lyric>
       </note>
       <note default-x="143.35" default-y="30">
         <pitch>
@@ -53686,14 +53694,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:779</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -53865,6 +53865,14 @@
         <notations>
           <slur number="4" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:780</text>
+        </lyric>
       </note>
       <note default-x="56.54" default-y="30">
         <pitch>
@@ -53884,14 +53892,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:780</text>
-        </lyric>
       </note>
       <note default-x="83.36" default-y="30">
         <grace slash="yes" />
@@ -53907,6 +53907,14 @@
         <notations>
           <slur number="5" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:781</text>
+        </lyric>
       </note>
       <note default-x="102.55" default-y="25">
         <pitch>
@@ -53924,14 +53932,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:781</text>
-        </lyric>
       </note>
       <direction placement="below">
         <direction-type>
@@ -53954,6 +53954,14 @@
         <notations>
           <slur number="6" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:782</text>
+        </lyric>
       </note>
       <note default-x="172.29" default-y="25">
         <pitch>
@@ -53973,14 +53981,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:782</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -54161,6 +54161,14 @@
         <notations>
           <slur number="1" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:783</text>
+        </lyric>
       </note>
       <note default-x="122.17" default-y="20" dynamics="110.00">
         <pitch>
@@ -54178,14 +54186,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:783</text>
-        </lyric>
       </note>
       <note default-x="400.72" default-y="20" dynamics="112.22">
         <grace slash="yes" />
@@ -54200,6 +54200,14 @@
         <notations>
           <slur number="2" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:784</text>
+        </lyric>
       </note>
       <note default-x="434.95" default-y="15" dynamics="113.33">
         <pitch>
@@ -54219,14 +54227,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:784</text>
-        </lyric>
       </note>
       <note default-x="712.22" default-y="20" dynamics="114.44">
         <grace slash="yes" />
@@ -54243,6 +54243,14 @@
         <notations>
           <slur number="3" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:785</text>
+        </lyric>
       </note>
       <note default-x="747.72" default-y="15" dynamics="115.56">
         <pitch>
@@ -54262,14 +54270,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:785</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
@@ -54454,6 +54454,14 @@
         <notations>
           <slur number="4" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:786</text>
+        </lyric>
       </note>
       <note default-x="137.2" default-y="10" dynamics="117.78">
         <pitch>
@@ -54473,14 +54481,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:786</text>
-        </lyric>
       </note>
       <note default-x="171.44" default-y="15" dynamics="118.89">
         <grace slash="yes" />
@@ -54497,6 +54497,14 @@
         <notations>
           <slur number="5" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:787</text>
+        </lyric>
       </note>
       <note default-x="206.95" default-y="10" dynamics="121.11">
         <pitch>
@@ -54516,14 +54524,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:787</text>
-        </lyric>
       </note>
       <direction placement="below">
         <direction-type>
@@ -54545,6 +54545,14 @@
         <notations>
           <slur number="6" placement="below" type="start" />
         </notations>
+        <lyric name="1" number="1">
+          <syllabic>single</syllabic>
+          <text>pre:EbM</text>
+        </lyric>
+        <lyric name="2" number="2">
+          <syllabic>single</syllabic>
+          <text>beat:788</text>
+        </lyric>
       </note>
       <note default-x="266.15" default-y="0" dynamics="123.33">
         <pitch>
@@ -54562,14 +54570,6 @@
             <staccato />
           </articulations>
         </notations>
-        <lyric name="1" number="1">
-          <syllabic>single</syllabic>
-          <text>pre:EbM</text>
-        </lyric>
-        <lyric name="2" number="2">
-          <syllabic>single</syllabic>
-          <text>beat:788</text>
-        </lyric>
       </note>
       <backup>
         <duration>30240</duration>
