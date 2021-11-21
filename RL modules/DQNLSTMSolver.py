@@ -1,3 +1,4 @@
+from _typeshed import NoneType
 from collections import deque
 import tensorflow as tf
 
@@ -46,6 +47,7 @@ class DQNLSTMSolver:
         alpha_decay=0.005,
         batch_size=64,
         timesteps=10,
+        current_model=None,
     ):
         self.env = env
         self.memory = deque(maxlen=500)
@@ -61,6 +63,7 @@ class DQNLSTMSolver:
         self.n_episodes = n_episodes
         self.batch_size = batch_size
         self.timesteps = timesteps
+        self.best_loss = 8
         self.epoch = 0
         if max_env_steps is not None:
             self.env._max_episode_steps = max_env_steps
@@ -70,13 +73,16 @@ class DQNLSTMSolver:
         input_shape = tuple(input_shape)
         assert input_shape == (self.timesteps, 26)
         # Init model (LSTM treat as many to 1)
-        state_input = Input(shape=input_shape)
-        h2 = LSTM(128)(state_input)
-        h3 = Dense(64, activation="ReLU")(h2)
-        output = Dense(2, activation="linear")(h3)
-        self.model = Model(inputs=state_input, outputs=output)
-        adam = Adam()
-        self.model.compile(loss=huber_loss, optimizer=adam)
+        if current_model is None:
+            state_input = Input(shape=input_shape)
+            h2 = LSTM(128)(state_input)
+            h3 = Dense(64, activation="ReLU")(h2)
+            output = Dense(2, activation="linear")(h3)
+            self.model = Model(inputs=state_input, outputs=output)
+            adam = Adam()
+            self.model.compile(loss=huber_loss, optimizer=adam)
+        else:
+            self.model = current_model
         # Target model (Basically the same thing)
         state_input2 = Input(shape=input_shape)
         h22 = LSTM(128)(state_input2)
@@ -119,8 +125,27 @@ class DQNLSTMSolver:
     def replay(self, batch_size):
         x_batch, y_batch = [], []
         while len(x_batch) < batch_size:
-            minibatch = random.sample(self.memory, 1)[0]
-            ending_index = random.randint(1, len(minibatch))
+            act1 = None
+            if len(x_batch) < batch_size / 2:
+                i = 0
+                while act1 is None or act1 == 1:
+                    minibatch = random.sample(self.memory, 1)[0]
+                    ending_index = random.randint(1, len(minibatch))
+                    actb = minibatch[ending_index - 1]
+                    _, act1, _, _, _ = actb
+                    i += 1
+                    if i >= 1000:
+                        break
+            else:
+                i = 0
+                while act1 is None or act1 == 0:
+                    minibatch = random.sample(self.memory, 1)[0]
+                    ending_index = random.randint(1, len(minibatch))
+                    actb = minibatch[ending_index - 1]
+                    _, act1, _, _, _ = actb
+                    i += 1
+                    if i >= 1000:
+                        break
             if ending_index <= self.timesteps:
                 data = minibatch[:ending_index]
             else:
@@ -200,8 +225,11 @@ class DQNLSTMSolver:
             self.remember(episode_data)
             replayloss = self.replay(self.batch_size)
             loss.append(replayloss[0])
-            if e % 100 == 0:
+            if replayloss[0] < self.best_loss:
+                self.model.save(f"dqnlstmnorm_best_{replayloss[0]}")
+                self.best_loss = replayloss[0]
+            if e % 100 == 0 or e == self.n_episodes - 1:
                 print(e)
                 np.save("loss_dqnlstm.npy", np.array(loss))
-                self.model.save("checkpoint")
+
         return loss

@@ -8,7 +8,7 @@ from music21 import *
 
 # from stable_baselines3 import DQN
 from collections import deque
-from tensorflow.keras.models import Sequential, Model
+from tensorflow.keras.models import Sequential, Model, load_model
 from tensorflow.keras.layers import Dense, Input, Flatten
 from tensorflow.keras.optimizers import Adam
 import random
@@ -32,14 +32,13 @@ for piece in glob.glob("./normal/training/*"):
 # for piece in glob.glob('./testing/*'):
 #     testing_pieces.append(piece)
 
-
 env = SegmentationEnv(training_pieces)
-agent = DQNLSTMSolver(env, n_episodes=5000, batch_size=64)
+agent = DQNLSTMSolver(env, n_episodes=5500, batch_size=64)
 loss = agent.run()
 
-agent.model.save("dqn_lstm_normalized")
+agent.model.save("dqn_lstm_normalized_2")
 df = pd.DataFrame({"loss": loss})
-df.to_csv("loss_dqnlstm_norm2.csv")
+df.to_csv("loss_dqnlstm_norm3.csv")
 
 print("Training done!")
 # env = SegmentationEnv(testing_pieces)
