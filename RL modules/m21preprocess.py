@@ -183,39 +183,40 @@ def key_transpose(piece):
 
 
 def preprocessing(piece):
-    try:
-        c = key_transpose(piece)
-        xnotes = []
-        xoffset = []
-        xbeat = []
-        xduration = []
-        xoctave = []
-        xissegment = []
-        firstlyric = True
-        print(piece)
-        post = c.flattenParts().flat
-        for note in post.notes:
-            duration = note.duration.quarterLength
-            offset = note.offset
-            beat = float(note.beat)
-            if note.lyric is not None:
-                if firstlyric:
-                    xsegment = False
-                    firstlyric = False
-                else:
-                    xsegment = True
-            else:
+    # try:
+    # c = key_transpose(piece)
+    xnotes = []
+    xoffset = []
+    xbeat = []
+    xduration = []
+    xoctave = []
+    xissegment = []
+    firstlyric = True
+    print(piece)
+    c = converter.parse(piece)  # comment it when key transpose
+    post = c.flattenParts().flat
+    for note in post.notes:
+        duration = note.duration.quarterLength
+        offset = note.offset
+        beat = float(note.beat)
+        if note.lyric is not None:
+            if firstlyric:
                 xsegment = False
-            allnotes = list(note.pitches)
-            for note1 in allnotes:
-                xnotes.append(note1.name)
-                xoffset.append(offset)
-                xbeat.append(beat)
-                xduration.append(duration)
-                xoctave.append(note1.octave)
-                xissegment.append(xsegment)
-    except Exception as e:
-        print("Error in piece", piece, str(e))
-        return None
+                firstlyric = False
+            else:
+                xsegment = True
+        else:
+            xsegment = False
+        allnotes = list(note.pitches)
+        for note1 in allnotes:
+            xnotes.append(note1.name)
+            xoffset.append(offset)
+            xbeat.append(beat)
+            xduration.append(duration)
+            xoctave.append(note1.octave)
+            xissegment.append(xsegment)
+    # except Exception as e:
+    #     print("Error in piece", piece, str(e))
+    #     return None
     return xnotes, xoffset, xbeat, xduration, xoctave, xissegment
 
