@@ -361,6 +361,7 @@ class HMM:
         note_list=np.zeros(12)
 
         for idx_1,label in enumerate(labels):#loop each score
+            note_list_temp=np.zeros(12)
             for idx_2,lab in enumerate(label):
 
                 chord,key_name=self.get_detail(label[idx_2])
@@ -380,7 +381,8 @@ class HMM:
                #     for x in ob_t:
               #          emssion_matrix[x]+=1
                     for x in ob_t_no:
-                        note_list[x]+=1
+                        note_list_temp[x]+=1
+                note_list+=note_list_temp/sum(note_list_temp)
                         
         #save back to model
         self.initial_matrix=np.array([item/initial_matrix.sum() if item >0 else self.zero for item in initial_matrix])
