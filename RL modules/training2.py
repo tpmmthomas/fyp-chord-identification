@@ -37,9 +37,9 @@ env = SegmentationEnv(training_pieces)
 agent = DQNSolver(env, n_episodes=5000, batch_size=64)
 loss = agent.run()
 
-agent.model.save("dqn_normalized_2")
+agent.model.save("dqn_normalized_3")
 df = pd.DataFrame({"loss": loss})
-df.to_csv("loss_dqn_norm2.csv")
+df.to_csv("loss_dqn_norm3.csv")
 
 print("Training done!")
 # env = SegmentationEnv(testing_pieces)

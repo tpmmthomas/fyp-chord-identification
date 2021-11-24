@@ -56,10 +56,10 @@
     <score-part id="P1">
       <part-name>Piano</part-name>
       <part-abbreviation>Pno.</part-abbreviation>
-      <score-instrument id="Iff139e278b86190e0b45e20f3070d84f">
+      <score-instrument id="I77984969a8f379886f155a05b4b914c2">
         <instrument-name>Piano</instrument-name>
       </score-instrument>
-      <midi-instrument id="Iff139e278b86190e0b45e20f3070d84f">
+      <midi-instrument id="I77984969a8f379886f155a05b4b914c2">
         <midi-channel>1</midi-channel>
         <midi-program>1</midi-program>
       </midi-instrument>
@@ -132,7 +132,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorI</text>
+          <text>CMajorI</text>
         </lyric>
       </note>
       <note default-x="191.74" default-y="-5">
@@ -291,7 +291,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorV</text>
+          <text>CMajorV</text>
         </lyric>
       </note>
       <note default-x="103.94" default-y="-15">
@@ -335,7 +335,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorI</text>
+          <text>CMajorI</text>
         </lyric>
       </note>
       <backup>
@@ -480,7 +480,7 @@
         <staff>1</staff>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorIII</text>
+          <text>CMajorIII</text>
         </lyric>
       </note>
       <backup>
@@ -617,7 +617,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorI</text>
+          <text>CMajorI</text>
         </lyric>
       </note>
       <note default-x="103.8" default-y="-5">
@@ -794,7 +794,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullcMinorIV+</text>
+          <text>cMinorIV+</text>
         </lyric>
       </note>
       <note default-x="84.51" default-y="-20">
@@ -1058,7 +1058,7 @@
         <beam number="1">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fulldMinorVII</text>
+          <text>FMajorIII</text>
         </lyric>
       </note>
       <note default-x="46.06" default-y="-25">
@@ -1153,7 +1153,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorVI</text>
+          <text>FMajorV</text>
         </lyric>
       </note>
       <note default-x="195.07" default-y="0">
@@ -1326,7 +1326,7 @@
         <beam number="1">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorII</text>
+          <text>CMajorII</text>
         </lyric>
       </note>
       <note default-x="46.06" default-y="-30">
@@ -1369,7 +1369,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullGMajorII</text>
+          <text>GMajorII</text>
         </lyric>
       </note>
       <note default-x="109.92" default-y="-15">
@@ -1603,7 +1603,7 @@
         <beam number="1">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullAMajorFreVI</text>
+          <text>AMajorFreVI</text>
         </lyric>
       </note>
       <note default-x="82.48" default-y="-35">
@@ -1698,7 +1698,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullAMajorbVI</text>
+          <text>AMajorbVI</text>
         </lyric>
       </note>
       <note default-x="219.08" default-y="-10">
@@ -1880,7 +1880,7 @@
         <beam number="1">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fulldMinorV</text>
+          <text>dMinorV</text>
         </lyric>
       </note>
       <note default-x="47.78" default-y="-40">
@@ -2434,7 +2434,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullGMajorVI</text>
+          <text>GMajorVI</text>
         </lyric>
       </note>
       <note default-x="182.61" default-y="-15">
@@ -2836,7 +2836,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullGMajorV</text>
+          <text>GMajorV</text>
         </lyric>
       </note>
       <note>
@@ -5375,7 +5375,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullGMajorI</text>
+          <text>GMajorI</text>
         </lyric>
       </note>
       <note>
@@ -5566,7 +5566,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullGMajorII</text>
+          <text>GMajorII</text>
         </lyric>
       </note>
       <note>
@@ -5897,7 +5897,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullgMinorI+</text>
+          <text>GMajorI</text>
         </lyric>
       </note>
       <note>
@@ -6154,7 +6154,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullaMinorIII</text>
+          <text>aMinorIII</text>
         </lyric>
       </note>
       <note default-x="132.09" default-y="-20">
@@ -6913,7 +6913,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullGMajorI</text>
+          <text>GMajorI</text>
         </lyric>
       </note>
       <note default-x="397.51" default-y="20">
@@ -7297,7 +7297,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullGMajorVII</text>
+          <text>GMajorVII</text>
         </lyric>
       </note>
       <note default-x="346.21" default-y="10">
@@ -7599,7 +7599,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullGMajorI</text>
+          <text>GMajorI</text>
         </lyric>
       </note>
       <note default-x="325.9" default-y="-120">
@@ -7804,7 +7804,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullGMajorV</text>
+          <text>GMajorV</text>
         </lyric>
       </note>
       <note default-x="269.71" default-y="10">
@@ -7947,7 +7947,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullGMajorI</text>
+          <text>GMajorI</text>
         </lyric>
       </note>
       <note default-x="58.2" default-y="-30">
@@ -8071,7 +8071,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullGMajorV</text>
+          <text>GMajorV</text>
         </lyric>
       </note>
       <note default-x="257.61" default-y="-25">
@@ -8232,7 +8232,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullGMajorI</text>
+          <text>GMajorI</text>
         </lyric>
       </note>
       <note>
@@ -8816,7 +8816,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullgMinorDimVII</text>
+          <text>gMinorDimVII</text>
         </lyric>
       </note>
       <note default-x="312.76" default-y="-25">
@@ -9153,7 +9153,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fulldMinorGerVI</text>
+          <text>dMinorGerVI</text>
         </lyric>
       </note>
       <note default-x="198.29" default-y="-125">
@@ -9477,7 +9477,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fulldMinorI</text>
+          <text>dMinorI</text>
         </lyric>
       </note>
       <note>
@@ -9636,7 +9636,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fulldMinorV+</text>
+          <text>dMinorV+</text>
         </lyric>
       </note>
       <note default-x="291.96" default-y="-5">
@@ -9785,7 +9785,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fulldMinorI</text>
+          <text>dMinorI</text>
         </lyric>
       </note>
       <note default-x="57.06" default-y="-45">
@@ -10468,7 +10468,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullaMinorFreVI</text>
+          <text>aMinorFreVI</text>
         </lyric>
       </note>
       <note>
@@ -10730,7 +10730,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullaMinorFreVI</text>
+          <text>aMinorFreVI</text>
         </lyric>
       </note>
       <note>
@@ -10809,7 +10809,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullaMinorFreVI</text>
+          <text>aMinorFreVI</text>
         </lyric>
       </note>
       <note default-x="428.81" default-y="-145">
@@ -10979,7 +10979,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fulldMinorV</text>
+          <text>dMinorV</text>
         </lyric>
       </note>
       <note>
@@ -11183,7 +11183,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullaMinorVII</text>
+          <text>aMinorVII</text>
         </lyric>
       </note>
       <note default-x="178.31" default-y="5">
@@ -11515,7 +11515,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullaMinorIII</text>
+          <text>aMinorIII</text>
         </lyric>
       </note>
       <note>
@@ -11778,7 +11778,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullfMinorDimVII</text>
+          <text>fMinorDimVII</text>
         </lyric>
       </note>
       <note default-x="220.34" default-y="-35">
@@ -11835,7 +11835,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullFMajorVI</text>
+          <text>FMajorVI</text>
         </lyric>
       </note>
       <note default-x="310.1" default-y="-15">
@@ -11901,7 +11901,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullFMajorII</text>
+          <text>FMajorII</text>
         </lyric>
       </note>
       <note>
@@ -11990,7 +11990,7 @@
         <staff>1</staff>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullFMajorIII</text>
+          <text>FMajorIII</text>
         </lyric>
       </note>
       <backup>
@@ -12169,7 +12169,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullFMajorIV</text>
+          <text>FMajorIV</text>
         </lyric>
       </note>
       <backup>
@@ -12437,7 +12437,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullFMajorI</text>
+          <text>FMajorI</text>
         </lyric>
       </note>
       <note default-x="97.75" default-y="15">
@@ -12634,7 +12634,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullFMajorII</text>
+          <text>FMajorII</text>
         </lyric>
       </note>
       <note default-x="116.47" default-y="-5">
@@ -12784,7 +12784,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullBbMajorIII</text>
+          <text>BbMajorIII</text>
         </lyric>
       </note>
       <note default-x="489.45" default-y="0">
@@ -13222,7 +13222,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullfMinorDimVII</text>
+          <text>fMinorDimVII</text>
         </lyric>
       </note>
       <note default-x="212.92" default-y="0">
@@ -13453,7 +13453,7 @@
         <beam number="1">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fulldMinorFreVI</text>
+          <text>dMinorFreVI</text>
         </lyric>
       </note>
       <note default-x="63.82" default-y="-20">
@@ -13733,7 +13733,7 @@
         <staff>1</staff>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullFMajorIII</text>
+          <text>FMajorIII</text>
         </lyric>
       </note>
       <note>
@@ -14126,7 +14126,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullGMajorII</text>
+          <text>GMajorII</text>
         </lyric>
       </note>
       <note default-x="291.84" default-y="-90">
@@ -14244,7 +14244,7 @@
         <staff>1</staff>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorII</text>
+          <text>CMajorII</text>
         </lyric>
       </note>
       <note>
@@ -14287,7 +14287,7 @@
         <staff>1</staff>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorVII</text>
+          <text>CMajorVII</text>
         </lyric>
       </note>
       <note>
@@ -14517,7 +14517,7 @@
         <staff>1</staff>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullAMajorbVI</text>
+          <text>aMinorVII</text>
         </lyric>
       </note>
       <note>
@@ -14558,7 +14558,7 @@
         <staff>1</staff>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullaMinorIII</text>
+          <text>aMinorIII</text>
         </lyric>
       </note>
       <note>
@@ -14799,7 +14799,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fulldMinorV</text>
+          <text>aMinorVI</text>
         </lyric>
       </note>
       <note default-x="36.58" default-y="-45">
@@ -15369,7 +15369,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullGMajorIV</text>
+          <text>GMajorIV</text>
         </lyric>
       </note>
       <note default-x="156.46" default-y="-15">
@@ -15768,7 +15768,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullGMajorI</text>
+          <text>GMajorI</text>
         </lyric>
       </note>
       <note>
@@ -16273,7 +16273,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorI</text>
+          <text>CMajorI</text>
         </lyric>
       </note>
       <note default-x="217.3" default-y="-10">
@@ -16646,7 +16646,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorV</text>
+          <text>CMajorV</text>
         </lyric>
       </note>
       <note default-x="73.59" default-y="-20">
@@ -16849,7 +16849,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorI</text>
+          <text>CMajorI</text>
         </lyric>
       </note>
       <note default-x="196.77" default-y="-135">
@@ -17260,7 +17260,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorI</text>
+          <text>CMajorI</text>
         </lyric>
       </note>
       <note default-x="228.21" default-y="-135">
@@ -17412,7 +17412,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorV</text>
+          <text>CMajorV</text>
         </lyric>
       </note>
       <note default-x="72.82" default-y="-20">
@@ -17615,7 +17615,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorI</text>
+          <text>CMajorI</text>
         </lyric>
       </note>
       <note default-x="194.46" default-y="-135">
@@ -18072,7 +18072,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fulldMinorIII</text>
+          <text>dMinorVII</text>
         </lyric>
       </note>
     </measure>
@@ -18430,7 +18430,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fulldMinorV</text>
+          <text>GMajorII</text>
         </lyric>
       </note>
       <note>
@@ -18513,7 +18513,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fulldMinorI</text>
+          <text>dMinorVII</text>
         </lyric>
       </note>
       <note>
@@ -19068,7 +19068,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullaMinorGerVI</text>
+          <text>aMinorGerVI</text>
         </lyric>
       </note>
     </measure>
@@ -19435,7 +19435,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullcMinorI+</text>
+          <text>eMinorFreVI</text>
         </lyric>
       </note>
       <note default-x="237.01" default-y="10">
@@ -19532,7 +19532,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullgMinorII</text>
+          <text>aMinorI</text>
         </lyric>
       </note>
       <note>
@@ -19835,7 +19835,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullcMinorI+</text>
+          <text>cMinorI+</text>
         </lyric>
       </note>
       <note default-x="156.52" default-y="25">
@@ -19943,7 +19943,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullGMajorI</text>
+          <text>GMajorI</text>
         </lyric>
       </note>
       <note default-x="382.81" default-y="-5">
@@ -20686,7 +20686,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorI</text>
+          <text>CMajorI</text>
         </lyric>
       </note>
       <note default-x="60.46" default-y="-15">
@@ -20810,7 +20810,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorV</text>
+          <text>CMajorV</text>
         </lyric>
       </note>
       <note default-x="258.72" default-y="-10">
@@ -20951,7 +20951,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorI</text>
+          <text>CMajorI</text>
         </lyric>
       </note>
       <note default-x="62.96" default-y="-50">
@@ -21075,7 +21075,7 @@
         <beam number="2">begin</beam>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorV</text>
+          <text>CMajorV</text>
         </lyric>
       </note>
       <note default-x="272.45" default-y="-45">
@@ -21228,7 +21228,7 @@
         </notations>
         <lyric name="1" number="1">
           <syllabic>single</syllabic>
-          <text>fullCMajorI</text>
+          <text>CMajorI</text>
         </lyric>
       </note>
       <note>

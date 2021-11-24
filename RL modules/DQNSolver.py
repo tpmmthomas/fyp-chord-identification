@@ -41,7 +41,7 @@ class DQNSolver:
         epsilon_log_decay=0.999,
         base_lr=0.001,
         max_lr=0.1,
-        step_size=8,
+        step_size=300,
         tau=0.125,
         alpha_decay=0.005,
         batch_size=64,
@@ -63,6 +63,7 @@ class DQNSolver:
         self.alpha_decay = alpha_decay
         self.n_episodes = n_episodes
         self.batch_size = batch_size
+        self.best_loss = 8
         if max_env_steps is not None:
             self.env._max_episode_steps = max_env_steps
 
@@ -211,8 +212,10 @@ class DQNSolver:
                 state = next_state
             replayloss = self.replay(self.batch_size)
             loss.append(replayloss[0])
-            if e % 100 == 0:
+            if replayloss[0] < self.best_loss:
+                self.model.save(f"dqnnorm_best_{replayloss[0]}")
+                self.best_loss = replayloss[0]
+            if e % 100 == 0 or e == self.n_episodes - 1:
                 print(e)
                 np.save("loss_dqn.npy", np.array(loss))
-                self.model.save("checkpoint2")
         return loss

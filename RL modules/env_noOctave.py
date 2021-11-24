@@ -32,7 +32,6 @@ class SegmentationEnv(Env):
             self.octave.append(xoctave)
             self.is_segment.append(xissegment)
 
-
         # Actions: Remain segment (0), segment (1)
         self.action_space = Discrete(2)
 
@@ -219,13 +218,12 @@ class SegmentationEnv(Env):
 
     def staterender(self, done):
         pitch_to_index = {"C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "A": 9, "B": 11}
+        octave_weight = [1.25, 1.25, 1.1, 1, 0.9, 0.8, 0.7]
         obsarray = np.zeros((2, 12))
-        notelist = []
         if done:
             return np.append(obsarray.flatten(), [0])
         for idx in range(self.notelistfirst, self.notelistlast):
             current_note = self.notes[self.current_piece][idx]
-            notelist.append(current_note)
             current_duration = self.duration[self.current_piece][idx]
             current_octave = self.octave[self.current_piece][idx]
             pitchindex = pitch_to_index[current_note[0]]
@@ -242,11 +240,10 @@ class SegmentationEnv(Env):
             if current_octave < 1 or current_octave > 7:
                 continue
             current_octave -= 1
-            obsarray[0][pitchindex] += current_duration
+            obsarray[0][pitchindex] += current_duration * octave_weight[current_octave]
             obsarray[0][pitchindex] = min(30, obsarray[0][pitchindex])
         for idx in range(self.nextbeatfirst, self.nextbeatlast):
             current_note = self.notes[self.current_piece][idx]
-            notelist.append(current_note)
             current_duration = self.duration[self.current_piece][idx]
             current_octave = self.octave[self.current_piece][idx]
             pitchindex = pitch_to_index[current_note[0]]
@@ -263,9 +260,8 @@ class SegmentationEnv(Env):
             if current_octave < 1 or current_octave > 7:
                 continue
             current_octave -= 1
-            obsarray[1][pitchindex] += current_duration
+            obsarray[1][pitchindex] += current_duration * octave_weight[current_octave]
             obsarray[1][pitchindex] = min(30, obsarray[1][pitchindex])
-        #         print(notelist)
         obsarray = obsarray / 30
         return np.append(
             obsarray.flatten(), [min(max(self.change_in_roughness() / 20, 1), 0)]

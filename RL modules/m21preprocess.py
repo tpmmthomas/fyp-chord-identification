@@ -1,4 +1,5 @@
 from music21 import *
+from random import randint
 
 
 def key_transpose(piece):
@@ -182,41 +183,57 @@ def key_transpose(piece):
     return c
 
 
-def preprocessing(piece):
-    # try:
-    # c = key_transpose(piece)
-    xnotes = []
-    xoffset = []
-    xbeat = []
-    xduration = []
-    xoctave = []
-    xissegment = []
-    firstlyric = True
-    print(piece)
-    c = converter.parse(piece)  # comment it when key transpose
-    post = c.flattenParts().flat
-    for note in post.notes:
-        duration = note.duration.quarterLength
-        offset = note.offset
-        beat = float(note.beat)
-        if note.lyric is not None:
-            if firstlyric:
-                xsegment = False
-                firstlyric = False
-            else:
-                xsegment = True
+def preprocessing(piece, to_trans=True):
+    try:
+        if to_trans:
+            c = key_transpose(piece)
         else:
-            xsegment = False
-        allnotes = list(note.pitches)
-        for note1 in allnotes:
-            xnotes.append(note1.name)
-            xoffset.append(offset)
-            xbeat.append(beat)
-            xduration.append(duration)
-            xoctave.append(note1.octave)
-            xissegment.append(xsegment)
-    # except Exception as e:
-    #     print("Error in piece", piece, str(e))
-    #     return None
+            c = converter.parse(piece)
+        xnotes = []
+        xoffset = []
+        xbeat = []
+        xduration = []
+        xoctave = []
+        xissegment = []
+        firstlyric = True
+        print(piece)
+        post = c.flattenParts().flat
+        for note in post.notes:
+            if not note.duration.linked:
+                continue
+            duration = note.duration.quarterLength
+            offset = note.offset
+            beat = float(note.beat)
+            if note.lyric is not None:
+                if firstlyric:
+                    xsegment = False
+                    firstlyric = False
+                else:
+                    xsegment = True
+            else:
+                xsegment = False
+            allnotes = list(note.pitches)
+            for note1 in allnotes:
+                xnotes.append(note1.name)
+                xoffset.append(offset)
+                xbeat.append(beat)
+                xduration.append(duration)
+                xoctave.append(note1.octave)
+                xissegment.append(xsegment)
+    except Exception as e:
+        print("Error in piece", piece, str(e))
+        return None
     return xnotes, xoffset, xbeat, xduration, xoctave, xissegment
+
+
+def random_transpose(notes, octave):
+    newnote = []
+    newoctave = []
+    val = randint(-5, 6)
+    for n, o in zip(notes, octave):
+        x = note.Note(str(n) + str(o))
+        x.transpose(val, inPlace=True)
+        newnote.append(x.name)
+        newoctave.append(x.octave)
+    return newnote, newoctave
 
