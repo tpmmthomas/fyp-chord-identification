@@ -33,12 +33,12 @@ for piece in glob.glob("./normal/training/*"):
 #     testing_pieces.append(piece)
 
 env = SegmentationEnv(training_pieces)
-agent = DQNLSTMSolver(env, n_episodes=5500, batch_size=64)
+agent = DQNLSTMSolver(env, n_episodes=3000, batch_size=64, timesteps=3)
 loss = agent.run()
 
-agent.model.save("dqn_lstm_normalized_2")
+agent.model.save("dqn_lstm_4")
 df = pd.DataFrame({"loss": loss})
-df.to_csv("loss_dqnlstm_norm3.csv")
+df.to_csv("loss_dqnlstm_4.csv")
 
 print("Training done!")
 # env = SegmentationEnv(testing_pieces)

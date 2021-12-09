@@ -14,7 +14,7 @@ from tensorflow.keras.optimizers import Adam
 import random
 import tqdm
 from env_noOctave import SegmentationEnv
-from DQNSolver import DQNSolver
+from DQNSimpleSolver import DQNSolver  #!!!!!!!!!!NOTE
 from DQNLSTMSolver import DQNLSTMSolver
 import pandas as pd
 
@@ -34,12 +34,12 @@ for piece in glob.glob("./normal/training/*"):
 
 
 env = SegmentationEnv(training_pieces)
-agent = DQNSolver(env, n_episodes=5000, batch_size=64)
+agent = DQNSolver(env, n_episodes=1000, batch_size=64)
 loss = agent.run()
 
-agent.model.save("dqn_normalized_3")
+agent.model.save("dqn_simple")
 df = pd.DataFrame({"loss": loss})
-df.to_csv("loss_dqn_norm3.csv")
+df.to_csv("loss_dqn_simple.csv")
 
 print("Training done!")
 # env = SegmentationEnv(testing_pieces)

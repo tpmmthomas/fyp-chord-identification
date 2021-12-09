@@ -194,7 +194,6 @@ class SegmentationEnv(Env):
                 ans = ans % 12
                 return interval_ratio_mapping[ans]
 
-            ans = 0
             for combo in combinations(notes, 2):
                 try:
                     n1 = note.Note(combo[0])

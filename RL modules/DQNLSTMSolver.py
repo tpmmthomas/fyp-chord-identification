@@ -206,7 +206,7 @@ class DQNLSTMSolver:
             for i in range(self.timesteps - 1):
                 state_data.append(np.append(np.zeros((12 * 2 + 1,)), -1))
             state_data.append(np.append(state, -1))
-            assert len(state_data) == 10
+            assert len(state_data) == self.timesteps
             assert len(state_data[-1]) == 26
             while not done:
                 action = self.choose_action(state_data, self.get_epsilon(e))
@@ -219,16 +219,16 @@ class DQNLSTMSolver:
                 state_data[-1][-1] = action
                 state_data.append(np.append(next_state, -1))
                 assert state_data[-2][-1] != -1
-                assert len(state_data) == 10
+                assert len(state_data) == self.timesteps
                 assert len(state_data[-1]) == 26
             self.remember(episode_data)
             replayloss = self.replay(self.batch_size)
             loss.append(replayloss[0])
             if replayloss[0] < self.best_loss:
-                self.model.save(f"dqnlstmnorm_best_{replayloss[0]}")
+                self.model.save(f"dqnlstmnew_best_{replayloss[0]}")
                 self.best_loss = replayloss[0]
             if e % 100 == 0 or e == self.n_episodes - 1:
                 print(e)
-                np.save("loss_dqnlstm.npy", np.array(loss))
+                np.save("loss_dqnlstmbew.npy", np.array(loss))
 
         return loss
